@@ -116,7 +116,7 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 ## Tecnologias Utilizadas
 
- tecnologias utilizadas na implementação da solução:
+Tecnologias utilizadas na implementação da solução:
 
 > - .NET (C#): ASP.NET Core para desenvolvimento do backend, Visual Studio como IDE.
 > - Flutter: Desenvolvimento do frontend móvel usando Dart, Visual Studio Code ou Android Studio como IDE.
