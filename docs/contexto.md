@@ -11,10 +11,7 @@ A ausência de uma estratégia digital integrada, que facilite o contato entre o
 
 Nesse contexto, a necessidade de atualização e implementação de novas estratégias digitais se torna urgente. A ausência de uma ferramenta tecnológica que centralize o gerenciamento de pacientes e facilite o contato com o público-alvo não só impede o crescimento da clínica, como também reduz a capacidade de fidelização dos pacientes atuais, que esperam por serviços mais modernos e integrados.
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+
 
 ## Objetivos
 
@@ -32,8 +29,7 @@ Os objetivos específicos deste projeto incluem:
 
 *Aumentar a taxa de conversão de potenciais clientes em pacientes, criando uma jornada do paciente mais eficaz desde o primeiro contato até a realização do tratamento.
 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+
 
 ## Justificativa
 
@@ -43,8 +39,7 @@ A falta de novos clientes, resultante do uso de estratégias tradicionais, compr
 
 Além disso, a adoção de ferramentas tecnológicas alinhadas às expectativas do público possibilita um atendimento mais organizado e eficiente, permitindo que o fisioterapeuta se concentre no tratamento dos pacientes, enquanto o sistema gerencia os aspectos administrativos. A atualização dos métodos de captação de clientes é, portanto, essencial para manter a competitividade no mercado e atender às novas demandas dos pacientes, que buscam praticidade e acessibilidade no cuidado com sua saúde.
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+
 
 ## Público-Alvo
 
@@ -54,11 +49,7 @@ Além disso, este público é caracterizado por pessoas que, diante da rotina di
 
 Com uma abordagem inclusiva, o sistema visa atender tanto pacientes jovens quanto idosos, pessoas em busca de reabilitação física e também aquelas que enfrentam desafios emocionais que impactam sua saúde física, criando uma experiência personalizada e acessível para todos.
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+
 
 # Especificações do Projeto
 
@@ -74,10 +65,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado  | MÉDIA |
 |RF-003| O sistema deve permitir que o usuário cancele um agendamento previamente cadastrado  | ALTA |
 |RF-004| O sistema deve permitir que o usuário altere a data e/ou hora de um agendamento previamente cadastrado   | ALTA |
-|RF-005| Emitir um relatório de tarefas no mês   | MÉDIA |
-|RF-006| Emitir um relatório de tarefas no mês   | MÉDIA |
-|RF-007| Emitir um relatório de tarefas no mês   | MÉDIA |
-|RF-008| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-005| O sistema deve permitir a integração com o Instagram para exibir informações relevantes | MÉDIA |
+|RF-006| O sistema deve oferecer uma funcionalidade para direcionar o usuário ao WhatsApp para facilitar a comunicação.  | MÉDIA |
+|RF-007| O sistema deve ter uma seção dedicada no site para informações sobre o serviço | ALTA|
+|RF-008| O sistema deve incluir uma página de contato com informações sobre como entrar em contato com o serviço. | ALTA|
+|RF-009| O sistema deve ter uma seção dedicada no site para informações sobre o serviço | MÉDIA|
+|RF-010| O sistema deve permitir registrar dados dos usuários | MÉDIA |
+|RF-011| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores |BAIXO|
+
 
 ### Requisitos não Funcionais
 
