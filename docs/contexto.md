@@ -118,13 +118,13 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
  tecnologias utilizadas na implementação da solução:
 
-.NET (C#): ASP.NET Core para desenvolvimento do backend, Visual Studio como IDE.
-Flutter: Desenvolvimento do frontend móvel usando Dart, Visual Studio Code ou Android Studio como IDE.
-SQL Server: Banco de dados relacional, Entity Framework Core como ORM.
-OAuth 2.0: Autenticação e autorização dos usuários.
-REST API: Comunicação entre o frontend e o backend, Formato de dados JSON.
-Clean Code: Princípios de codificação limpa para manter o código legível e manutenível.
-Arquitetura em Camadas: Separação de responsabilidades em camadas (Apresentação, Negócio, Dados).
+> - .NET (C#): ASP.NET Core para desenvolvimento do backend, Visual Studio como IDE.
+> - Flutter: Desenvolvimento do frontend móvel usando Dart, Visual Studio Code ou Android Studio como IDE.
+> - SQL Server: Banco de dados relacional, Entity Framework Core como ORM.
+> - OAuth 2.0: Autenticação e autorização dos usuários.
+> - REST API: Comunicação entre o frontend e o backend, Formato de dados JSON.
+> - Clean Code: Princípios de codificação limpa para manter o código legível e manutenível.
+> - Arquitetura em Camadas: Separação de responsabilidades em camadas (Apresentação, Negócio, Dados).
 
 Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
 
