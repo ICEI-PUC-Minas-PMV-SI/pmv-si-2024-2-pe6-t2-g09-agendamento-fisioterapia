@@ -70,8 +70,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O sistema deve permitir que o usuário cadastre novos agendamentos de atendimento. | ALTA | 
+|RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado  | MÉDIA |
+|RF-003| O sistema deve permitir que o usuário cancele um agendamento previamente cadastrado  | ALTA |
+|RF-004| O sistema deve permitir que o usuário altere a data e/ou hora de um agendamento previamente cadastrado   | ALTA |
+|RF-005| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-006| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-007| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-008| Emitir um relatório de tarefas no mês   | MÉDIA |
 
 ### Requisitos não Funcionais
 
