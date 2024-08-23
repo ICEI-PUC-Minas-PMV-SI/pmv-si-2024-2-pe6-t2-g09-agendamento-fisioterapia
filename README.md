@@ -1,4 +1,4 @@
-# Sistemas integrados e Distribuidos-Fisioterapeuta Davi Aburjeli
+# Agendamento de Consultas - Fisioterapeuta Davi Aburjeli
 
 `CURSO: Sistemas de Informação`
 
@@ -6,7 +6,11 @@
 
 `SEMESTRE: 6º`
 
-Sistemas integrados e Distribuidos - Clinica de Fisioterapia - Fisioterapeuta Davi Aburjeli
+A proposta do projeto "Agendamento de Fisioterapia" é desenvolver uma aplicação digital que otimize a comunicação entre o fisioterapeuta Davi Aburjeli e seus pacientes, ao mesmo tempo em que amplia a visibilidade dos seus serviços especializados. Com esse aplicativo, os pacientes poderão realizar um cadastro único, agendar suas consultas de forma prática e até mesmo acessar informações detalhadas sobre as especialidades oferecidas.
+
+O sistema visa proporcionar uma experiência simplificada e personalizada, onde os pacientes podem facilmente escolher o melhor horário para suas sessões e utilizar o aplicativo para confirmar agendamentos e receber lembretes automáticos. Além disso, o uso de ferramentas digitais permitirá uma gestão mais eficiente do tempo e dos recursos da clínica, dando ao fisioterapeuta Davi Aburjeli a oportunidade de focar ainda mais na qualidade do atendimento.
+
+ 
 
 ## Integrantes
 
