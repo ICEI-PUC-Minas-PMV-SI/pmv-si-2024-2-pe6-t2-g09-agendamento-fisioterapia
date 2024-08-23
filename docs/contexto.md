@@ -1,13 +1,15 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+A crescente demanda por serviços de fisioterapia, especialmente entre indivíduos que sofrem com dores crônicas, e ainda, aqueles que possuem demandas emocionais que pioram o seus quadro de dor. Deste modo,destaca-se a necessidade de atualização constante dos métodos de captação de clientes e de comunicação com o público-alvo. Davi Aburjeli, fisioterapeuta especializado, busca ampliar sua base de clientes e divulgar suas especialidades por meio da criação de um sistema integrado de cadastramento e agendamento. O objetivo principal desta aplicação é otimizar o processo de captação de novos pacientes, oferecendo uma interface digital que facilite tanto a administração dos cadastros quanto a marcação de consultas.
+
+O problema identificado por Davi Aburjeli é a escassez de novos clientes, o que torna evidente a necessidade de revisar e modernizar suas estratégias de captação. A justificativa para o desenvolvimento do sistema reside na adaptação às novas demandas do mercado, no qual a digitalização dos serviços se mostra essencial para a atração e fidelização de pacientes. Este projeto tem como público-alvo pessoas de diferentes faixas etárias e gêneros, que enfrentam dores crônicas e emocionais, e busca proporcionar a esses indivíduos um acesso facilitado aos cuidados fisioterapêuticos por meio de ferramentas tecnológicas eficientes.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
+A fisioterapia, especialmente voltada ao tratamento de individuo que sofre com dor crônica e ainda, possui demandas emocionais que pioram seu quadro de dor, enfrenta um desafio crescente em termos de captação de novos pacientes. No caso do fisioterapeuta Davi Aburjeli, a principal dificuldade está na atração de novos clientes, o que impacta diretamente no crescimento e na sustentabilidade de sua prática profissional. Com a evolução do mercado de saúde, muitos pacientes esperam soluções práticas e digitais para o acesso aos serviços de saúde, incluindo o agendamento e o cadastramento online, o que não é totalmente suprido pelos métodos tradicionais de captação utilizados até o momento.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+A ausência de uma estratégia digital integrada, que facilite o contato entre o paciente e o profissional, tem limitado a capacidade de Davi de alcançar um público maior, em especial aqueles que necessitam de cuidados para dores crônicas. Além disso, a falta de um sistema organizado que otimize o processo de agendamento pode resultar na perda de oportunidades para o crescimento do consultório. Portanto, a necessidade de modernizar e integrar as ferramentas de captação de clientes e gestão de agendamentos torna-se urgente para garantir a competitividade e a eficiência do atendimento.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+Nesse contexto, a necessidade de atualização e implementação de novas estratégias digitais se torna urgente. A ausência de uma ferramenta tecnológica que centralize o gerenciamento de pacientes e facilite o contato com o público-alvo não só impede o crescimento da clínica, como também reduz a capacidade de fidelização dos pacientes atuais, que esperam por serviços mais modernos e integrados.
 
 > **Links Úteis**:
 > - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
@@ -16,28 +18,36 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O desenvolvimento de um sistema integrado para o fisioterapeuta Davi Aburjeli tem como objetivo principal captar novos clientes e divulgar suas especialidades de maneira mais eficaz e acessível. Para isso, pretende-se criar uma aplicação digital que facilite o processo de cadastramento e agendamento de pacientes, otimizando a comunicação entre o fisioterapeuta e seu público-alvo.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
+Os objetivos específicos deste projeto incluem:
+
+*Aumentar a visibilidade e o alcance dos serviços de fisioterapia oferecidos por Davi Aburjeli, utilizando uma plataforma digital para divulgação de suas especialidades.
+*Facilitar o cadastramento e agendamento de consultas por meio de um sistema automatizado, que permita aos pacientes acessar e agendar seus atendimentos de maneira simples e prática.
+*Melhorar a experiência do paciente, oferecendo uma interface digital intuitiva que proporcione comodidade e agilidade na gestão de consultas.
+*Otimizar o gerenciamento administrativo, permitindo que Davi Aburjeli foque mais no atendimento de seus pacientes e menos nos aspectos operacionais de sua clínica.
+*Aumentar a taxa de conversão de potenciais clientes em pacientes, criando uma jornada do paciente mais eficaz desde o primeiro contato até a realização do tratamento.
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+A digitalização de processos em serviços de saúde é uma tendência cada vez mais evidente, especialmente na fisioterapia, onde a conveniência e a agilidade são fatores decisivos para a escolha de um profissional. A criação de um sistema integrado de cadastramento e agendamento para o fisioterapeuta Davi Aburjeli é justificada pela necessidade de modernização e otimização de seus métodos de captação de clientes, permitindo que seu trabalho seja divulgado de forma mais eficiente e acessível ao público-alvo.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+A falta de novos clientes, resultante do uso de estratégias tradicionais, compromete a expansão de sua base de pacientes e a viabilidade financeira do consultório. Com o avanço tecnológico, os pacientes esperam cada vez mais encontrar soluções digitais que facilitem o acesso aos serviços de saúde, desde a busca por informações até a marcação de consultas. Nesse contexto, a implementação de um sistema integrado visa não apenas aumentar a visibilidade de Davi Aburjeli no mercado, mas também melhorar a experiência dos pacientes ao proporcionar um processo de agendamento mais ágil e simplificado.
+
+Além disso, a adoção de ferramentas tecnológicas alinhadas às expectativas do público possibilita um atendimento mais organizado e eficiente, permitindo que o fisioterapeuta se concentre no tratamento dos pacientes, enquanto o sistema gerencia os aspectos administrativos. A atualização dos métodos de captação de clientes é, portanto, essencial para manter a competitividade no mercado e atender às novas demandas dos pacientes, que buscam praticidade e acessibilidade no cuidado com sua saúde.
 
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+O público-alvo do sistema integrado desenvolvido para o fisioterapeuta Davi Aburjeli é composto por pessoas que sofrem com dores crônicas e emocionais, independentemente de gênero ou faixa etária. Este grupo inclui indivíduos que buscam alívio para suas condições de saúde e que valorizam a conveniência de serviços de saúde acessíveis e eficientes.
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+Além disso, este público é caracterizado por pessoas que, diante da rotina diária e das limitações impostas por suas dores, priorizam soluções práticas e tecnológicas, como a possibilidade de agendar consultas de forma rápida e segura. São pacientes que têm expectativas de encontrar, em um profissional de fisioterapia, não apenas competência técnica, mas também uma experiência de atendimento otimizada por meio de ferramentas digitais.
+
+Com uma abordagem inclusiva, o sistema visa atender tanto pacientes jovens quanto idosos, pessoas em busca de reabilitação física e também aquelas que enfrentam desafios emocionais que impactam sua saúde física, criando uma experiência personalizada e acessível para todos.
 
 > **Links Úteis**:
 > - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
