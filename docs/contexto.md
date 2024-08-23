@@ -23,10 +23,15 @@ O desenvolvimento de um sistema integrado para o fisioterapeuta Davi Aburjeli te
 Os objetivos específicos deste projeto incluem:
 
 *Aumentar a visibilidade e o alcance dos serviços de fisioterapia oferecidos por Davi Aburjeli, utilizando uma plataforma digital para divulgação de suas especialidades.
+
 *Facilitar o cadastramento e agendamento de consultas por meio de um sistema automatizado, que permita aos pacientes acessar e agendar seus atendimentos de maneira simples e prática.
+
 *Melhorar a experiência do paciente, oferecendo uma interface digital intuitiva que proporcione comodidade e agilidade na gestão de consultas.
+
 *Otimizar o gerenciamento administrativo, permitindo que Davi Aburjeli foque mais no atendimento de seus pacientes e menos nos aspectos operacionais de sua clínica.
+
 *Aumentar a taxa de conversão de potenciais clientes em pacientes, criando uma jornada do paciente mais eficaz desde o primeiro contato até a realização do tratamento.
+
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
