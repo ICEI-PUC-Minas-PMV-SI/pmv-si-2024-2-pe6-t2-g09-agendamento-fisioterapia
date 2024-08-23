@@ -6,9 +6,9 @@
 
 `SEMESTRE: 6º`
 
-A proposta do projeto "Agendamento de Fisioterapia" é desenvolver uma aplicação digital que otimize a comunicação entre o fisioterapeuta Davi Aburjeli e seus pacientes, ao mesmo tempo em que amplia a visibilidade dos seus serviços especializados. Com esse sistema, os pacientes poderão realizar um cadastro único, agendar suas consultas de forma prática e até mesmo acessar informações detalhadas sobre as especialidades oferecidas.
+A proposta do projeto "Agendamento de Fisioterapia" é desenvolver uma aplicação digital que otimize a comunicação entre o fisioterapeuta e seus pacientes, ao mesmo tempo em que amplia a visibilidade dos seus serviços especializados. Com esse sistema, os pacientes poderão realizar um cadastro único, agendar suas consultas de forma prática e até mesmo acessar informações detalhadas sobre as especialidades oferecidas.
 
-O sistema visa proporcionar uma experiência simplificada e personalizada, onde os pacientes podem facilmente escolher o melhor horário para suas sessões e utilizar o aplicativo para confirmar agendamentos e receber lembretes automáticos. Além disso, o uso de ferramentas digitais permitirá uma gestão mais eficiente do tempo e dos recursos da clínica, dando ao fisioterapeuta Davi Aburjeli a oportunidade de focar ainda mais na qualidade do atendimento.
+O sistema visa proporcionar uma experiência simplificada e personalizada, onde os pacientes podem facilmente escolher o melhor horário para suas sessões e utilizar o aplicativo para confirmar agendamentos e receber lembretes automáticos. Além disso, o uso de ferramentas digitais permitirá uma gestão mais eficiente do tempo e dos recursos da clínica, dando ao profissional a oportunidade de focar ainda mais na qualidade do atendimento.
 
  
 
