@@ -19,7 +19,7 @@ Sistemas integrados e Distribuidos - Clinica de Fisioterapia - Fisioterapeuta Da
 
 ## Orientador
 
-* Nome completo do professor 1
+* Kleber Jacques Ferreira de Souza
 
 # Planejamento
 
