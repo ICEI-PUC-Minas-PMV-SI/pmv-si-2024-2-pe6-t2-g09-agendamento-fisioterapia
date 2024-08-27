@@ -105,9 +105,113 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 # Catálogo de Serviços
 
-Descreva aqui todos os serviços que serão disponibilizados pelo seu projeto, detalhando suas características e funcionalidades.
-Gestão de serviços, preços, horário e etc
-Serviço de agendamento 
+1. Serviço de Autenticação (AuthService)
+Descrição:
+Gerencia a autenticação dos usuários (pacientes e fisioterapeutas).
+
+Funcionalidades:
+
+Login: Permite que os usuários façam login utilizando e-mail e senha.
+Registro: Oferece a opção de registrar novos usuários com informações básicas, como nome, e-mail, e senha.
+Recuperação de Senha: Envia um e-mail de recuperação de senha para os usuários.
+Token de Autenticação: Gera e valida tokens JWT para autenticação em outros serviços.
+
+
+2. Serviço de Gerenciamento de Usuários (UserService)
+Descrição:
+Gerencia informações dos usuários cadastrados no sistema.
+
+Funcionalidades:
+
+Atualização de Perfil: Permite que os usuários atualizem suas informações pessoais, como nome, telefone, endereço, etc.
+Visualização de Perfil: Oferece a possibilidade de visualizar os dados do perfil.
+Preferências do Usuário: Salva e gerencia preferências individuais, como lembretes de agendamento e notificações.
+
+
+3. Serviço de Agendamento (AppointmentService)
+Descrição:
+Centraliza a gestão de agendamentos de consultas.
+
+Funcionalidades:
+
+Cadastro de Agendamento: Permite que pacientes agendem consultas, escolhendo data, horário e profissional.
+Alteração de Agendamento: Possibilita a alteração de data e horário de agendamentos existentes.
+Cancelamento de Agendamento: Fornece a funcionalidade de cancelamento de agendamentos com confirmação.
+Notificações: Envia lembretes automáticos de consultas agendadas.
+Consulta de Disponibilidade: Verifica a disponibilidade de horários para novos agendamentos.
+
+
+4. Serviço de Fisioterapeutas (PhysiotherapistService)
+Descrição:
+Gerencia as informações dos fisioterapeutas e suas especialidades.
+
+Funcionalidades:
+
+Cadastro de Fisioterapeutas: Permite o registro de novos fisioterapeutas com suas especialidades e horários disponíveis.
+Visualização de Fisioterapeutas: Oferece a possibilidade de visualizar perfis de fisioterapeutas disponíveis, incluindo suas especialidades e avaliações.
+Definição de Horários: Fisioterapeutas podem definir e atualizar seus horários de atendimento.
+
+
+5. Serviço de Notificações (NotificationService)
+Descrição:
+Centraliza o envio de notificações e lembretes para os usuários.
+
+Funcionalidades:
+
+Envio de Notificações: Envia notificações via push, e-mail ou SMS para lembrar os pacientes de consultas próximas.
+Configuração de Notificações: Permite que os usuários personalizem o tipo e a frequência das notificações que desejam receber.
+
+
+6. Serviço de Relatórios (ReportService)
+Descrição:
+Gera relatórios relacionados a agendamentos, cancelamentos e desempenho dos fisioterapeutas.
+
+Funcionalidades:
+
+Relatórios de Agendamentos: Fornece relatórios detalhados de consultas agendadas e realizadas.
+Relatórios de Cancelamentos: Gera estatísticas sobre cancelamentos de consultas.
+Relatórios de Desempenho: Oferece relatórios sobre a performance dos fisioterapeutas, baseados em feedbacks e número de consultas.
+
+
+7. Serviço de Integração com Redes Sociais (SocialMediaIntegrationService)
+Descrição:
+Gerencia a integração do sistema com redes sociais como Instagram.
+
+Funcionalidades:
+
+Exibição de Atualizações: Exibe postagens do Instagram diretamente na interface do aplicativo ou página web.
+Promoções e Ofertas: Integrações para destacar promoções e serviços especiais através das redes sociais.
+
+
+8. Serviço de Comunicação (CommunicationService)
+Descrição:
+Facilita a comunicação direta entre pacientes e a clínica.
+
+Funcionalidades:
+
+Integração com WhatsApp: Direciona o paciente para uma conversa no WhatsApp com a clínica para dúvidas rápidas.
+Sistema de Mensagens Internas: Permite o envio de mensagens diretas entre pacientes e fisioterapeutas através do aplicativo.
+
+
+9. Serviço de Conteúdo e Informações (ContentService)
+Descrição:
+Gerencia o conteúdo estático e dinâmico exibido na página web e aplicativo.
+
+Funcionalidades:
+
+Gerenciamento de Páginas: Criação e edição de páginas de conteúdo como FAQ, políticas de privacidade, termos de uso, etc.
+Blog e Atualizações: Publicação de artigos e atualizações sobre saúde, fisioterapia e serviços oferecidos.
+
+
+10. Serviço de Segurança e Conformidade (SecurityComplianceService)
+Descrição:
+Garante que o sistema atenda a todos os requisitos de segurança e conformidade, como a LGPD.
+
+Funcionalidades:
+
+Criptografia de Dados: Implementa criptografia de dados sensíveis em trânsito e em repouso.
+Auditoria de Acesso: Mantém um registro detalhado de todas as atividades de usuários no sistema.
+Gerenciamento de Permissões: Define e gerencia níveis de acesso e permissões para diferentes tipos de usuários.
 
 # Arquitetura da Solução
 
