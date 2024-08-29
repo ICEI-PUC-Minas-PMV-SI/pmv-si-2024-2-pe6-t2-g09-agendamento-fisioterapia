@@ -105,7 +105,7 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 # Catálogo de Serviços
 
-1. Serviço de Autenticação (AuthService)
+### 1. Serviço de Autenticação (AuthService)
 Descrição:
 Gerencia a autenticação dos usuários (pacientes e fisioterapeutas).
 
@@ -117,7 +117,7 @@ Recuperação de Senha: Envia um e-mail de recuperação de senha para os usuár
 Token de Autenticação: Gera e valida tokens JWT para autenticação em outros serviços.
 
 
-2. Serviço de Gerenciamento de Usuários (UserService)
+### 2. Serviço de Gerenciamento de Usuários (UserService)
 Descrição:
 Gerencia informações dos usuários cadastrados no sistema.
 
@@ -128,7 +128,7 @@ Visualização de Perfil: Oferece a possibilidade de visualizar os dados do perf
 Preferências do Usuário: Salva e gerencia preferências individuais, como lembretes de agendamento e notificações.
 
 
-3. Serviço de Agendamento (AppointmentService)
+### 3. Serviço de Agendamento (AppointmentService)
 Descrição:
 Centraliza a gestão de agendamentos de consultas.
 
@@ -141,7 +141,7 @@ Notificações: Envia lembretes automáticos de consultas agendadas.
 Consulta de Disponibilidade: Verifica a disponibilidade de horários para novos agendamentos.
 
 
-4. Serviço de Fisioterapeutas (PhysiotherapistService)
+### 4. Serviço de Fisioterapeutas (PhysiotherapistService)
 Descrição:
 Gerencia as informações dos fisioterapeutas e suas especialidades.
 
@@ -152,7 +152,7 @@ Visualização de Fisioterapeutas: Oferece a possibilidade de visualizar perfis 
 Definição de Horários: Fisioterapeutas podem definir e atualizar seus horários de atendimento.
 
 
-5. Serviço de Notificações (NotificationService)
+### 5. Serviço de Notificações (NotificationService)
 Descrição:
 Centraliza o envio de notificações e lembretes para os usuários.
 
@@ -162,7 +162,7 @@ Envio de Notificações: Envia notificações via push, e-mail ou SMS para lembr
 Configuração de Notificações: Permite que os usuários personalizem o tipo e a frequência das notificações que desejam receber.
 
 
-6. Serviço de Relatórios (ReportService)
+### 6. Serviço de Relatórios (ReportService)
 Descrição:
 Gera relatórios relacionados a agendamentos, cancelamentos e desempenho dos fisioterapeutas.
 
@@ -173,7 +173,7 @@ Relatórios de Cancelamentos: Gera estatísticas sobre cancelamentos de consulta
 Relatórios de Desempenho: Oferece relatórios sobre a performance dos fisioterapeutas, baseados em feedbacks e número de consultas.
 
 
-7. Serviço de Integração com Redes Sociais (SocialMediaIntegrationService)
+### 7. Serviço de Integração com Redes Sociais (SocialMediaIntegrationService)
 Descrição:
 Gerencia a integração do sistema com redes sociais como Instagram.
 
@@ -183,7 +183,7 @@ Exibição de Atualizações: Exibe postagens do Instagram diretamente na interf
 Promoções e Ofertas: Integrações para destacar promoções e serviços especiais através das redes sociais.
 
 
-8. Serviço de Comunicação (CommunicationService)
+### 8. Serviço de Comunicação (CommunicationService)
 Descrição:
 Facilita a comunicação direta entre pacientes e a clínica.
 
@@ -193,7 +193,7 @@ Integração com WhatsApp: Direciona o paciente para uma conversa no WhatsApp co
 Sistema de Mensagens Internas: Permite o envio de mensagens diretas entre pacientes e fisioterapeutas através do aplicativo.
 
 
-9. Serviço de Conteúdo e Informações (ContentService)
+### 9. Serviço de Conteúdo e Informações (ContentService)
 Descrição:
 Gerencia o conteúdo estático e dinâmico exibido na página web e aplicativo.
 
@@ -203,7 +203,7 @@ Gerenciamento de Páginas: Criação e edição de páginas de conteúdo como FA
 Blog e Atualizações: Publicação de artigos e atualizações sobre saúde, fisioterapia e serviços oferecidos.
 
 
-10. Serviço de Segurança e Conformidade (SecurityComplianceService)
+### 10. Serviço de Segurança e Conformidade (SecurityComplianceService)
 Descrição:
 Garante que o sistema atenda a todos os requisitos de segurança e conformidade, como a LGPD.
 
