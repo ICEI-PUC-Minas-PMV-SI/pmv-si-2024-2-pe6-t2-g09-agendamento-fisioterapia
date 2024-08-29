@@ -95,6 +95,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 |01| O sistema deve estar em conformidade com as regulamentações de proteção de dados |
 |02| O sistema deve estar pronto até o final do semestre  |
+|03| Deve ser desenvolvido uma aplicação web |
+|04| Deve ser desenvolvida uma aplicação mobile | 
+|05| O projeto deve integra apis próprias e de terceiros |
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
