@@ -219,7 +219,7 @@ Gerenciamento de Permissões: Define e gerencia níveis de acesso e permissões 
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
-![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/Arquiteutura%20Agendamento%20Fisioterapia.drawio.png)
+![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/DiagramaArquiteuturaAgendamentoFisioterapia.jpg)
 
 
 ## Tecnologias Utilizadas
