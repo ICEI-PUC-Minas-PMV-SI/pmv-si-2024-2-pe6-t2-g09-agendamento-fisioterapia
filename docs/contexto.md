@@ -217,7 +217,8 @@ Gerenciamento de Permissões: Define e gerencia níveis de acesso e permissões 
 
 # Arquitetura da Solução
 
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
+Esta arquitetura de solução foi projetada para suportar um sistema integrado que inclui um website, um aplicativo móvel, uma API monolítica e um banco de dados.
+O sistema tem como objetivo gerenciar agendamentos, enviar e-mails para confirmação e autenticar usuários.
 
 ![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/DiagramaArquiteuturaAgendamentoFisioterapia.jpg)
 
@@ -233,16 +234,11 @@ Tecnologias utilizadas na implementação da solução:
 > - REST API: Comunicação entre o frontend e o backend, Formato de dados JSON.
 > - Clean Code: Princípios de codificação limpa para manter o código legível e manutenível.
 > - Arquitetura em Camadas: Separação de responsabilidades em camadas (Apresentação, Negócio, Dados).
+> - EntityFramework: ORM utilizado para interagir com o banco de dados SQL Server de forma eficiente e simplificada.
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/RelacionamentoTecnologias.jpg)
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
-
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+O Heroku foi escolhido como a plataforma de hospedagem para o sistema,
+ele oferece uma solução de hospedagem em nuvem que facilita o deploy, gerenciamento e escalabilidade das aplicações.
