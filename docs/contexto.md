@@ -90,7 +90,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O sistema deve estar em conformidade com as regulamentações de proteção de dados |
+|01| O sistema deve estar em conformidade com as regulamentações de proteção de dados (LGPD)|
 |02| O sistema deve estar pronto até o final do semestre  |
 |03| Deve ser desenvolvido uma aplicação web |
 |04| Deve ser desenvolvida uma aplicação mobile | 
