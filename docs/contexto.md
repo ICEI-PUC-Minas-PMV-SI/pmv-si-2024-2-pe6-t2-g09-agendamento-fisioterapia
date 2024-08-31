@@ -61,16 +61,13 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O sistema deve permitir o gerênciamento de cadastros an agenda  | ALTA | 
-|RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado  | MÉDIA |
-|RF-003| O sistema deve permitir a integração com o Instagram para exibir informações relevantes | MÉDIA |
+|RF-001| O sistema deve permitir o gerenciamento de cadastros na agenda | ALTA | 
+|RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado | MÉDIA |
+|RF-003| O sistema deve permitir a integração com o Instagram para exibir as últimas publicações | MÉDIA |
 |RF-004| O sistema deve ter uma seção dedicada no site para informações sobre o serviço  | ALTA |
-|RF-005| O sistema deve permitir a integração com o Instagram para exibir informações relevantes | MÉDIA |
-|RF-006| O sistema deve oferecer uma funcionalidade para direcionar o usuário ao WhatsApp para facilitar a comunicação.  | MÉDIA |
-|RF-007| O sistema deve ter uma seção dedicada no site para informações sobre o serviço | ALTA |
-|RF-008| O sistema deve permitir o gerenciamento de usuários | MÉDIA |
-|RF-009| O sistema deve ter uma seção dedicada no site para informações sobre o serviço | MÉDIA |
-|RF-010| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores | BAIXO |
+|RF-005| O sistema deve oferecer uma funcionalidade para direcionar o usuário ao WhatsApp para facilitar a comunicação.  | MÉDIA |
+|RF-006| O sistema deve permitir o gerenciamento de usuários | MÉDIA |
+|RF-007| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores | BAIXO |
 
 
 ### Requisitos não Funcionais
