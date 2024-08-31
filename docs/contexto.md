@@ -76,7 +76,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |-------|-------------------------|----|
 |RNF-001| O sistema deve garantir que apenas usuários autenticados possam acessar dados pessoais e funcionalidades protegidas | ALTA | 
 |RNF-002| A interfrace deve se intiutiva e de fácil de usar |  MÉDIA | 
-|RNF-003| O código deve ser modular e bem documentado, facilitando a manutenção e atualizaçoes futuras |  A | 
+|RNF-003| O código deve ser modular e bem documentado, facilitando a manutenção e atualizaçoes futuras |  ALTA | 
 |RNF-004| O sistema deve ser compactivel com diferentes navegadores |  BAIXA | 
 |RNF-005| O sistema deve ser Responsível  |  BAIXA | 
 |RNF-006| O sistema deve cumprir com todas as regulamentações sobre a Proteção de dados e privacidade, como a LGPD | MÉDIA | 
