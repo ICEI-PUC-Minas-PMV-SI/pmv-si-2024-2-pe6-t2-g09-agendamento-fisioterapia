@@ -217,9 +217,6 @@ Gerenciamento de Permissões: Define e gerencia níveis de acesso e permissões 
 Esta arquitetura de solução foi projetada para suportar um sistema integrado que inclui um website, um aplicativo móvel, uma API monolítica e um banco de dados.
 O sistema tem como objetivo gerenciar agendamentos, enviar e-mails para confirmação e autenticar usuários.
 
-![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/DiagramaArquiteuturaAgendamentoFisioterapia.jpg)
-
-
 ## Tecnologias Utilizadas
 
 Tecnologias utilizadas na implementação da solução:
