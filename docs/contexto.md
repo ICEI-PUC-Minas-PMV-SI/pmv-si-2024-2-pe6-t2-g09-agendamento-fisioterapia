@@ -217,6 +217,8 @@ Gerenciamento de Permissões: Define e gerencia níveis de acesso e permissões 
 Esta arquitetura de solução foi projetada para suportar um sistema integrado que inclui um website, um aplicativo móvel, uma API monolítica e um banco de dados.
 O sistema tem como objetivo gerenciar agendamentos, enviar e-mails para confirmação e autenticar usuários.
 
+![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/RelacionamentoTecnologias.jpg)
+
 ## Tecnologias Utilizadas
 
 Tecnologias utilizadas na implementação da solução:
@@ -230,7 +232,7 @@ Tecnologias utilizadas na implementação da solução:
 > - Arquitetura em Camadas: Separação de responsabilidades em camadas (Apresentação, Negócio, Dados).
 > - EntityFramework: ORM utilizado para interagir com o banco de dados SQL Server de forma eficiente e simplificada.
 
-![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/RelacionamentoTecnologias.jpg)
+
 
 ## Hospedagem
 
