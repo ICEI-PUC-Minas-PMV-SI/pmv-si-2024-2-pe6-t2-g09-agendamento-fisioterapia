@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:clinica_fisioterapia/helpers/weekday.dart';
+import 'package:clinica_fisioterapia/helpers/weekday.dart'; // Verifique se esse arquivo existe e está correto
 import 'package:clinica_fisioterapia/models/journal.dart';
 import 'package:clinica_fisioterapia/screens/add_journal_screen/add_journal_screen.dart';
 import 'package:uuid/uuid.dart';
+
+enum DisposeStatus { exit, error, success }
 
 class JournalCard extends StatelessWidget {
   final Journal? journal;
   final DateTime showedDate;
   final Function refreshFunction;
+
   const JournalCard({
     Key? key,
     this.journal,
@@ -39,16 +42,18 @@ class JournalCard extends StatelessWidget {
                     decoration: const BoxDecoration(
                       color: Colors.blue,
                       border: Border(
-                          right: BorderSide(color: Colors.lightBlue),
-                          bottom: BorderSide(color: Colors.lightBlue)),
+                        right: BorderSide(color: Colors.lightBlue),
+                        bottom: BorderSide(color: Colors.lightBlue),
+                      ),
                     ),
                     padding: const EdgeInsets.all(16),
                     child: Text(
                       journal!.createdAt.day.toString(),
                       style: const TextStyle(
-                          fontSize: 32,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
+                        fontSize: 32,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Container(
@@ -102,8 +107,8 @@ class JournalCard extends StatelessWidget {
     }
   }
 
-  callAddJournalScreen(BuildContext context) {
-    Navigator.pushNamed(
+  Future<void> callAddJournalScreen(BuildContext context) async {
+    final result = await Navigator.pushNamed(
       context,
       'add-journal',
       arguments: Journal(
@@ -112,22 +117,22 @@ class JournalCard extends StatelessWidget {
         createdAt: showedDate,
         updatedAt: showedDate,
       ),
-    ).then((value) {
-      refreshFunction();
+    );
 
-      if (value == DisposeStatus.success) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Registro salvo com sucesso."),
-          ),
-        );
-      } else if (value == DisposeStatus.error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Houve uma falha ao registar."),
-          ),
-        );
-      }
-    });
+    refreshFunction();
+
+    if (result == DisposeStatus.success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Registro salvo com sucesso."),
+        ),
+      );
+    } else if (result == DisposeStatus.error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Houve uma falha ao registrar."),
+        ),
+      );
+    }
   }
 }

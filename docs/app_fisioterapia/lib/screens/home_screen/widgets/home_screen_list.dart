@@ -1,18 +1,6 @@
+import 'package:flutter/material.dart';
 import '../../../models/journal.dart';
-import 'journal_card.dart';
-
-class JournalService {
-  // Adicione outros métodos conforme necessário
-
-  Future<bool> update(Journal journal) async {
-    try {
-      // Implementar lógica para atualizar o `journal` no backend ou banco de dados
-      return true; // Retorna true se a atualização for bem-sucedida
-    } catch (e) {
-      return false; // Retorna false em caso de erro
-    }
-  }
-}
+import 'package:clinica_fisioterapia/screens/home_screen/widgets/journal_card.dart';
 
 List<JournalCard> generateListJournalCards({
   required DateTime currentDay,
@@ -44,8 +32,9 @@ List<JournalCard> generateListJournalCards({
             value.createdAt.day - 1; // Ajuste para o índice zero-baseado
 
         if (dayOfMonth >= 0 && dayOfMonth < list.length) {
+          // Atualiza o JournalCard correspondente no índice
           list[dayOfMonth] = JournalCard(
-            showedDate: list[dayOfMonth].showedDate,
+            showedDate: list[dayOfMonth].showedDate, // Preserva a data mostrada
             journal: value,
             refreshFunction: refreshFunction,
           );
@@ -53,5 +42,6 @@ List<JournalCard> generateListJournalCards({
       }
     },
   );
+
   return list;
 }

@@ -11,19 +11,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // O primeiro e o último dia do mês atual
   DateTime startOfMonth =
       DateTime(DateTime.now().year, DateTime.now().month, 1);
   DateTime endOfMonth =
       DateTime(DateTime.now().year, DateTime.now().month + 1, 0);
-
-  // O dia atual
   DateTime currentDay = DateTime.now();
-
-  // A base de dados mostrada na lista
   Map<String, Journal> database = {};
-
-  // Controlador de rolagem
   final ScrollController _listScrollController = ScrollController();
   final journal_service.JournalService _journalService =
       journal_service.JournalService();
@@ -38,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Título baseado no dia, mês e ano atual
         title: Text(
           "${currentDay.day} de ${getMonthName(currentDay.month)}, ${currentDay.year}",
         ),
@@ -57,15 +49,64 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Olá Davi Aburjeli!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Página Inicial'),
+              onTap: () {
+                Navigator.pop(context); // Fecha o drawer
+                // Adicione navegação para a página inicial, se necessário
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.warning_amber),
+              title: const Text('Horários pendentes'),
+              onTap: () {
+                Navigator.pushNamed(context, "horariosPendentes");
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Sair'),
+              onTap: () {
+                Navigator.pushNamed(context, "login");
+              },
+            ),
+            // Adicione mais itens conforme necessário
+          ],
+        ),
+      ),
       body: ListView(
         controller: _listScrollController,
-        children: home_screen_list.generateListJournalCards(
+        children: _generateJournalCards(), // Use a função aqui
+      ),
+    );
+  }
+
+  List<Widget> _generateJournalCards() {
+    // Converte o mapa de diários para uma lista de widgets
+    return home_screen_list
+        .generateListJournalCards(
           currentDay: currentDay,
           database: database,
           refreshFunction: refresh,
-        ),
-      ),
-    );
+        )
+        .cast<Widget>(); // Converte para List<Widget> explicitamente
   }
 
   void refresh() async {
@@ -77,7 +118,6 @@ class _HomeScreenState extends State<HomeScreen> {
         database[journal.id] = journal;
       }
 
-      // Rola para o dia atual após a atualização da lista
       WidgetsBinding.instance.addPostFrameCallback((_) {
         scrollToCurrentDay();
       });
@@ -87,7 +127,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void scrollToCurrentDay() {
     int indexOfToday = currentDay.day - 1;
 
-    // Verifica se o índice está dentro dos limites da lista
     if (indexOfToday >= 0 && indexOfToday < endOfMonth.day) {
       _listScrollController.animateTo(
         _listScrollController.position.maxScrollExtent *
@@ -117,7 +156,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _showDeleteDialog(BuildContext context) async {
-    // Cria uma lista de itens para o diálogo
     List<String> ids = database.keys.toList();
 
     if (ids.isEmpty) {
@@ -128,16 +166,13 @@ class _HomeScreenState extends State<HomeScreen> {
       return;
     }
 
-    // Exibe o diálogo de seleção
     String? selectedId = await showDialog<String>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text(
             'Escolha o agendamento para remover',
-            style: TextStyle(
-              fontWeight: FontWeight.bold, // Define o texto como negrito
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -154,12 +189,11 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
 
-    // Verifica se um ID foi selecionado e remove o diário
     if (selectedId != null) {
       bool wasDeleted = await _journalService.remove(selectedId);
       if (wasDeleted) {
         setState(() {
-          database.remove(selectedId); // Remove do estado local
+          database.remove(selectedId);
         });
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Agendamento removido com sucesso')),

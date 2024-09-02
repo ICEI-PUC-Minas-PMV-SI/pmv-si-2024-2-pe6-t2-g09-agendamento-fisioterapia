@@ -1,3 +1,4 @@
+import 'package:clinica_fisioterapia/screens/home_screen/horariosPendentes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'models/journal.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "login": (context) => Login(),
         "home": (context) => const HomeScreen(),
+        "horariosPendentes": (context) => const PendingSchedulesScreen(),
       },
       onGenerateRoute: (routeSettings) {
         if (routeSettings.name == "add-journal") {

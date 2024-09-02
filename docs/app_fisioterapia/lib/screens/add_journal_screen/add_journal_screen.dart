@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:clinica_fisioterapia/helpers/weekday.dart';
 import 'package:clinica_fisioterapia/models/journal.dart';
 import 'package:clinica_fisioterapia/services/journal_service.dart';
-import 'package:intl/intl.dart'; // Importa a biblioteca para formatação de data
+import 'package:intl/intl.dart';
+import 'package:clinica_fisioterapia/screens/home_screen/horariosPendentes.dart';
 
 class AddJournalScreen extends StatefulWidget {
   final Journal journal;
@@ -22,15 +22,14 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     contentController.text = widget.journal.content;
     selectedDate = widget.journal.createdAt.isBefore(DateTime(2000))
         ? DateTime.now()
-        : widget.journal
-            .createdAt; // Inicializa com a data do diário existente ou com a data atual
+        : widget.journal.createdAt;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(WeekDay(widget.journal.createdAt).toString()),
+        title: Text(DateFormat('dd MMMM yyyy').format(selectedDate)),
         actions: [
           IconButton(
             onPressed: () {
@@ -45,7 +44,6 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // TextField deve ter um tamanho definido
             Expanded(
               child: TextField(
                 controller: contentController,
@@ -69,8 +67,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
                     style: const TextStyle(fontSize: 18),
                   ),
                 ),
-                const SizedBox(
-                    width: 8), // Adiciona um espaço entre o texto e o botão
+                const SizedBox(width: 8),
                 ElevatedButton(
                   onPressed: () async {
                     DateTime? pickedDate = await showDatePicker(
@@ -91,9 +88,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
                   ),
                   child: const Text(
                     'Selecionar Data',
-                    style: TextStyle(
-                      color: Colors.white, // Define a cor do texto como branco
-                    ),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ],
@@ -110,9 +105,19 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     widget.journal.updatedAt = DateTime.now(); // Atualiza a data de atualização
 
     bool success = await journalService.register(widget.journal, context);
-    Navigator.pop(
-        context, success ? DisposeStatus.success : DisposeStatus.error);
+
+    if (success) {
+      // Redireciona para a tela de horários pendentes após o sucesso
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const PendingSchedulesScreen(),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Erro ao registrar o agendamento')),
+      );
+    }
   }
 }
-
-enum DisposeStatus { exit, error, success }

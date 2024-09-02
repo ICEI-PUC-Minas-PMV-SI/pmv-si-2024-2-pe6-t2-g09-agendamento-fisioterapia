@@ -24,6 +24,7 @@ class JournalService {
   }
 
   Future<bool> register(Journal journal, BuildContext context) async {
+    journal.status = "pendente"; // Marca o agendamento como pendente
     String journalJSON = json.encode(journal.toMap());
 
     try {
@@ -36,17 +37,81 @@ class JournalService {
       if (response.statusCode == 201) {
         return true;
       } else {
-        // Log error or handle it as needed
         _showError(
             "Não foi possível registrar o diário. Verifique sua conexão.",
             context);
         return false;
       }
     } catch (e) {
-      // Handle connection errors or other exceptions
       _showError("Não foi possível registrar o diário. Verifique sua conexão.",
           context);
       return false;
+    }
+  }
+
+  Future<bool> acceptSchedule(Journal journal) async {
+    journal.status = "aceito"; // Marca o agendamento como aceito
+    String journalJSON = json.encode(journal.toMap());
+
+    try {
+      Uri uri = Uri.parse('$url$resource${journal.id}');
+      http.Response response = await client.put(
+        uri,
+        headers: {'Content-type': 'application/json'},
+        body: journalJSON,
+      );
+
+      if (response.statusCode == 200) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false; // Retorna false em caso de erro
+    }
+  }
+
+  Future<bool> rejectSchedule(Journal journal) async {
+    // Cria a URI para o item específico com base no ID
+    Uri uri = Uri.parse('$url$resource${journal.id}');
+
+    // Atualiza o status do journal para "rejeitado"
+    journal.status = "rejeitado";
+    String journalJSON = json.encode(journal.toMap());
+
+    try {
+      // Envia a solicitação DELETE para o servidor
+      http.Response response = await client.delete(uri);
+
+      if (response.statusCode == 200) {
+        return true; // Retorna true se a remoção for bem-sucedida
+      } else {
+        return false; // Retorna false se a remoção falhar
+      }
+    } catch (e) {
+      return false; // Retorna false em caso de erro
+    }
+  }
+
+  Future<List<Journal>> getPendingSchedules() async {
+    try {
+      Uri uri = Uri.parse('${getURL()}?status=pendente');
+      http.Response response = await client.get(uri);
+
+      if (response.statusCode != 200) {
+        throw Exception("Erro ao carregar os horários pendentes.");
+      }
+
+      List<Journal> result = [];
+      List<dynamic> jsonList = json.decode(response.body);
+      for (var jsonMap in jsonList) {
+        result.add(Journal.fromMap(jsonMap));
+      }
+
+      return result;
+    } catch (e) {
+      // Handle errors as needed, here simply returning an empty list
+      return [];
     }
   }
 
