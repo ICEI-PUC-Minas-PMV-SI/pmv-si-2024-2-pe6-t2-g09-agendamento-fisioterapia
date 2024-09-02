@@ -61,17 +61,13 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O sistema deve permitir que o usuário cadastre novos agendamentos de atendimento. | ALTA | 
-|RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado  | MÉDIA |
-|RF-003| O sistema deve permitir que o usuário cancele um agendamento previamente cadastrado  | ALTA |
-|RF-004| O sistema deve permitir que o usuário altere a data e/ou hora de um agendamento previamente cadastrado   | ALTA |
-|RF-005| O sistema deve permitir a integração com o Instagram para exibir informações relevantes | MÉDIA |
-|RF-006| O sistema deve oferecer uma funcionalidade para direcionar o usuário ao WhatsApp para facilitar a comunicação.  | MÉDIA |
-|RF-007| O sistema deve ter uma seção dedicada no site para informações sobre o serviço | ALTA|
-|RF-008| O sistema deve incluir uma página de contato com informações sobre como entrar em contato com o serviço. | ALTA|
-|RF-009| O sistema deve ter uma seção dedicada no site para informações sobre o serviço | MÉDIA|
-|RF-010| O sistema deve permitir registrar dados dos usuários | MÉDIA |
-|RF-011| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores |BAIXO|
+|RF-001| O sistema deve permitir o gerenciamento de cadastros na agenda | ALTA | 
+|RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado | MÉDIA |
+|RF-003| O sistema deve permitir a integração com o Instagram para exibir as últimas publicações | MÉDIA |
+|RF-004| O sistema deve ter uma seção dedicada no site para informações sobre o serviço  | ALTA |
+|RF-005| O sistema deve oferecer uma funcionalidade para direcionar o usuário ao WhatsApp para facilitar a comunicação.  | MÉDIA |
+|RF-006| O sistema deve permitir o gerenciamento de usuários | MÉDIA |
+|RF-007| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores | BAIXO |
 
 
 ### Requisitos não Funcionais
@@ -80,7 +76,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |-------|-------------------------|----|
 |RNF-001| O sistema deve garantir que apenas usuários autenticados possam acessar dados pessoais e funcionalidades protegidas | ALTA | 
 |RNF-002| A interfrace deve se intiutiva e de fácil de usar |  MÉDIA | 
-|RNF-003| O código deve ser modular e bem documentado, facilitando a manutenção e atualizaçoes futuras |  A | 
+|RNF-003| O código deve ser modular e bem documentado, facilitando a manutenção e atualizaçoes futuras |  ALTA | 
 |RNF-004| O sistema deve ser compactivel com diferentes navegadores |  BAIXA | 
 |RNF-005| O sistema deve ser Responsível  |  BAIXA | 
 |RNF-006| O sistema deve cumprir com todas as regulamentações sobre a Proteção de dados e privacidade, como a LGPD | MÉDIA | 
@@ -94,8 +90,11 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|01| O sistema deve estar em conformidade com as regulamentações de proteção de dados (LGPD)|
+|02| O sistema deve estar pronto até o final do semestre  |
+|03| Deve ser desenvolvido uma aplicação web |
+|04| Deve ser desenvolvida uma aplicação mobile | 
+|05| O projeto deve integra apis próprias e de terceiros |
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
@@ -105,16 +104,120 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 # Catálogo de Serviços
 
-Descreva aqui todos os serviços que serão disponibilizados pelo seu projeto, detalhando suas características e funcionalidades.
-Gestão de serviços, preços, horário e etc
-Serviço de agendamento 
+### 1. Serviço de Autenticação (AuthService)
+Descrição:
+Gerencia a autenticação dos usuários (pacientes e fisioterapeutas).
+
+Funcionalidades:
+
+Login: Permite que os usuários façam login utilizando e-mail e senha.
+Registro: Oferece a opção de registrar novos usuários com informações básicas, como nome, e-mail, e senha.
+Recuperação de Senha: Envia um e-mail de recuperação de senha para os usuários.
+Token de Autenticação: Gera e valida tokens JWT para autenticação em outros serviços.
+
+
+### 2. Serviço de Gerenciamento de Usuários (UserService)
+Descrição:
+Gerencia informações dos usuários cadastrados no sistema.
+
+Funcionalidades:
+
+Atualização de Perfil: Permite que os usuários atualizem suas informações pessoais, como nome, telefone, endereço, etc.
+Visualização de Perfil: Oferece a possibilidade de visualizar os dados do perfil.
+Preferências do Usuário: Salva e gerencia preferências individuais, como lembretes de agendamento e notificações.
+
+
+### 3. Serviço de Agendamento (AppointmentService)
+Descrição:
+Centraliza a gestão de agendamentos de consultas.
+
+Funcionalidades:
+
+Cadastro de Agendamento: Permite que pacientes agendem consultas, escolhendo data, horário e profissional.
+Alteração de Agendamento: Possibilita a alteração de data e horário de agendamentos existentes.
+Cancelamento de Agendamento: Fornece a funcionalidade de cancelamento de agendamentos com confirmação.
+Notificações: Envia lembretes automáticos de consultas agendadas.
+Consulta de Disponibilidade: Verifica a disponibilidade de horários para novos agendamentos.
+
+
+### 4. Serviço de Fisioterapeutas (PhysiotherapistService)
+Descrição:
+Gerencia as informações dos fisioterapeutas e suas especialidades.
+
+Funcionalidades:
+
+Cadastro de Fisioterapeutas: Permite o registro de novos fisioterapeutas com suas especialidades e horários disponíveis.
+Visualização de Fisioterapeutas: Oferece a possibilidade de visualizar perfis de fisioterapeutas disponíveis, incluindo suas especialidades e avaliações.
+Definição de Horários: Fisioterapeutas podem definir e atualizar seus horários de atendimento.
+
+
+### 5. Serviço de Notificações (NotificationService)
+Descrição:
+Centraliza o envio de notificações e lembretes para os usuários.
+
+Funcionalidades:
+
+Envio de Notificações: Envia notificações via push, e-mail ou SMS para lembrar os pacientes de consultas próximas.
+Configuração de Notificações: Permite que os usuários personalizem o tipo e a frequência das notificações que desejam receber.
+
+
+### 6. Serviço de Relatórios (ReportService)
+Descrição:
+Gera relatórios relacionados a agendamentos, cancelamentos e desempenho dos fisioterapeutas.
+
+Funcionalidades:
+
+Relatórios de Agendamentos: Fornece relatórios detalhados de consultas agendadas e realizadas.
+Relatórios de Cancelamentos: Gera estatísticas sobre cancelamentos de consultas.
+Relatórios de Desempenho: Oferece relatórios sobre a performance dos fisioterapeutas, baseados em feedbacks e número de consultas.
+
+
+### 7. Serviço de Integração com Redes Sociais (SocialMediaIntegrationService)
+Descrição:
+Gerencia a integração do sistema com redes sociais como Instagram.
+
+Funcionalidades:
+
+Exibição de Atualizações: Exibe postagens do Instagram diretamente na interface do aplicativo ou página web.
+Promoções e Ofertas: Integrações para destacar promoções e serviços especiais através das redes sociais.
+
+
+### 8. Serviço de Comunicação (CommunicationService)
+Descrição:
+Facilita a comunicação direta entre pacientes e a clínica.
+
+Funcionalidades:
+
+Integração com WhatsApp: Direciona o paciente para uma conversa no WhatsApp com a clínica para dúvidas rápidas.
+Sistema de Mensagens Internas: Permite o envio de mensagens diretas entre pacientes e fisioterapeutas através do aplicativo.
+
+
+### 9. Serviço de Conteúdo e Informações (ContentService)
+Descrição:
+Gerencia o conteúdo estático e dinâmico exibido na página web e aplicativo.
+
+Funcionalidades:
+
+Gerenciamento de Páginas: Criação e edição de páginas de conteúdo como FAQ, políticas de privacidade, termos de uso, etc.
+Blog e Atualizações: Publicação de artigos e atualizações sobre saúde, fisioterapia e serviços oferecidos.
+
+
+### 10. Serviço de Segurança e Conformidade (SecurityComplianceService)
+Descrição:
+Garante que o sistema atenda a todos os requisitos de segurança e conformidade, como a LGPD.
+
+Funcionalidades:
+
+Criptografia de Dados: Implementa criptografia de dados sensíveis em trânsito e em repouso.
+Auditoria de Acesso: Mantém um registro detalhado de todas as atividades de usuários no sistema.
+Gerenciamento de Permissões: Define e gerencia níveis de acesso e permissões para diferentes tipos de usuários.
 
 # Arquitetura da Solução
 
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
+Esta arquitetura de solução foi projetada para suportar um sistema integrado que inclui um website, um aplicativo móvel, uma API monolítica e um banco de dados.
+O sistema tem como objetivo gerenciar agendamentos, enviar e-mails para confirmação e autenticar usuários.
 
-![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/Arquiteutura%20Agendamento%20Fisioterapia.drawio.png)
-
+![arq](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/RelacionamentoTecnologias.jpg)
 
 ## Tecnologias Utilizadas
 
@@ -127,16 +230,11 @@ Tecnologias utilizadas na implementação da solução:
 > - REST API: Comunicação entre o frontend e o backend, Formato de dados JSON.
 > - Clean Code: Princípios de codificação limpa para manter o código legível e manutenível.
 > - Arquitetura em Camadas: Separação de responsabilidades em camadas (Apresentação, Negócio, Dados).
+> - EntityFramework: ORM utilizado para interagir com o banco de dados SQL Server de forma eficiente e simplificada.
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
-
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+O Heroku foi escolhido como a plataforma de hospedagem para o sistema,
+ele oferece uma solução de hospedagem em nuvem que facilita o deploy, gerenciamento e escalabilidade das aplicações.
