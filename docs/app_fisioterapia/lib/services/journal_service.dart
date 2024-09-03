@@ -1,14 +1,13 @@
 import 'dart:convert';
-import 'package:clinica_fisioterapia/services/http_interceptors.dart';
+import 'package:clinica_fisioterapia/services/http_interceptors.dart'; // Verifique se o caminho está correto
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http/http.dart';
 import 'package:flutter/material.dart';
-
 import '../models/journal.dart';
 
 class JournalService {
-  // Seu IP e porta do json-server
-  static const String url = "http://192.168.0.13:3000/";
+  static const String url =
+      "http://192.168.0.13:3000/"; // Endereço do seu servidor
   static const String resource = "journals/";
 
   http.Client client = InterceptedClient.build(
@@ -23,8 +22,26 @@ class JournalService {
     return Uri.parse(getURL());
   }
 
+  Future<List<Journal>> tentarConexao() async {
+    final uri = Uri.parse('$url$resource');
+    print('Attempting to connect to: $uri');
+
+    try {
+      final response = await http.get(uri);
+
+      if (response.statusCode == 200) {
+        List<dynamic> jsonList = json.decode(response.body);
+        return jsonList.map((json) => Journal.fromMap(json)).toList();
+      } else {
+        throw Exception('Falha ao carregar journals: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Falha ao conectar ao servidor: $e');
+    }
+  }
+
   Future<bool> registro(Journal journal, BuildContext context) async {
-    journal.status = "pendente"; // Marca o agendamento como pendente
+    journal.status = "pendente";
     String journalJSON = json.encode(journal.toMap());
 
     try {
@@ -61,11 +78,7 @@ class JournalService {
         body: journalJSON,
       );
 
-      if (response.statusCode == 200) {
-        return true;
-      } else {
-        return false;
-      }
+      return response.statusCode == 200;
     } catch (e) {
       return false;
     }
@@ -80,11 +93,7 @@ class JournalService {
     try {
       http.Response response = await client.delete(uri);
 
-      if (response.statusCode == 200) {
-        return true;
-      } else {
-        return false;
-      }
+      return response.statusCode == 200;
     } catch (e) {
       return false;
     }
@@ -120,7 +129,7 @@ class JournalService {
         _showError(
             "Não foi possível carregar os diários. Verifique sua conexão.",
             context);
-        return []; //
+        return [];
       }
       List<Journal> result = [];
       List<dynamic> jsonList = json.decode(response.body);
@@ -142,11 +151,7 @@ class JournalService {
     try {
       http.Response response = await client.delete(uri);
 
-      if (response.statusCode == 200) {
-        return true;
-      } else {
-        return false;
-      }
+      return response.statusCode == 200;
     } catch (e) {
       return false;
     }

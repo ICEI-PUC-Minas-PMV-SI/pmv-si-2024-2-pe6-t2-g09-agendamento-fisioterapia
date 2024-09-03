@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import '/services/journal_service.dart' as journal_service;
 import '../../models/journal.dart';
 import '/screens/home_screen/widgets/home_screen_list.dart' as home_screen_list;
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -94,12 +94,30 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   // Mostra um indicador de carregamento enquanto verifica
-                  iconColor = Colors.grey;
-                  textColor = Colors.grey;
-                } else if (snapshot.hasData) {
-                  bool hasPending = snapshot.data!;
+                  return ListTile(
+                    leading: const Icon(
+                      Icons.warning_amber,
+                      size: 40,
+                      color: Colors.grey,
+                    ),
+                    title: const Text(
+                      'Horários Pendentes',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  );
+                }
+
+                if (snapshot.hasData) {
+                  bool hasPending = snapshot.data ?? false;
                   iconColor = hasPending ? Colors.orange : Colors.grey;
                   textColor = hasPending ? Colors.orange : Colors.grey;
+                } else {
+                  // Em caso de erro na verificação, você pode definir cores padrão ou de erro
+                  iconColor = Colors.grey;
+                  textColor = Colors.grey;
                 }
 
                 return ListTile(
@@ -229,11 +247,26 @@ class _HomeScreenState extends State<HomeScreen> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: ids.map((id) {
+              final journal = database[id];
+              String formattedTime = '';
+              if (journal?.time != null) {
+                final timeOfDay = DateTime(
+                  0, // ano fictício
+                  1, // mês fictício
+                  1, // dia fictício
+                  journal!.time!.hour,
+                  journal.time!.minute,
+                );
+
+                final dateFormat = DateFormat('HH:mm');
+                formattedTime = ' - ${dateFormat.format(timeOfDay)}';
+              }
+
               return ListTile(
                 title: Text(
-                  database[id]?.content ?? 'Sem Conteúdo',
+                  '${journal?.content ?? 'Sem Conteúdo'}$formattedTime',
                   style: const TextStyle(
-                    color: Colors.black,
+                    color: Colors.red,
                     fontSize: 18,
                   ),
                 ),

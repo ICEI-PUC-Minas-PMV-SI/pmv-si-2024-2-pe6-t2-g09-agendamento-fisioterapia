@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'models/journal.dart';
 import 'screens/add_journal_screen/add_journal_screen.dart';
@@ -16,6 +15,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,7 +49,13 @@ class MyApp extends StatelessWidget {
             },
           );
         }
-        return null;
+        // Adicione um tratamento de rota desconhecida se necessário
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(title: const Text('Rota desconhecida')),
+            body: const Center(child: Text('Rota desconhecida')),
+          ),
+        );
       },
     );
   }
