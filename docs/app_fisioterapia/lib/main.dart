@@ -1,12 +1,16 @@
-import 'package:clinica_fisioterapia/screens/home_screen/horariosPendentes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'models/journal.dart';
 import 'screens/add_journal_screen/add_journal_screen.dart';
 import 'screens/home_screen/home_screen.dart';
 import 'screens/login/login.dart';
+import 'screens/home_screen/horariosPendentes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('pt_BR', null);
   runApp(const MyApp());
 }
 

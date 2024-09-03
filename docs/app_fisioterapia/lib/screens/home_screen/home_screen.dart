@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import '/services/journal_service.dart' as journal_service;
 import '../../models/journal.dart';
 import '/screens/home_screen/widgets/home_screen_list.dart' as home_screen_list;
@@ -31,8 +32,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 100,
         title: Text(
-          "${currentDay.day} de ${getMonthName(currentDay.month)}, ${currentDay.year}",
+          "${currentDay.day} de ${getMonthName(currentDay.month)} de ${currentDay.year}",
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
         ),
         actions: [
           IconButton(
@@ -51,66 +57,105 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.zero,
+          padding: const EdgeInsets.symmetric(),
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text(
-                'Olá Davi Aburjeli!',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Olá Davi Aburjeli!',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),
                 ),
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Página Inicial'),
+              leading: const Icon(Icons.home, size: 40),
+              title: const Text(
+                'Página Inicial',
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
               onTap: () {
-                Navigator.pop(context); // Fecha o drawer
-                // Adicione navegação para a página inicial, se necessário
+                Navigator.pop(context);
+              },
+            ),
+            FutureBuilder<bool>(
+              future: _hasPendingSchedules(),
+              builder: (context, snapshot) {
+                Color iconColor = Colors.grey; // Cor padrão para o ícone
+                Color textColor = Colors.grey; // Cor padrão para o texto
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  // Mostra um indicador de carregamento enquanto verifica
+                  iconColor = Colors.grey;
+                  textColor = Colors.grey;
+                } else if (snapshot.hasData) {
+                  bool hasPending = snapshot.data!;
+                  iconColor = hasPending ? Colors.orange : Colors.grey;
+                  textColor = hasPending ? Colors.orange : Colors.grey;
+                }
+
+                return ListTile(
+                  leading: Icon(
+                    Icons.warning_amber,
+                    size: 40,
+                    color: iconColor,
+                  ),
+                  title: Text(
+                    'Horários Pendentes',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: textColor,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, "horariosPendentes");
+                  },
+                );
               },
             ),
             ListTile(
-              leading: const Icon(Icons.warning_amber),
-              title: const Text('Horários pendentes'),
-              onTap: () {
-                Navigator.pushNamed(context, "horariosPendentes");
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Sair'),
+              leading: const Icon(Icons.logout, size: 40),
+              title: const Text(
+                'Sair',
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
               onTap: () {
                 Navigator.pushNamed(context, "login");
               },
             ),
-            // Adicione mais itens conforme necessário
           ],
         ),
       ),
       body: ListView(
         controller: _listScrollController,
-        children: _generateJournalCards(), // Use a função aqui
+        children: _generateJournalCards(),
       ),
     );
   }
 
   List<Widget> _generateJournalCards() {
-    // Converte o mapa de diários para uma lista de widgets
     return home_screen_list
         .generateListJournalCards(
           currentDay: currentDay,
           database: database,
           refreshFunction: refresh,
         )
-        .cast<Widget>(); // Converte para List<Widget> explicitamente
+        .cast<Widget>();
   }
 
-  void refresh() async {
-    List<Journal> listJournal = await _journalService.getAll(context);
+  Future<void> refresh() async {
+    List<Journal> listJournal =
+        await _journalService.carregaCalendario(context);
 
     setState(() {
       database = {};
@@ -122,6 +167,13 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollToCurrentDay();
       });
     });
+  }
+
+  Future<bool> _hasPendingSchedules() async {
+    List<Journal> listJournal =
+        await _journalService.carregaCalendario(context);
+    return listJournal
+        .isNotEmpty; // Retorna verdadeiro se houver algum horário pendente
   }
 
   void scrollToCurrentDay() {
@@ -178,7 +230,13 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSize: MainAxisSize.min,
             children: ids.map((id) {
               return ListTile(
-                title: Text(database[id]?.content ?? 'Sem Conteúdo'),
+                title: Text(
+                  database[id]?.content ?? 'Sem Conteúdo',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context, id);
                 },

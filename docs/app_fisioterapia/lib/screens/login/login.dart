@@ -16,7 +16,7 @@ class Login extends StatelessWidget {
       bottomNavigationBar: _signup(context),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 70),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 70),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
                     textStyle: const TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
-                      fontSize: 23,
+                      fontSize: 29,
                     ),
                   ),
                 ),
@@ -56,7 +56,7 @@ class Login extends StatelessWidget {
             textStyle: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.normal,
-              fontSize: 16,
+              fontSize: 20,
             ),
           ),
         ),
@@ -68,7 +68,7 @@ class Login extends StatelessWidget {
             hintStyle: const TextStyle(
               color: Color(0xff6A6A6A),
               fontWeight: FontWeight.normal,
-              fontSize: 14,
+              fontSize: 20,
             ),
             fillColor: const Color(0xffF7F7F9),
             border: OutlineInputBorder(
@@ -92,7 +92,7 @@ class Login extends StatelessWidget {
             textStyle: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.normal,
-              fontSize: 16,
+              fontSize: 20,
             ),
           ),
         ),
@@ -128,7 +128,7 @@ class Login extends StatelessWidget {
       },
       child: const Text(
         "Entrar",
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white, fontSize: 20),
       ),
     );
   }
@@ -145,7 +145,7 @@ class Login extends StatelessWidget {
               style: TextStyle(
                 color: Color(0xff6A6A6A),
                 fontWeight: FontWeight.normal,
-                fontSize: 16,
+                fontSize: 23,
               ),
             ),
             TextSpan(
@@ -153,15 +153,14 @@ class Login extends StatelessWidget {
               style: const TextStyle(
                 color: Color(0xff1A1D1E),
                 fontWeight: FontWeight.normal,
-                fontSize: 16,
+                fontSize: 23,
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          Container(), // Substitua pelo widget de registro
+                      builder: (context) => Container(),
                     ),
                   );
                 },

@@ -28,8 +28,7 @@ List<JournalCard> generateListJournalCards({
     (key, value) {
       if (value.createdAt.month == currentDay.month &&
           value.createdAt.year == currentDay.year) {
-        int dayOfMonth =
-            value.createdAt.day - 1; // Ajuste para o índice zero-baseado
+        int dayOfMonth = value.createdAt.day - 1;
 
         if (dayOfMonth >= 0 && dayOfMonth < list.length) {
           // Atualiza o JournalCard correspondente no índice

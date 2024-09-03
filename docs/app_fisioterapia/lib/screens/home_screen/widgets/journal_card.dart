@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:clinica_fisioterapia/helpers/weekday.dart'; // Verifique se esse arquivo existe e está correto
 import 'package:clinica_fisioterapia/models/journal.dart';
-import 'package:clinica_fisioterapia/screens/add_journal_screen/add_journal_screen.dart';
 import 'package:uuid/uuid.dart';
+import 'package:intl/intl.dart'; // Para formatação da hora
 
 enum DisposeStatus { exit, error, success }
 
@@ -20,13 +20,30 @@ class JournalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isPending = journal?.isPending ?? false;
+
+    String formattedTime = '';
+    if (journal?.time != null) {
+      final timeOfDay = DateTime(
+        0,
+        1,
+        1,
+        journal!.time!.hour,
+        journal!.time!.minute,
+      );
+
+      final dateFormat = DateFormat('HH:mm');
+      formattedTime = ' - ${dateFormat.format(timeOfDay)}';
+    }
+
     if (journal != null) {
       return InkWell(
         onTap: () {},
         child: Container(
           height: 115,
-          margin: const EdgeInsets.all(8),
+          margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: Colors.lightBlue,
             ),
@@ -66,22 +83,50 @@ class JournalCard extends StatelessWidget {
                       ),
                     ),
                     padding: const EdgeInsets.all(8),
-                    child: Text(WeekDay(journal!.createdAt).short),
-                  ),
+                    child: Text(
+                      WeekDay(journal!.createdAt).short,
+                      style: const TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  )
                 ],
               ),
               Expanded(
                 child: Container(
                   padding: const EdgeInsets.all(16),
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    journal!.content,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        journal!.content + formattedTime,
+                        style: const TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
+                      if (isPending) // Adiciona um indicador visual se estiver pendente
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Row(
+                            children: const [
+                              Icon(Icons.warning_amber,
+                                  color: Colors.orange, size: 16),
+                              SizedBox(width: 4),
+                              Text(
+                                'Pendente aprovação',
+                                style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
                   ),
                 ),
               ),
