@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:clinica_fisioterapia/services/http_interceptors.dart'; // Verifique se o caminho está correto
+import 'package:clinica_fisioterapia/services/http_interceptors.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http/http.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ import '../models/journal.dart';
 
 class JournalService {
   static const String url =
-      "http://192.168.0.13:3000/"; // Endereço do seu servidor
+      "http://192.168.0.21:3000/"; 
   static const String resource = "journals/";
 
   http.Client client = InterceptedClient.build(

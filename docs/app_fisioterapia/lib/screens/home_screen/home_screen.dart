@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "${currentDay.day} de ${getMonthName(currentDay.month)} de ${currentDay.year}",
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 17,
           ),
         ),
         actions: [
@@ -94,13 +94,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   // Mostra um indicador de carregamento enquanto verifica
-                  return ListTile(
-                    leading: const Icon(
+                  return  const ListTile(
+                    leading: Icon(
                       Icons.warning_amber,
                       size: 40,
                       color: Colors.grey,
                     ),
-                    title: const Text(
+                    title: Text(
                       'Horários Pendentes',
                       style: TextStyle(
                         fontSize: 15,
