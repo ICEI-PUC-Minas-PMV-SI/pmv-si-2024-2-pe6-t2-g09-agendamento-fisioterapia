@@ -19,6 +19,9 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
+# Modelo Relacional
+
+![Descrição da imagem](./docs/img/PUC_eixo06_fluxoApp.drawio(3).png)
 
 
 ## Fluxo de Dados
