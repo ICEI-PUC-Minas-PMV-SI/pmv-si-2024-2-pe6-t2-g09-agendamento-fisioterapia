@@ -49,10 +49,15 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 Tecnologias utilizadas na implementação da solução:
 
 -.NET (C#): ASP.NET Core para desenvolvimento do backend, Visual Studio como IDE.
+
 -JWT: Autenticação e autorização dos usuários.
+
 -REST API: Comunicação entre o frontend e o backend, Formato de dados JSON.
+
 -Clean Code: Princípios de codificação limpa para manter o código legível e manutenível.
+
 -Arquitetura em Camadas: Separação de responsabilidades em camadas (Apresentação, Negócio, Dados).
+
 -EntityFramework: ORM utilizado para interagir com o banco de dados SQL Server de forma eficiente e simplificada.
 
 ## API Endpoints
