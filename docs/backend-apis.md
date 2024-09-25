@@ -31,23 +31,17 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 |------|-----------------------------------------|----|
 |RF-001| O sistema deve permitir o gerenciamento de cadastros na agenda | ALTA | 
 |RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado | MÉDIA |
-|RF-003| O sistema deve permitir a integração com o Instagram para exibir as últimas publicações | MÉDIA |
-|RF-004| O sistema deve ter uma seção dedicada no site para informações sobre o serviço  | ALTA |
-|RF-005| O sistema deve oferecer uma funcionalidade para direcionar o usuário ao WhatsApp para facilitar a comunicação.  | MÉDIA |
-|RF-006| O sistema deve permitir o gerenciamento de usuários | MÉDIA |
-|RF-007| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores | BAIXO |
+|RF-003| O sistema deve permitir o gerenciamento de usuários | MÉDIA |
+|RF-004| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores | BAIXO |
 
 ## Requisitos Não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve garantir que apenas usuários autenticados possam acessar dados pessoais e funcionalidades protegidas | ALTA | 
-|RNF-002| A interfrace deve se intiutiva e de fácil de usar |  MÉDIA | 
-|RNF-003| O código deve ser modular e bem documentado, facilitando a manutenção e atualizaçoes futuras |  ALTA | 
-|RNF-004| O sistema deve ser compactivel com diferentes navegadores |  BAIXA | 
-|RNF-005| O sistema deve ser Responsível  |  BAIXA | 
-|RNF-006| O sistema deve cumprir com todas as regulamentações sobre a Proteção de dados e privacidade, como a LGPD | MÉDIA | 
-|RNF-006| O sistema deve funcionar corretamente em diferentes sistemas operacionais móveis e suas versões mais recentes, incluindo iOS e Android |  ALTA | 
+|RNF-001| O sistema deve garantir que apenas usuários autenticados possam acessar dados pessoais e funcionalidades protegidas | ALTA |  
+|RNF-002| O código deve ser modular e bem documentado, facilitando a manutenção e atualizaçoes futuras | ALTA | 
+|RNF-003| O sistema deve cumprir com todas as regulamentações sobre a Proteção de dados e privacidade, como a LGPD | MÉDIA | 
+|RNF-004| O sistema deve funcionar corretamente em diferentes sistemas operacionais móveis e suas versões mais recentes, incluindo iOS e Android |  ALTA | 
 
 
 ## Tecnologias Utilizadas
