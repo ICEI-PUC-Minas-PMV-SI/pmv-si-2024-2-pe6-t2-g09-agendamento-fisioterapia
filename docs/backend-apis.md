@@ -6,11 +6,11 @@ Ao planejar a aplicação de APIs Web para o sistema de Davi Aburjeli, é import
 
 
 
-## Objetivos da API
+# Objetivos da API
 
 O nosso objetivo,utilizando essa API, é fornecer um sistema que seja capaz de realizar o gerenciamento de agendamentos e o gerenciamento de usuários.
 
-## *Gerenciamento de Agendamentos:*
+# *Gerenciamento de Agendamentos:*
 
 -Permitir a criação, edição, visualização e exclusão de agendamentos.
 
