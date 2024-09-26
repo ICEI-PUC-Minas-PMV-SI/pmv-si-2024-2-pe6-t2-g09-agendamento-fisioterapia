@@ -356,13 +356,26 @@ A aplicação implementa várias considerações de segurança essenciais para p
 
 ## Testes
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+Os testes realizados utilizaram estratégias de testes unitários, usando métodos da classe de serviço. Através dessa abordagem, garantimos que cada método funcionasse corretamente de forma independente.
+Além dos testes unitários, foram utilizadas ferramentas como Postman/Insomnia para realizar testes manuais na API. Testes foram feitos para verificar as requisições HTTP, como POST, GET, PUT e DELETE, diretamente no código, observando o comportamento da aplicação em tempo real e a comunicação correta entre as camadas da API."
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+## Casos de Teste
+
+
+Caso de Teste 1: Adicionar Agendamento com Sucesso
+Objetivo: Verificar se o método AdicionarAgendamentoAsync adiciona corretamente um agendamento quando todas as condições são atendidas. Caso alguma condição não atenda ao requisito, o método deve retornar a mensagem de erro correspondente ao usuário.
+
+Dado que um agendamento válido é fornecido,
+Quando o repositório de agendamento retorna sucesso na operação de adição,
+Então o método deve:
+Retornar uma resposta de sucesso contendo o agendamento criado.
+
+Cenário alternativo:
+Dado que um agendamento inválido ou erro de repositório ocorre,
+Quando o repositório de agendamento falha na operação de adição,
+Então o método deve:
+Retornar uma mensagem de falha ("Falha ao Cadastrar Agendamento").
+
 
 # Referências
 
