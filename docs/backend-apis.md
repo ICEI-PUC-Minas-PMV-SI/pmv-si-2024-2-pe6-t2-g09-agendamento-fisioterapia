@@ -4,7 +4,7 @@ O sistema integrado visa solucionar a falta de informações e otimizar o proces
  
 Ao planejar a aplicação de APIs Web para o sistema de Davi Aburjeli, é importante seguir as etapas fundamentais para garantir segurança, escalabilidade e eficiência. Aqui estão algumas etapas importantes a serem consideradas: Definição dos Endpoints; Segurança; Escalabilidade; Gerenciamento de Erros; Documentação; Testes Automatizados; Monitoramento.
 
-[Inclua uma breve descrição do projeto.]
+
 
 ## Objetivos da API
 
