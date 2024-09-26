@@ -41,7 +41,8 @@ O modelo relacional da API de Agendamento de Fisioterapia define duas entidades 
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+![image](https://github.com/user-attachments/assets/0c9378f9-fbb5-42d8-bbb0-606cd34532b0)
+
 
 ## Requisitos Funcionais
 
