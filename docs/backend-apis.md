@@ -103,32 +103,240 @@ Tecnologias utilizadas na implementação da solução:
 
 ## API Endpoints
 
-[Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
-
-### Endpoint 1
+- 1. Buscar Todos Agendamentos
 - Método: GET
-- URL: /endpoint1
-- Parâmetros:
-  - param1: [descrição]
-- Resposta:
+- URL: /agendamentos
+- Parâmetros: Nenhum
+Resposta:
+
   - Sucesso (200 OK)
-    ```
-    {
-      "message": "Success",
-      "data": {
-        ...
-      }
-    }
-    ```
+ ```
+{
+  "message": "Success",
+  "data": [ ... ]
+}
+  ```
   - Erro (4XX, 5XX)
+
+  ```
+{
+  "message": "Error",
+  "error": {
+
+  }
+}
+  ```
+
+- 3. Buscar Agendamento por Médico Responsável
+- Método: GET
+- URL: /agendamentos/{id}
+ - Parâmetros:
+- id: ID do médico responsável (inteiro)
+Resposta:
+
+  - Sucesso (200 OK)
+  ```
+  {
+  "message": "Success",
+  "data": { ... }
+  ]
+  ```
+  - Erro (422 Unprocessable Entity)
+
+ ```
+{
+  "message": "Error",
+  "error": "UmErroAqui"
+}
+  ```
+  - Erro (204 No Content)
+  ```
+{
+  "message": "No Content"
+}
+  ```
+
+- 4. Cadastrar Agendamento
+- Método: POST
+- URL: /agendamentos
+ - Parâmetros:
+- Corpo: AgendamentoModel
+Resposta:
+- Sucesso (201 Created)
+  ```
+  {
+  "message": "Created",
+  "data": { ... }
+  }
+  ```
+- Erro (400 Bad Request)
+  ```
+  {
+  "message": "Error",
+  "error": { ... }
+  }
     ```
-    {
-      "message": "Error",
-      "error": {
-        ...
-      }
-    }
+  
+- 5. Atualizar Data de Agendamento
+- Método: PUT
+- URL: /agendamentos/AtualizarData/{id}
+ - Parâmetros:
+- id: ID do agendamento (long)
+data: nova data (string, query)
+Resposta:
+
+- Sucesso (200 OK)
     ```
+  {
+  "message": "Success",
+  "data": { ... }
+  } 
+  ```
+- Erro (400 Bad Request)
+  ```
+  {
+  "message": "Error",
+  "error": { ... }
+  }
+  
+- 6. Deletar Agendamento
+- Método: DELETE
+- URL: /agendamentos/{id}
+ - Parâmetros:
+- id: ID do agendamento (inteiro)
+Resposta:
+- Sucesso (200 OK)
+  ```
+  {
+  "message": "Deleted"
+  }
+  
+- 7. Buscar Todos os Usuários
+- Método: GET
+- URL: /usuarios
+ - Parâmetros: Nenhum
+Resposta:
+
+- Sucesso (200 OK)
+  ```
+  {
+  "message": "Success",
+  "data": [ ... ]
+  }
+  
+- Erro (400 Bad Request)
+  ```
+  {
+  "message": "Error",
+  "error": { ... }
+  }
+  
+- 8. Adicionar Usuário
+- Método: POST
+- URL: /usuarios
+ - Parâmetros:
+- Corpo: UsuarioDto
+Resposta:
+- Sucesso (201 Created)
+  ```
+  {
+  "message": "Created",
+  "data": { ... }
+  }
+  
+- Erro (400 Bad Request)
+  ```
+  {
+  "message": "Error",
+  "error": { ... }
+  }
+  
+- 9. Buscar Usuário por ID
+- Método: GET
+- URL: /usuarios/{id}
+ - Parâmetros:
+- id: ID do usuário (inteiro)
+Resposta:
+
+- Sucesso (200 OK)
+  ```
+  {
+  "message": "Success",
+  "data": { ... }
+  }
+  
+- Erro (422 Unprocessable Entity)
+  ```
+  {
+  "message": "Error",
+  "error": "UmErroAqui"
+  }
+  
+- Erro (204 No Content)
+  ```
+  {
+  "message": "No Content"
+  }
+  
+- 10. Atualizar Usuário
+- Método: PUT
+- URL: /usuarios/{id}
+ - Parâmetros:
+- id: ID do usuário (long)
+Corpo: UsuarioDto
+Resposta:
+- Sucesso (200 OK)
+  ```
+  {
+  "message": "Success",
+  "data": { ... }
+  }
+  
+- Erro (422 Unprocessable Entity)
+  ```
+  {
+  "message": "Error",
+  "error": "UmErroAqui"
+  }
+  
+- Erro (400 Bad Request)
+  ```
+  {
+  "message": "Error",
+  "error": { ... }
+  }
+  
+- 11. Deletar Usuário
+- Método: DELETE
+- URL: /usuarios/{id}
+ - Parâmetros:
+- id: ID do usuário (inteiro)
+Resposta:
+- Sucesso (204 No Content)
+  ```
+  {
+  "message": "Deleted" 
+  }
+  
+- 12. Autenticar Usuário
+- Método: POST
+- URL: /usuarios/authenticate
+ - Parâmetros:
+- Corpo: AuthenticateDto
+Resposta:
+- Sucesso (200 OK)
+  ```
+  {
+  "jwtToken": "seu_token_jwt"
+  }
+  
+- Erro (401 Unauthorized)
+  ```
+  {
+  "message": "Unauthorized"
+  }
+
+
 
 
 ## Considerações de Segurança
