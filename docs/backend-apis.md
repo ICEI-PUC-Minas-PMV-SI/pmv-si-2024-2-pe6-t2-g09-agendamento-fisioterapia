@@ -11,14 +11,16 @@ Ao planejar a aplicação de APIs Web para o sistema de Davi Aburjeli, é import
 O nosso objetivo,utilizando essa API, é fornecer um sistema que seja capaz de realizar o gerenciamento de agendamentos e o gerenciamento de usuários.
 
 <div align="center">
- ***Gerenciamento de Agendamentos:***
+ <h4>Gerenciamento de Agendamentos:</h4>
 </div>
 -Permitir a criação, edição, visualização e exclusão de agendamentos.
 
 -Integrar notificações de lembrete para usuários sobre seus agendamentos.
 
+
+
 <div align="center">
-  ***Gerenciamento de Usuários:***
+ <h4>Gerenciamento de Usuários:</h4>
 </div>
 -Criar, editar e excluir perfis de usuários.
 
