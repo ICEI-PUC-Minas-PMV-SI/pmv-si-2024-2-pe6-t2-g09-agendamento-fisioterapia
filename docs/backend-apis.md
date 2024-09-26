@@ -107,7 +107,7 @@ Tecnologias utilizadas na implementação da solução:
 - Método: GET
 - URL: /agendamentos
 - Parâmetros: Nenhum
-Resposta:
+- Resposta:
 
   - Sucesso (200 OK)
  ```
@@ -127,12 +127,12 @@ Resposta:
 }
   ```
 
-- 3- Buscar Agendamento por Médico Responsável
+- 2- Buscar Agendamento por Médico Responsável
 - Método: GET
 - URL: /agendamentos/{id}
  - Parâmetros:
 - id: ID do médico responsável (inteiro)
-Resposta:
+- Resposta:
 
   - Sucesso (200 OK)
   ```
@@ -156,12 +156,12 @@ Resposta:
 }
   ```
 
-- 4- Cadastrar Agendamento
+- 5- Cadastrar Agendamento
 - Método: POST
 - URL: /agendamentos
  - Parâmetros:
 - Corpo: AgendamentoModel
-Resposta:
+-Resposta:
 - Sucesso (201 Created)
   ```
   {
@@ -177,13 +177,13 @@ Resposta:
   }
     ```
   
-- 5- Atualizar Data de Agendamento
+- 6- Atualizar Data de Agendamento
 - Método: PUT
 - URL: /agendamentos/AtualizarData/{id}
  - Parâmetros:
 - id: ID do agendamento (long)
-data: nova data (string, query)
-Resposta:
+-data: nova data (string, query)
+-Resposta:
 
 - Sucesso (200 OK)
     ```
@@ -199,23 +199,23 @@ Resposta:
   "error": { ... }
   }
   
-- 6- Deletar Agendamento
+- 7- Deletar Agendamento
 - Método: DELETE
 - URL: /agendamentos/{id}
  - Parâmetros:
 - id: ID do agendamento (inteiro)
-Resposta:
+-Resposta:
 - Sucesso (200 OK)
   ```
   {
   "message": "Deleted"
   }
   
-- 7- Buscar Todos os Usuários
+- 8- Buscar Todos os Usuários
 - Método: GET
 - URL: /usuarios
  - Parâmetros: Nenhum
-Resposta:
+-Resposta:
 
 - Sucesso (200 OK)
   ```
@@ -231,12 +231,12 @@ Resposta:
   "error": { ... }
   }
   
-- 8- Adicionar Usuário
+- 9- Adicionar Usuário
 - Método: POST
 - URL: /usuarios
  - Parâmetros:
 - Corpo: UsuarioDto
-Resposta:
+-Resposta:
 - Sucesso (201 Created)
   ```
   {
@@ -251,12 +251,12 @@ Resposta:
   "error": { ... }
   }
   
-- 9- Buscar Usuário por ID
+- 10- Buscar Usuário por ID
 - Método: GET
 - URL: /usuarios/{id}
  - Parâmetros:
 - id: ID do usuário (inteiro)
-Resposta:
+-Resposta:
 
 - Sucesso (200 OK)
   ```
@@ -278,13 +278,13 @@ Resposta:
   "message": "No Content"
   }
   
-- 10- Atualizar Usuário
+- 11- Atualizar Usuário
 - Método: PUT
 - URL: /usuarios/{id}
  - Parâmetros:
 - id: ID do usuário (long)
 Corpo: UsuarioDto
-Resposta:
+-Resposta:
 - Sucesso (200 OK)
   ```
   {
@@ -306,12 +306,12 @@ Resposta:
   "error": { ... }
   }
   
-- 11- Deletar Usuário
+- 12- Deletar Usuário
 - Método: DELETE
 - URL: /usuarios/{id}
  - Parâmetros:
 - id: ID do usuário (inteiro)
-Resposta:
+-Resposta:
 
 - Sucesso (204 No Content)
   ```
@@ -319,12 +319,12 @@ Resposta:
   "message": "Deleted" 
   }
   
-- 12- Autenticar Usuário
+- 13- Autenticar Usuário
 - Método: POST
 - URL: /usuarios/authenticate
  - Parâmetros:
 - Corpo: AuthenticateDto
-Resposta:
+-Resposta:
 - Sucesso (200 OK)
   ```
   {
