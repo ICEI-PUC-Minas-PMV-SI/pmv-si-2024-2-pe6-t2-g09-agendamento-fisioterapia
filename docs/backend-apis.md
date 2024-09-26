@@ -18,7 +18,10 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 A arquitetura monolítica da API de Agendamento de Fisioterapia centraliza funcionalidades como gerenciamento de usuários, agendamentos de consultas, autenticação e autorização em uma única aplicação. Utilizando verbos HTTP para comunicação, a API segue padrões REST, onde verbos como GET, POST, PUT e DELETE são usados para buscar, criar, atualizar e remover dados. As requisições e respostas trafegam em formato JSON, interagindo com o banco de dados através do EntityFramework, que traduz as operações HTTP em consultas e comandos SQL. Todo o ciclo de request e response ocorre dentro do mesmo ambiente de execução, garantindo eficiência na comunicação entre o backend e o banco de dados.
 
 <div align="center">
-<img src="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia/blob/main/docs/img/PUC_eixo06_fluxoApp03.jpeg" > </img>
+
+ 
+![image](https://github.com/user-attachments/assets/b9e7c06d-b288-46ce-b395-ad2f33ece0ef)
+
 
 
 <h6> Figura 01 - Arquitetura da API </h6>
