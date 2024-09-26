@@ -103,7 +103,7 @@ Tecnologias utilizadas na implementação da solução:
 
 ## API Endpoints
 
-- 1. Buscar Todos Agendamentos
+- 1- Buscar Todos Agendamentos
 - Método: GET
 - URL: /agendamentos
 - Parâmetros: Nenhum
@@ -127,7 +127,7 @@ Resposta:
 }
   ```
 
-- 3. Buscar Agendamento por Médico Responsável
+- 3- Buscar Agendamento por Médico Responsável
 - Método: GET
 - URL: /agendamentos/{id}
  - Parâmetros:
@@ -156,7 +156,7 @@ Resposta:
 }
   ```
 
-- 4. Cadastrar Agendamento
+- 4- Cadastrar Agendamento
 - Método: POST
 - URL: /agendamentos
  - Parâmetros:
@@ -177,7 +177,7 @@ Resposta:
   }
     ```
   
-- 5. Atualizar Data de Agendamento
+- 5- Atualizar Data de Agendamento
 - Método: PUT
 - URL: /agendamentos/AtualizarData/{id}
  - Parâmetros:
@@ -199,7 +199,7 @@ Resposta:
   "error": { ... }
   }
   
-- 6. Deletar Agendamento
+- 6- Deletar Agendamento
 - Método: DELETE
 - URL: /agendamentos/{id}
  - Parâmetros:
@@ -211,7 +211,7 @@ Resposta:
   "message": "Deleted"
   }
   
-- 7. Buscar Todos os Usuários
+- 7- Buscar Todos os Usuários
 - Método: GET
 - URL: /usuarios
  - Parâmetros: Nenhum
@@ -231,7 +231,7 @@ Resposta:
   "error": { ... }
   }
   
-- 8. Adicionar Usuário
+- 8- Adicionar Usuário
 - Método: POST
 - URL: /usuarios
  - Parâmetros:
@@ -251,7 +251,7 @@ Resposta:
   "error": { ... }
   }
   
-- 9. Buscar Usuário por ID
+- 9- Buscar Usuário por ID
 - Método: GET
 - URL: /usuarios/{id}
  - Parâmetros:
@@ -278,7 +278,7 @@ Resposta:
   "message": "No Content"
   }
   
-- 10. Atualizar Usuário
+- 10- Atualizar Usuário
 - Método: PUT
 - URL: /usuarios/{id}
  - Parâmetros:
@@ -306,19 +306,20 @@ Resposta:
   "error": { ... }
   }
   
-- 11. Deletar Usuário
+- 11- Deletar Usuário
 - Método: DELETE
 - URL: /usuarios/{id}
  - Parâmetros:
 - id: ID do usuário (inteiro)
 Resposta:
+
 - Sucesso (204 No Content)
   ```
   {
   "message": "Deleted" 
   }
   
-- 12. Autenticar Usuário
+- 12- Autenticar Usuário
 - Método: POST
 - URL: /usuarios/authenticate
  - Parâmetros:
