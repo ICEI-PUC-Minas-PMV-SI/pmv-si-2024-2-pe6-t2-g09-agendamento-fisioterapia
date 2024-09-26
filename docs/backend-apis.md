@@ -283,7 +283,7 @@ Tecnologias utilizadas na implementação da solução:
 - URL: /usuarios/{id}
  - Parâmetros:
 - id: ID do usuário (long)
-Corpo: UsuarioDto
+-Corpo: UsuarioDto
 -Resposta:
 - Sucesso (200 OK)
   ```
