@@ -359,7 +359,7 @@ A aplicação implementa várias considerações de segurança essenciais para p
 Os testes realizados utilizaram estratégias de testes unitários, usando métodos da classe de serviço. Através dessa abordagem, garantimos que cada método funcionasse corretamente de forma independente.
 Além dos testes unitários, foram utilizadas ferramentas como Postman/Insomnia para realizar testes manuais na API. Testes foram feitos para verificar as requisições HTTP, como POST, GET, PUT e DELETE, diretamente no código, observando o comportamento da aplicação em tempo real e a comunicação correta entre as camadas da API."
 
-## Casos de Teste
+ <h4>Casos de Teste:</h4>
 
 
 Caso de Teste 1: Adicionar Agendamento com Sucesso
