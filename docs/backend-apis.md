@@ -19,8 +19,8 @@ A arquitetura monolítica da API de Agendamento de Fisioterapia centraliza funci
 
 <div align="center">
 
- 
-![image](https://github.com/user-attachments/assets/b9e7c06d-b288-46ce-b395-ad2f33ece0ef)
+ ![image](https://github.com/user-attachments/assets/74640a19-1b20-498d-a88a-9e1aee616d64)
+
 
 
 
@@ -44,7 +44,7 @@ O modelo relacional da API de Agendamento de Fisioterapia define duas entidades 
 
 ## Fluxo de Dados
 <div align="center">
-![image](https://github.com/user-attachments/assets/0c9378f9-fbb5-42d8-bbb0-606cd34532b0)
+![image](https://github.com/user-attachments/assets/b9e7c06d-b288-46ce-b395-ad2f33ece0ef)
  <h6> Figura 03 - Fluxo de Dados </h6>
 </div>  
 
