@@ -8,9 +8,20 @@ Ao planejar a aplicação de APIs Web para o sistema de Davi Aburjeli, é import
 
 ## Objetivos da API
 
-O primeiro passo é definir os objetivos da sua API. O que você espera alcançar com ela? Você quer que ela seja usada por clientes externos ou apenas por aplicações internas? Quais são os recursos que a API deve fornecer?
+Objetivos da API
 
-[Inclua os objetivos da sua api.]
+O nosso objetivo,utilizando essa API, é fornecer um sistema que seja capaz de realizar o gerenciamento de agendamentos e o gerenciamento de usuários.
+
+Gerenciamento de Agendamentos:
+
+-Permitir a criação, edição, visualização e exclusão de agendamentos.
+-Integrar notificações de lembrete para usuários sobre seus agendamentos.
+
+Gerenciamento de Usuários:
+
+-Criar, editar e excluir perfis de usuários.
+-Implementar autenticação e autorização para garantir que apenas usuários autorizados possam acessar funcionalidades específicas.
+-Permitir a recuperação de senhas e o gerenciamento de informações de contato.
 
 
 ## Arquitetura
