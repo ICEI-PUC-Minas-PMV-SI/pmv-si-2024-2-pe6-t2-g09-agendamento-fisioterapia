@@ -23,7 +23,6 @@ O nosso objetivo,utilizando essa API, é fornecer um sistema que seja capaz de r
 -Criar, editar e excluir perfis de usuários.
 
 -Implementar autenticação e autorização para garantir que apenas usuários autorizados possam acessar funcionalidades específicas.
-
 -Permitir a recuperação de senhas e o gerenciamento de informações de contato.
 
 
