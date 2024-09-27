@@ -401,8 +401,7 @@ Dado que um agendamento  inválido é fornecido para deleção
 Quando o repositório de agendamentos retorna falha na operação de deleção
 Então uma mensagem de falha deve ser retornada pelo método
 
-Cenário de teste 9: Autenticar usuário com sucesso
-
+Cenário de teste 9: Autenticar usuário com sucesso<br>
 Dado que um conjunto de credenciais válidas é fornecido
 Quando o serviço de autenticação retorna sucesso na operação de autenticação
 Então o método deve retornar um token de autenticação válido e uma resposta de sucesso
