@@ -451,32 +451,22 @@ Dado que não há usuários cadastrados ou o repositório falha
 Quando o repositório de usuários falha na operação de busca  
 Então uma mensagem de falha deve ser retornada pelo método  
 
-**Cenário de teste 19: Atualizar data de agendamento com sucesso**  
-Dado que um ID de agendamento válido e uma nova data válida são fornecidos  
-Quando o repositório de agendamento retorna sucesso na operação de atualização  
-Então o método deve retornar uma resposta de sucesso contendo o agendamento atualizado com a nova data  
-
-**Cenário de teste 20: Atualizar data de agendamento com falha**  
-Dado que um ID de agendamento inválido ou uma nova data inválida são fornecidos  
-Quando o repositório de agendamento falha na operação de atualização  
-Então uma mensagem de falha deve ser retornada pelo método  
-
-**Cenário de teste 21: Buscar agendamento por médico com sucesso**  
+**Cenário de teste 19: Buscar agendamento por médico com sucesso**  
 Dado que o email do médico responsável válido é fornecido  
 Quando o repositório de agendamento retorna sucesso na operação de busca  
 Então o método deve retornar uma lista de agendamentos relacionados ao médico fornecido  
 
-**Cenário de teste 22: Buscar agendamento por médico com falha**  
+**Cenário de teste 20: Buscar agendamento por médico com falha**  
 Dado que o email do médico responsável inválido é fornecido  
 Quando o repositório de agendamento falha na operação de busca  
 Então uma mensagem de falha deve ser retornada pelo método  
 
-**Cenário de teste 23: Buscar todos os agendamentos com sucesso**  
+**Cenário de teste 21: Buscar todos os agendamentos com sucesso**  
 Dado que existem agendamentos cadastrados  
 Quando o repositório de agendamento retorna sucesso na operação de busca  
 Então o método deve retornar uma lista de todos os agendamentos cadastrados  
 
-**Cenário de teste 24: Buscar todos os agendamentos com falha**  
+**Cenário de teste 22: Buscar todos os agendamentos com falha**  
 Dado que não há agendamentos cadastrados ou o repositório falha  
 Quando o repositório de agendamento falha na operação de busca  
 Então uma mensagem de falha deve ser retornada pelo método
