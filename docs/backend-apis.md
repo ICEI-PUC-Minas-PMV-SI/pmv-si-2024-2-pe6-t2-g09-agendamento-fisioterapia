@@ -353,7 +353,12 @@ Armazenamento SSD de no mínimo 500 GB
 Conexão de rede de alta velocidade
 
 **Requisitos necessários de Software:**
+
 Servidor de banco de dados SQLServer
+Servidor web
+Ambiente de execução: C# e .NET Core
+Windows
+
 Servidor web
 Ambiente de execução: C# e .NET Core
 Windows
