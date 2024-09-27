@@ -359,127 +359,128 @@ A aplicação implementa várias considerações de segurança essenciais para p
 Os testes realizados utilizaram estratégias de testes unitários, usando métodos da classe de serviço. Através dessa abordagem, garantimos que cada método funcionasse corretamente de forma independente.
 Além dos testes unitários, foram utilizadas ferramentas como Postman/Insomnia para realizar testes manuais na API. Testes foram feitos para verificar as requisições HTTP, como POST, GET, PUT e DELETE, diretamente no código, observando o comportamento da aplicação em tempo real e a comunicação correta entre as camadas da API."
 
- <h4>Casos de Teste:</h4>
+<h4>Casos de Teste:</h4>
+ 
+**Cenário de teste 1: Adicionar agendamento com sucesso**  
+Dado que um agendamento válido é fornecido  
+Quando o repositório de agendamento retorna sucesso na operação de adição de agendamento  
+Então o método deve retornar uma resposta de sucesso contendo o agendamento criado  
 
-Cenário de teste 1: Adicionar agendamento com sucesso 
-Dado que um agendamento válido é fornecido
-Quando o repositório de agendamento retorna sucesso na operação de adição de agendamento 
-Então o método deve retornar uma resposta de sucesso contendo o agendamento criado 
+**Cenário de teste 2: Adicionar agendamento inválido**  
+Dado que um agendamento inválido é fornecido  
+Quando o repositório de agendamento falha na operação de adição  
+Então uma mensagem de falha deve ser retornada pelo método  
 
-Cenário de teste 2: Adicionar agendamento inválido
-Dado que um agendamento inválido é fornecido
-Quando o repositório de agendamento falha na operação de adição
-Então uma mensagem de falha deve ser retornada pelo método 
+**Cenário de teste 3: Adicionar usuário com sucesso**  
+Dado que um usuário válido é fornecido  
+Quando o repositório de usuários retorna sucesso na operação de adição de usuário  
+Então o método deve retornar uma resposta de sucesso contendo o usuário criado  
 
-Cenário de teste 3: Adicionar usuário com sucesso
-Dado que um usuário válido é fornecido
-Quando o repositório de usuários retorna sucesso na operação de adição de usuário
-Então o método deve retornar uma resposta de sucesso contendo o usuário criado
+**Cenário de teste 4: Adicionar usuário inválido**  
+Dado que um usuário inválido é fornecido  
+Quando o repositório de usuários falha na operação de adição  
+Então uma mensagem de falha deve ser retornada pelo método  
 
-Cenário de teste 4: Adicionar usuário inválido
-Dado que um usuário inválido é fornecido
-Quando o repositório de usuários falha na operação de adição
+**Cenário de teste 5: Deletar usuário com sucesso**  
+Dado que um usuário válido é fornecido para deleção  
+Quando o repositório de usuários retorna sucesso na operação de deleção  
+Então o método deve retornar uma resposta de sucesso confirmando a deleção do usuário  
+
+**Cenário de teste 6: Deletar usuário inválido**  
+Dado que um usuário inválido é fornecido para deleção  
+Quando o repositório de usuários falha na operação de deleção  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 7: Deletar agendamento com sucesso**  
+Dado que um agendamento válido é fornecido para deleção  
+Quando o repositório de agendamentos retorna sucesso na operação de deleção  
+Então o método deve retornar uma resposta de sucesso confirmando a deleção do agendamento  
+
+**Cenário de teste 8: Deletar agendamento inválido**  
+Dado que um agendamento inválido é fornecido para deleção  
+Quando o repositório de agendamentos retorna falha na operação de deleção  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 9: Autenticar usuário com sucesso**  
+Dado que um conjunto de credenciais válidas é fornecido  
+Quando o serviço de autenticação retorna sucesso na operação de autenticação  
+Então o método deve retornar um token de autenticação válido e uma resposta de sucesso  
+
+**Cenário de teste 10: Autenticar usuário com falha**  
+Dado que credenciais inválidas são fornecidas  
+Quando o serviço de autenticação falha na operação de autenticação  
+Então uma mensagem de falha de autenticação deve ser retornada pelo método  
+
+**Cenário de teste 11: Atualizar usuário com sucesso**  
+Dado que um usuário válido e as informações atualizadas são fornecidas  
+Quando o repositório de usuários retorna sucesso na operação de atualização  
+Então o método deve retornar uma resposta de sucesso contendo os dados do usuário atualizado  
+
+**Cenário de teste 12: Atualizar usuário com falha**  
+Dado que um usuário inválido ou dados inválidos são fornecidos  
+Quando o repositório de usuários falha na operação de atualização  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 13: Atualizar data de agendamento com sucesso**  
+Dado que um ID de agendamento válido e uma nova data válida são fornecidos  
+Quando o repositório de agendamento retorna sucesso na operação de atualização  
+Então o método deve retornar uma resposta de sucesso contendo o agendamento atualizado com a nova data  
+
+**Cenário de teste 14: Atualizar data de agendamento com falha**  
+Dado que um ID de agendamento inválido ou uma nova data inválida são fornecidos  
+Quando o repositório de agendamento falha na operação de atualização  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 15: Buscar usuário por ID com sucesso**  
+Dado que um ID de usuário válido é fornecido  
+Quando o repositório de usuários retorna o usuário correspondente  
+Então o método deve retornar os dados do usuário encontrado  
+
+**Cenário de teste 16: Buscar usuário por ID com falha**  
+Dado que um ID de usuário inválido é fornecido  
+Quando o repositório de usuários não encontra o usuário correspondente  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 17: Buscar todos os usuários com sucesso**  
+Dado que existem usuários cadastrados  
+Quando o repositório de usuários retorna sucesso na operação de busca  
+Então o método deve retornar uma lista de todos os usuários cadastrados  
+
+**Cenário de teste 18: Buscar todos os usuários com falha**  
+Dado que não há usuários cadastrados ou o repositório falha  
+Quando o repositório de usuários falha na operação de busca  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 19: Atualizar data de agendamento com sucesso**  
+Dado que um ID de agendamento válido e uma nova data válida são fornecidos  
+Quando o repositório de agendamento retorna sucesso na operação de atualização  
+Então o método deve retornar uma resposta de sucesso contendo o agendamento atualizado com a nova data  
+
+**Cenário de teste 20: Atualizar data de agendamento com falha**  
+Dado que um ID de agendamento inválido ou uma nova data inválida são fornecidos  
+Quando o repositório de agendamento falha na operação de atualização  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 21: Buscar agendamento por médico com sucesso**  
+Dado que o email do médico responsável válido é fornecido  
+Quando o repositório de agendamento retorna sucesso na operação de busca  
+Então o método deve retornar uma lista de agendamentos relacionados ao médico fornecido  
+
+**Cenário de teste 22: Buscar agendamento por médico com falha**  
+Dado que o email do médico responsável inválido é fornecido  
+Quando o repositório de agendamento falha na operação de busca  
+Então uma mensagem de falha deve ser retornada pelo método  
+
+**Cenário de teste 23: Buscar todos os agendamentos com sucesso**  
+Dado que existem agendamentos cadastrados  
+Quando o repositório de agendamento retorna sucesso na operação de busca  
+Então o método deve retornar uma lista de todos os agendamentos cadastrados  
+
+**Cenário de teste 24: Buscar todos os agendamentos com falha**  
+Dado que não há agendamentos cadastrados ou o repositório falha  
+Quando o repositório de agendamento falha na operação de busca  
 Então uma mensagem de falha deve ser retornada pelo método
 
-Cenário de teste 5: Deletar usuário com sucesso
-Dado que um usuário válido é fornecido para deleção
-Quando o repositório de usuários retorna sucesso na operação de deleção
-Então o método deve retornar uma resposta de sucesso confirmando a deleção do usuário
-
-Cenário de teste 6: Deletar usuário inválido
-Dado que um usuário inválido é fornecido para deleção
-Quando o repositório de usuários falha na operação de deleção
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 7: Deletar agendamento com sucesso
-Dado que um agendamento válido é fornecido para deleção
-Quando o repositório de agendamentos retorna sucesso na operação de deleção
-Então o método deve retornar uma resposta de sucesso confirmando a deleção do agendamento
-
-Cenário de teste 8: Deletar agendamento inválido
-Dado que um agendamento  inválido é fornecido para deleção
-Quando o repositório de agendamentos retorna falha na operação de deleção
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 9: Autenticar usuário com sucesso<br>
-Dado que um conjunto de credenciais válidas é fornecido
-Quando o serviço de autenticação retorna sucesso na operação de autenticação
-Então o método deve retornar um token de autenticação válido e uma resposta de sucesso
-
-Cenário de teste 10: Autenticar usuário com falha
-Dado que credenciais inválidas são fornecidas
-Quando o serviço de autenticação falha na operação de autenticação
-Então uma mensagem de falha de autenticação deve ser retornada pelo método
-
-Cenário de teste 11: Atualizar usuário com sucesso
-Dado que um usuário válido e as informações atualizadas são fornecidas
-Quando o repositório de usuários retorna sucesso na operação de atualização
-Então o método deve retornar uma resposta de sucesso contendo os dados do usuário atualizado
-
-Cenário de teste 12: Atualizar usuário com falha
-Dado que um usuário inválido ou dados inválidos são fornecidos
-Quando o repositório de usuários falha na operação de atualização
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 13: Atualizar data de agendamento com sucesso
-Dado que um ID de agendamento válido e uma nova data válida são fornecidos
-Quando o repositório de agendamento retorna sucesso na operação de atualização
-Então o método deve retornar uma resposta de sucesso contendo o agendamento atualizado com a nova data
-
-Cenário de teste 14: Atualizar data de agendamento com falha
-Dado que um ID de agendamento inválido ou uma nova data inválida são fornecidos
-Quando o repositório de agendamento falha na operação de atualização
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 15: Buscar usuário por ID com sucesso
-Dado que um ID de usuário válido é fornecido
-Quando o repositório de usuários retorna o usuário correspondente
-Então o método deve retornar os dados do usuário encontrado
-
-Cenário de teste 16: Buscar usuário por ID com falha
-Dado que um ID de usuário inválido é fornecido
-Quando o repositório de usuários não encontra o usuário correspondente
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 17: Buscar todos os usuários com sucesso
-Dado que existem usuários cadastrados
-Quando o repositório de usuários retorna sucesso na operação de busca
-Então o método deve retornar uma lista de todos os usuários cadastrados
-
-Cenário de teste 18: Buscar todos os usuários com falha
-Dado que não há usuários cadastrados ou o repositório falha
-Quando o repositório de usuários falha na operação de busca
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 19: Atualizar data de agendamento com sucesso
-Dado que um ID de agendamento válido e uma nova data válida são fornecidos
-Quando o repositório de agendamento retorna sucesso na operação de atualização
-Então o método deve retornar uma resposta de sucesso contendo o agendamento atualizado com a nova data
-
-Cenário de teste 20: Atualizar data de agendamento com falha
-Dado que um ID de agendamento inválido ou uma nova data inválida são fornecidos
-Quando o repositório de agendamento falha na operação de atualização
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 21: Buscar agendamento por médico com sucesso
-Dado que o email do médico responsável válido é fornecido
-Quando o repositório de agendamento retorna sucesso na operação de busca
-Então o método deve retornar uma lista de agendamentos relacionados ao médico fornecido
-
-Cenário de teste 22: Buscar agendamento por médico com falha
-Dado que o email do médico responsável inválido é fornecido
-Quando o repositório de agendamento falha na operação de busca
-Então uma mensagem de falha deve ser retornada pelo método
-
-Cenário de teste 23: Buscar todos os agendamentos com sucesso
-Dado que existem agendamentos cadastrados
-Quando o repositório de agendamento retorna sucesso na operação de busca
-Então o método deve retornar uma lista de todos os agendamentos cadastrados
-
-Cenário de teste 24: Buscar todos os agendamentos com falha
-Dado que não há agendamentos cadastrados ou o repositório falha
-Quando o repositório de agendamento falha na operação de busca
-Então uma mensagem de falha deve ser retornada pelo método
 
 # Referências
 
