@@ -383,9 +383,11 @@ Instalar Git (https://git-scm.com/downloads);
 Criar Database Engine com SQL Server (https://learn.microsoft.com/en-us/sql/relational-databases/database-engine-tutorials?view=sql-server-ver16).
 
 
-**Rodando no Ambiente**
 
-Clonar repositório do projeto em ambiente local;
+
+**Executando no Ambiente**
+
+Clonar repositório do projeto em ambiente local;  
 git clone https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia.git
 
 Abrir a aplicação no Visual Studio;
