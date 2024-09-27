@@ -346,12 +346,15 @@ A aplicação implementa várias considerações de segurança essenciais para p
 
 ## Implantação
 
-<h4>Requisitos necessários de Hardware:</h4>
+**Requisitos necessários de Hardware:**
 
-CPU de 4 núcleos ou mais
-Memória RAM no minimo 16 GB
-Armazenamento SSD de no mínimo 500 GB
-Conexão de rede de alta velocidade
+-CPU de 4 núcleos ou mais
+
+-Memória RAM no minimo 16 GB
+
+-Armazenamento SSD de no mínimo 500 GB
+
+-Conexão de rede de alta velocidade
 
 **Requisitos necessários de Software:**
 
