@@ -347,6 +347,7 @@ A aplicação implementa várias considerações de segurança essenciais para p
 ## Implantação
 
 **Requisitos necessários de Hardware:**
+
 CPU de 4 núcleos ou mais
 Memória RAM no minimo 16 GB
 Armazenamento SSD de no mínimo 500 GB
@@ -359,9 +360,6 @@ Servidor web
 Ambiente de execução: C# e .NET Core
 Windows
 
-Servidor web
-Ambiente de execução: C# e .NET Core
-Windows
 
 2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
 3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
