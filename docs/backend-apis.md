@@ -346,9 +346,18 @@ A aplicação implementa várias considerações de segurança essenciais para p
 
 ## Implantação
 
-[Instruções para implantar a aplicação distribuída em um ambiente de produção.]
+# Requisitos necessários de Hardware:
+CPU de 4 núcleos ou mais
+Memória RAM no minimo 16 GB
+Armazenamento SSD de no mínimo 500 GB
+Conexão de rede de alta velocidade
 
-1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
+# Requisitos necessários de Software:
+Servidor de banco de dados SQLServer
+Servidor web
+Ambiente de execução: C# e .NET Core
+Windows
+
 2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
 3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
 4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
