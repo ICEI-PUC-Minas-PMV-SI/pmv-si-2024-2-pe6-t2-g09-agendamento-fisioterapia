@@ -392,7 +392,9 @@ Abrir a aplicação no Visual Studio;
 Configurar conexão com o banco no appsettings.json. Substituir parâmetro "Server" em "DefaultConnection" para o servidor do SQL Server criado anteriormente;
 
 Executar migrações para o banco de dados, abrir Console de Gerenciamento de Pacotes (Ferramenteas > Gerenciador de Pacotes NuGet > Console de Gerenciamento de Pacotes) e rodar os comandos:
+
 *Add-Migration InitialCreate*
+
 *Update-Database*
 
 Rodar o projeto pelo botão iniciar no Visual Studio (Ctrl+F5);
