@@ -370,7 +370,7 @@ A aplicação implementa várias considerações de segurança essenciais para p
 
 -Windows
 
-**Preparando ambiente**
+**Preparando o ambiente**
 
 Instalar .NET8.0 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0);
 
@@ -382,7 +382,8 @@ Instalar Git (https://git-scm.com/downloads);
 
 Criar Database Engine com SQL Server (https://learn.microsoft.com/en-us/sql/relational-databases/database-engine-tutorials?view=sql-server-ver16).
 
-**Rodando ambiente**
+
+**Rodando no Ambiente**
 
 Clonar repositório do projeto em ambiente local;
 git clone https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia.git
