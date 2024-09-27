@@ -353,8 +353,11 @@ A aplicação implementa várias considerações de segurança essenciais para p
 **Requisitos necessários de Hardware:**
 
 -CPU de 4 núcleos ou mais
+
 -Memória RAM no minimo 16 GB
+
 -Armazenamento SSD de no mínimo 500 GB
+
 -Conexão de rede de alta velocidade
 
 **Requisitos necessários de Software:**
@@ -366,6 +369,26 @@ A aplicação implementa várias considerações de segurança essenciais para p
 -Ambiente de execução: C# e .NET Core
 
 -Windows
+
+**Preparando ambiente**
+
+Instalar .NET8.0 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0);
+Instalar SQL Server 2022 (https://www.microsoft.com/en-us/sql-server/sql-server-downloads);
+instalar Visual Studio (https://visualstudio.microsoft.com/downloads/);
+Instalar Git (https://git-scm.com/downloads);
+Criar Database Engine com SQL Server (https://learn.microsoft.com/en-us/sql/relational-databases/database-engine-tutorials?view=sql-server-ver16).
+
+**Rodando ambiente**
+
+Clonar repositório do projeto em ambiente local;
+git clone https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia.git
+Abrir a solução no Visual Studio;
+Configurar conexão com o banco no appsettings.json. Substituir parâmetro "Server" em "DefaultConnection" para o servidor do SQL Server criado anteriormente;
+Executar migrações para o banco de dados, abrir Console de Gerenciamento de Pacotes (Ferramenteas > Gerenciador de Pacotes NuGet > Console de Gerenciamento de Pacotes) e rodar os comandos:
+Add-Migration InitialCreate
+Update-Database
+Rodar o projeto pelo botão iniciar no Visual Studio (Ctrl+F5);
+Acessar Swagger do projeto em: https://localhost:5000/swagger.
 
 **Plataforma de Hopedagem:**
 
