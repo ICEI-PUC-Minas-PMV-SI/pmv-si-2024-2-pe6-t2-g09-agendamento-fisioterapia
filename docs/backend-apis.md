@@ -346,7 +346,7 @@ A aplicação implementa várias considerações de segurança essenciais para p
 
 ## Implantação
 
-**Requisitos necessários de Hardware:**
+<h4>**Requisitos necessários de Hardware:**</h4>
 
 CPU de 4 núcleos ou mais
 Memória RAM no minimo 16 GB
