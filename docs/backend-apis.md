@@ -414,6 +414,27 @@ Os testes realizados utilizaram estratégias de testes unitários, usando métod
 Além dos testes unitários, foram utilizadas ferramentas como Postman/Insomnia para realizar testes manuais na API. Testes foram feitos para verificar as requisições HTTP, como POST, GET, PUT e DELETE, diretamente no código, observando o comportamento da aplicação em tempo real e a comunicação correta entre as camadas da API."
 
 <h4>Casos de Teste:</h4>
+
+
+![image](https://github.com/user-attachments/assets/ad4d3dc9-8dd9-4bf0-b188-45038bc0f030)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 **Cenário de teste 1: Adicionar agendamento com sucesso**  
 Dado que um agendamento válido é fornecido  
