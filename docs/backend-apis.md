@@ -447,6 +447,7 @@ GET:
 ![Imagem do WhatsApp de 2024-09-29 à(s) 17 28 18_a4e1aaf9](https://github.com/user-attachments/assets/3bfef136-b851-4598-9437-a9a8eec5d207)
 
 PUT: 
+
 ![Imagem do WhatsApp de 2024-09-29 à(s) 17 29 06_cb51f8e5](https://github.com/user-attachments/assets/64d2c583-b611-4650-adc1-5a0c0e124b89)
 
 
