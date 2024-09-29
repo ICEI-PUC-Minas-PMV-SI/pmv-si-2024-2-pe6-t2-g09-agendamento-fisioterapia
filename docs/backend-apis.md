@@ -413,10 +413,6 @@ Será realizada a implantação na plataforma do Heroku e para configuração do
 
 Foram realizados testes de validação da API que conforme as imagens abaixo pode se observar o retorno de acordo com a solicitação dos métodos GET/PUT/POST/DELETE que validam a funcionalidade dos mesmos.
 
-Dessa forma consta-se abaixo os prints dos testes da funcionalidade USUARIO :
-
-POST
-![image](https://github.com/user-attachments/assets/ad4d3dc9-8dd9-4bf0-b188-45038bc0f030)
 
 
 Consta-se abaixo os prints dos testes da funcionalidade AGENDAMENTO:
@@ -436,6 +432,15 @@ POST
 
 
 
+Dessa forma consta-se abaixo os prints dos testes da funcionalidade USUARIO :
+
+POST
+![image](https://github.com/user-attachments/assets/ad4d3dc9-8dd9-4bf0-b188-45038bc0f030)
+
+Os testes de GET e DELETE não foram realizados com sucesso pois ouve um erro de autenticação com o JWT Token
+![Imagem do WhatsApp de 2024-09-29 à(s) 17 05 42_92ab74d4](https://github.com/user-attachments/assets/e226a693-c5f7-4e21-9a78-99dc94be1fab)
+
+![Uploading image.png…]()
 
 
 
