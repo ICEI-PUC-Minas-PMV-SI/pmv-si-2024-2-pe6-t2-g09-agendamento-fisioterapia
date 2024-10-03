@@ -435,20 +435,23 @@ POST
 Dessa forma consta-se abaixo os prints dos testes da funcionalidade USUARIO :
 
 POST
-![image](https://github.com/user-attachments/assets/ad4d3dc9-8dd9-4bf0-b188-45038bc0f030)
+![image](https://github.com/user-attachments/assets/cc97f14d-b66d-47cc-aa00-a16452128d57)
 
-Os testes de GET e DELETE não foram realizados com sucesso pois ouve um erro de autenticação com o JWT Token
-![Imagem do WhatsApp de 2024-09-29 à(s) 17 05 42_92ab74d4](https://github.com/user-attachments/assets/e226a693-c5f7-4e21-9a78-99dc94be1fab)
+POST Authenticate:
+![image](https://github.com/user-attachments/assets/9e25b4c5-4e78-4264-b2ef-32bbcf17f0d4)
+
 
 DELETE:
-![Imagem do WhatsApp de 2024-09-29 à(s) 17 30 09_aa31803d](https://github.com/user-attachments/assets/014a94c3-9058-4834-a711-b09181a44abc)
+![image](https://github.com/user-attachments/assets/97245e7e-6169-49d5-b6c8-5b3f4aa64b5d)
 
 GET: 
-![Imagem do WhatsApp de 2024-09-29 à(s) 17 28 18_a4e1aaf9](https://github.com/user-attachments/assets/3bfef136-b851-4598-9437-a9a8eec5d207)
+![image](https://github.com/user-attachments/assets/ab5c8e60-b547-4c57-a6cf-510e6bb43589)
+
 
 PUT: 
 
-![Imagem do WhatsApp de 2024-09-29 à(s) 17 29 06_cb51f8e5](https://github.com/user-attachments/assets/64d2c583-b611-4650-adc1-5a0c0e124b89)
+![image](https://github.com/user-attachments/assets/16db116f-d4cf-499c-b9b2-cd179e9e84d7)
+
 
 
 
