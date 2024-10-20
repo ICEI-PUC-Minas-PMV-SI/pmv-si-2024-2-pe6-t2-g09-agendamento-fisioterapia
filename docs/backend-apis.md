@@ -413,7 +413,82 @@ Será realizada a implantação na plataforma do Heroku e para configuração do
 
 Foram realizados testes de validação da API que conforme as imagens abaixo pode se observar o retorno de acordo com a solicitação dos métodos GET/PUT/POST/DELETE que validam a funcionalidade dos mesmos.
 
+Casos de teste AGENDAMENTO: 
 
+ Cenário: Consultar um agendamento existente
+ Dado que estou  na aplicação
+ E existe um agendamento com o ID "123"
+ Quando faço uma requisição GET para "/agendamentos/123"
+ Então devo receber o status 200
+ E o corpo da resposta deve ter os dados do agendamento com o ID "123"
+
+Criar um novo agendamento: 
+Dado que estou na aplicação
+E forneço os dados válidos para o novo agendamento
+Quando faço uma requisição POST para "/agendamentos"
+Então devo receber o status 201
+E o corpo da resposta deve ter os dados do novo agendamento criado
+
+
+Cenário: Excluir um agendamento existente
+Dado que estou na aplicação
+E existe um agendamento com o ID "123"
+Quando faço uma requisição DELETE para "/agendamentos/123"
+Então devo receber o status 200
+E uma mensagem confirmando que o agendamento foi excluído
+
+Cenário: Atualizar um agendamento existente com POST
+Dado que estou na aplicação
+E existe um agendamento com o ID "123"
+E forneço novos dados válidos para esse agendamento
+Quando faço uma requisição POST para "/agendamentos/123"
+Então devo receber o status 200
+E o corpo da resposta deve ter os dados atualizados do agendamento
+
+Casos de teste USUARIO: 
+
+ Cenário: Criar um novo usuário
+ Dado que estou na aplicação
+ E forneço dados válidos para o novo usuário
+ Quando faço uma requisição POST para "/usuario"
+ Então devo receber o status 201
+ E o corpo da resposta deve ter os dados do novo usuário criado
+
+Cenário: Consultar um usuário existente
+Dado que estou autenticado na aplicação
+E existe um usuário com o ID "123"
+Quando faço uma requisição GET para "/usuario/123"
+Então devo receber o status 200
+E o corpo da resposta deve ter os dados do usuário com o ID "123"
+
+Cenário: Atualizar um usuário existente
+Dado que estou autenticado na aplicação
+E existe um usuário com o ID "123"
+E forneço novos dados válidos para esse usuário
+Quando faço uma requisição PUT para "/usuario/123"
+Então devo receber o status 200
+E o corpo da resposta deve ter os dados atualizados do usuário
+
+Cenário: Autenticar um usuário com sucesso
+Dado que forneço um ID e senha válidos
+Quando faço uma requisição POST para "/usuario/authenticate"
+Então devo receber o status 200
+E o corpo da resposta deve conter um token de autenticação
+
+Cenário: Listar todos os usuários
+Dado que estou autenticado na aplicação
+Quando faço uma requisição GET para "/usuario"
+Então devo receber o status 200
+E o corpo da resposta deve conter uma lista de todos os usuários
+
+Cenário: Excluir um usuário existente
+Dado que estou autenticado na aplicação
+E existe um usuário com o ID "123"
+Quando faço uma requisição DELETE para "/usuarios/123"
+Então devo receber o status 200
+E uma mensagem confirmando que o usuário foi excluído
+
+Evidência de Teste: 
 
 Consta-se abaixo os prints dos testes da funcionalidade AGENDAMENTO:
 
