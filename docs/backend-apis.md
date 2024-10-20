@@ -484,11 +484,11 @@ Foram realizados testes de validação da API que conforme as imagens abaixo pod
 - **E** o corpo da resposta deve conter uma lista de todos os usuários
 
 ### Cenário: Excluir um usuário existente
-- **Dado** que estou autenticado na aplicação
-- **E** existe um usuário com o ID "123"
-- **Quando** faço uma requisição DELETE para "/usuarios/123"
-- **Então** devo receber o status 200
-- **E** uma mensagem confirmando que o usuário foi excluído
+ **Dado** que estou autenticado na aplicação
+ **E** existe um usuário com o ID "123"
+ **Quando** faço uma requisição DELETE para "/usuarios/123"
+ **Então** devo receber o status 200
+ **E** uma mensagem confirmando que o usuário foi excluído
 
 
 
