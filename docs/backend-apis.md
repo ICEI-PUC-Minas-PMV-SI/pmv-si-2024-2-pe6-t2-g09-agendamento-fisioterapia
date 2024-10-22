@@ -362,13 +362,13 @@ A aplicação implementa várias considerações de segurança essenciais para p
 
 **Requisitos necessários de Software:**
 
--Servidor de banco de dados SQLServer
+- Servidor de banco de dados SQLServer
 
--Servidor web
+- Servidor web
 
--Ambiente de execução: C# e .NET Core
+- Ambiente de execução: C# e .NET Core
 
--Windows
+- Windows
 
 **Preparando o ambiente**
 
