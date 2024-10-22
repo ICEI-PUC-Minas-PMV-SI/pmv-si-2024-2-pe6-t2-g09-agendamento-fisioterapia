@@ -60,8 +60,6 @@ https://github.com/Allandpn/PUCMInas-Eixo06
 
 ## Implantação
 
-**Requisitos necessários de Hardware e Software:**
-
 - CPU de 4 núcleos ou mais
 - Memória RAM no mínimo 16 GB
 - Armazenato SSD de no mínimo 500GB
