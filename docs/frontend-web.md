@@ -60,12 +60,20 @@ https://github.com/Allandpn/PUCMInas-Eixo06
 
 ## Implantação
 
-[Instruções para implantar a aplicação distribuída em um ambiente de produção.]
+**Requisitos necessários de Hardware e Software:**
 
 - CPU de 4 núcleos ou mais
 - Memória RAM no mínimo 16 GB
 - Armazenato SSD de no mínimo 500GB
 - Conexão de rede de alta velocidade
+
+- Servidor de banco de dados SQLServer
+- Servidor web
+- Ambiente de execução: C# e .NET Core
+- Windows
+
+
+  
 
 1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
 2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
