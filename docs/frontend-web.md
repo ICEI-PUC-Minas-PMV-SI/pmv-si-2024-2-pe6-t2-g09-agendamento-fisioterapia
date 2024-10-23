@@ -13,7 +13,6 @@ Essa solução busca não só otimizar a gestão de agendamentos, mas também es
 
 
 ## Tecnologias Utilizadas
-[Lista das tecnologias principais que serão utilizadas no projeto.]
 
 ## Arquitetura
 
@@ -45,19 +44,21 @@ Essa solução busca não só otimizar a gestão de agendamentos, mas também es
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O sistema deve permitir o gerenciamento de cadastros na agenda | ALTA | 
-|RF-002| O sistema deve enviar notificações ao usuário informando sobre o próximo atendimento agendado | MÉDIA |
-|RF-003| O sistema deve permitir o gerenciamento de usuários | MÉDIA |
-|RF-004| O sistema deve permitir que o usuário visualize o histórico de seus agendamentos anteriores | BAIXO |
+|RF-001| 	O sistema deve permitir a integração com o Instagram para exibir as últimas publicações	 | ALTA | 
+|RF-002| O sistema deve ter uma seção dedicada no site para informações sobre o serviço | MÉDIA |
+|RF-003| O sistema deve oferecer uma funcionalidade para direcionar o usuário ao WhatsApp para facilitar a comunicação. | MÉDIA |
 
 
 ## Requisitos Não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve garantir que apenas usuários autenticados possam acessar dados pessoais e funcionalidades protegidas | ALTA |  
-|RNF-002| O código deve ser modular e bem documentado, facilitando a manutenção e atualizaçoes futuras | ALTA | 
-|RNF-003| O sistema deve cumprir com todas as regulamentações sobre a Proteção de dados e privacidade, como a LGPD | MÉDIA |
+|RNF-001| A interfrace deve se intiutiva e de fácil de usar| ALTA |  
+|RNF-002| O sistema deve ser compactivel com diferentes navegadores | ALTA | 
+|RNF-003| O sistema deve ser Responsível	| MÉDIA |
+|RNF-004|O sistema deve funcionar corretamente em diferentes sistemas operacionais móveis e suas versões mais recentes, incluindo iOS e Android| MÉDIA |
+
+
 
 
 ## Considerações de Segurança
