@@ -4,7 +4,15 @@ https://github.com/Allandpn/PUCMInas-Eixo06
 
 # Front-end Web
 
-[Inclua uma breve descrição do projeto e seus objetivos.]
+O principal objetivo do nosso Front-end Web é otimizar o processo de agendamento de consultas de fisioterapia, ao mesmo tempo em que aumenta a visibilidade dos serviços especializados oferecidos pelo fisioterapeuta Davi.
+
+A aplicação permitirá que o fisioterapeuta gerencie eficientemente seus horários, além de facilitar a comunicação com seus pacientes de forma prática e ágil. Entre as principais funcionalidades, estão:
+
+Contato direto via WhatsApp: Um link rápido e acessível para que os pacientes possam entrar em contato diretamente com o fisioterapeuta, agilizando o atendimento e o esclarecimento de dúvidas. <br>
+Integração com Instagram: Através de uma API, será possível exibir as atualizações e conteúdos das redes sociais do fisioterapeuta, oferecendo uma vitrine de seus serviços e resultados para os pacientes. <br> 
+Agenda dinâmica: Ferramenta para que o fisioterapeuta possa visualizar e gerenciar sua agenda de forma eficiente, facilitando o agendamento de consultas e garantindo uma melhor organização dos horários. <br> 
+Essa solução busca não só otimizar a gestão de agendamentos, mas também estreitar o relacionamento com os pacientes e ampliar a visibilidade dos serviços oferecidos.
+
 
 ## Tecnologias Utilizadas
 [Lista das tecnologias principais que serão utilizadas no projeto.]
