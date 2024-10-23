@@ -13,6 +13,17 @@ Essa solução busca não só otimizar a gestão de agendamentos, mas também es
 
 
 ## Tecnologias Utilizadas
+Tecnologias utilizadas na implementação da solução: 
+
+React: No front-end da aplicação, optamos por utilizar o React, uma das principais bibliotecas JavaScript para a criação de interfaces dinâmicas e responsivas. É importante ressaltar que o React não apenas melhora a velocidade do site, mas também proporciona uma experiência mais agradável para os usuários. A biblioteca nos permite desenvolver componentes reutilizáveis, facilitando o desenvolvimento mobile.
+
+CSS: Para estilizar a aplicação, utilizamos CSS, que nos permite criar layouts atraentes e responsivos. Com a ajuda de pré-processadores como SASS ou ferramentas como Tailwind CSS, conseguimos otimizar nosso fluxo de trabalho, proporcionando um design mais consistente e flexível.
+
+Visual Studio Code: Escolhemos o Visual Studio Code como nosso editor de código, o que torna nosso processo de desenvolvimento mais eficiente e organizado. Com uma vasta gama de extensões, o VS Code nos ajuda a aumentar nossa produtividade.
+
+GitHub: Para garantir que todas as versões do projeto fossem devidamente salvas e compartilhadas entre a equipe, utilizamos o GitHub. Essa plataforma nos permitiu monitorar as mudanças no código, colaborar de maneira estruturada e garantir que todos os desenvolvedores pudessem contribuir sem confusões.
+
+Outras Tecnologias: Além das ferramentas mencionadas, também consideramos o uso de bibliotecas adicionais, como Axios para gerenciar requisições HTTP, e frameworks como Bootstrap ou Material-UI para facilitar a criação de componentes com design pré-definido.
 
 ## Arquitetura
 
