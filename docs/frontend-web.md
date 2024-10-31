@@ -41,6 +41,15 @@ Login Fisioterapeuta
 
 ![image](https://github.com/user-attachments/assets/3ef17341-7f7a-478d-a74f-e6d92fe5df53)
 
+Criação de Conta
+
+![image](https://github.com/user-attachments/assets/034268e3-ac17-40e4-bad1-19b24f4b5fa0)
+
+Login Usuário
+
+![image](https://github.com/user-attachments/assets/b54a7363-3539-46cd-a09c-ecfef311ac18)
+
+
 [Inclua os wireframes das páginas principais da interface, mostrando a disposição dos elementos na página.]
 
 ### Design Visual
