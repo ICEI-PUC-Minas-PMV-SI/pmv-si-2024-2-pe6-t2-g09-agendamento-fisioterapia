@@ -53,6 +53,14 @@ Gerencimento Agenda
 
 ![image](https://github.com/user-attachments/assets/631c2656-210f-4afa-9f2a-fb2fb1bed5a6)
 
+Dashboard
+
+![image](https://github.com/user-attachments/assets/23ae923d-d5fd-468e-a608-53227ded68a2)
+
+![image](https://github.com/user-attachments/assets/2ed65016-e236-498e-b9dc-4509afcfeb17)
+
+![image](https://github.com/user-attachments/assets/d19c753f-b2c5-4a23-a470-ae17fc5fe591)
+
 
 [Inclua os wireframes das páginas principais da interface, mostrando a disposição dos elementos na página.]
 
