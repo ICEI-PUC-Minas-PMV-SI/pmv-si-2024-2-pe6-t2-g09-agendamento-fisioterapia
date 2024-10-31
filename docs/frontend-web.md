@@ -49,6 +49,10 @@ Login Usuário
 
 ![image](https://github.com/user-attachments/assets/b54a7363-3539-46cd-a09c-ecfef311ac18)
 
+Gerencimento Agenda 
+
+![image](https://github.com/user-attachments/assets/631c2656-210f-4afa-9f2a-fb2fb1bed5a6)
+
 
 [Inclua os wireframes das páginas principais da interface, mostrando a disposição dos elementos na página.]
 
