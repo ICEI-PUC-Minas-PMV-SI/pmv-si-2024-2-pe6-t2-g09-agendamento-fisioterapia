@@ -27,7 +27,7 @@ Tecnologias utilizadas na implementação da solução:
 
 ## Arquitetura
 
-[Descrição da arquitetura das aplicação web, incluindo os componentes e suas interações.]
+A aplicação será estruturada em uma arquitetura modular, onde o front-end, desenvolvido em React, se comunica diretamente com a API do back-end, implementada em C#. Essa API é responsável por buscar e enviar dados, garantindo uma separação clara entre a interface do usuário e a lógica de negócios. Além disso, a comunicação entre o front-end e o back-end é protegida com JWT (JSON Web Token), assegurando que apenas usuários autenticados possam acessar e manipular os dados, o que aumenta a segurança da aplicação.
 
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
@@ -75,7 +75,33 @@ Dashboard
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+Home:
+
+A partir da Home, o usuário pode acessar o Instagram ou o Facebook do fisioterapeuta.
+O usuário também tem a opção de enviar uma mensagem diretamente para o WhatsApp do fisioterapeuta.
+O usuário pode acessar a tela de Login.
+
+Login
+Na tela de Login, o usuário pode optar por Registrar-se caso ainda não tenha uma conta.
+Caso o usuário já possua um cadastro e realize o login, as credenciais são enviadas para a API de autenticação.
+Se o login for bem-sucedido, o usuário é redirecionado para a Home Interna.
+
+Registrar-se
+Na tela de Registrar-se, o usuário preenche as informações necessárias para criar uma conta.
+Essas informações são enviadas para a API de cadastro.
+Após a criação bem-sucedida da conta, o usuário é automaticamente redirecionado para a Home Interna.
+
+Home Interna:
+Na Home Interna, o usuário tem acesso a duas funcionalidades principais:
+
+Pacientes:
+Acessando a área de pacientes, o usuário pode ver, adicionar, editar e consultar os dados dos pacientes.
+As operações de busca, cadastro, atualização e consulta de informações são enviadas e recebidas pela API de gerenciamento de pacientes.
+
+Agendamentos:
+Acessando a área de agendamentos, o usuário pode criar, visualizar e editar agendamentos de sessões ou consultas.
+Todas as operações de agendamento são processadas pela API de agendamentos, que lida com a criação, atualização e recuperação de dados relacionados a sessões.
+
 
 ## Requisitos Funcionais
 
