@@ -30,7 +30,6 @@ Tecnologias utilizadas na implementação da solução:
 A aplicação será estruturada em uma arquitetura modular, onde o front-end, desenvolvido em React, se comunica diretamente com a API do back-end, implementada em C#. Essa API é responsável por buscar e enviar dados, garantindo uma separação clara entre a interface do usuário e a lógica de negócios. Além disso, a comunicação entre o front-end e o back-end é protegida com JWT (JSON Web Token), assegurando que apenas usuários autenticados possam acessar e manipular os dados, o que aumenta a segurança da aplicação.
 
 ## Modelagem da Aplicação
-[Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
 A aplicação possui as seguintes entidades:
 
