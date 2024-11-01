@@ -32,43 +32,27 @@ A aplicação será estruturada em uma arquitetura modular, onde o front-end, de
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
-1. Entidades e Estrutura de Dados
-   
-Usuário
+A aplicação possui as seguintes entidades:
 
-id: Identificador único
+Usuário: Cada usuário possui um identificador único (id), um nome (nome), um email (email), uma senha (senha). 
 
-nome: Nome do usuário
+Paciente: Cada paciente possui um identificador único (id), um nome (nome), uma data de nascimento (dataNascimento), informações de contato (contato, como telefone ou email), um histórico médico (historicoMedico) e um identificador de usuário (usuarioId) que o relaciona com a entidade Usuário.
 
-email: Email do usuário
-senha: Senha para autenticação
-tipo: Tipo de usuário (ex: administrador, paciente, fisioterapeuta)
-dataCadastro: Data de cadastro na aplicação
-Paciente
+Agendamento: Cada agendamento possui um identificador único (id), um identificador de paciente (pacienteId) que o relaciona com a entidade Paciente, um identificador de fisioterapeuta (fisioterapeutaId) que o relaciona com a entidade Fisioterapeuta, uma data e hora do agendamento (dataHora), um status do agendamento (status, como confirmado, pendente, concluído) e observações adicionais (observacoes) sobre a sessão.
 
-id: Identificador único
-nome: Nome do paciente
-dataNascimento: Data de nascimento
-contato: Contato telefônico ou email
-historicoMedico: Histórico de condições médicas relevantes
-usuarioId: Relacionamento com a entidade Usuário
-Agendamento
+Fisioterapeuta: Cada fisioterapeuta possui um identificador único (id), um nome (nome), uma área de especialidade (especialidade), informações de contato (contato) e um identificador de usuário (usuarioId) que o relaciona com a entidade Usuário.
 
-id: Identificador único
-pacienteId: Identificador do paciente relacionado
-fisioterapeutaId: Identificador do fisioterapeuta responsável
-dataHora: Data e hora do agendamento
-status: Status do agendamento (ex: confirmado, pendente, concluído)
-observacoes: Observações adicionais sobre a sessão
-Fisioterapeuta
+Essa modelagem organiza as informações necessárias para a aplicação de agendamento de fisioterapia, permitindo o gerenciamento de usuários, pacientes, fisioterapeutas e agendamentos, com relacionamentos que facilitam a integração dos dados entre as entidades.
 
-id: Identificador único
-nome: Nome do fisioterapeuta
-especialidade: Área de especialidade
-contato: Informações de contato
-usuarioId: Relacionamento com a entidade Usuário
 
-![entidades_diagrama](https://github.com/user-attachments/assets/c13f5357-3b4b-4ca0-bcc4-3bc3e9444db0)
+
+![entidades_modelagem_visual](https://github.com/user-attachments/assets/447bde5b-0e97-4c44-b667-d20a279051c2)
+
+
+
+
+
+
 
 
 ## Projeto da Interface Web
