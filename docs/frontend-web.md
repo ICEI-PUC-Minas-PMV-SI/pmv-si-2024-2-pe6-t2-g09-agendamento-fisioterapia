@@ -32,6 +32,42 @@ A aplicação será estruturada em uma arquitetura modular, onde o front-end, de
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
+1. Entidades e Estrutura de Dados
+Usuário
+
+id: Identificador único
+nome: Nome do usuário
+email: Email do usuário
+senha: Senha para autenticação
+tipo: Tipo de usuário (ex: administrador, paciente, fisioterapeuta)
+dataCadastro: Data de cadastro na aplicação
+Paciente
+
+id: Identificador único
+nome: Nome do paciente
+dataNascimento: Data de nascimento
+contato: Contato telefônico ou email
+historicoMedico: Histórico de condições médicas relevantes
+usuarioId: Relacionamento com a entidade Usuário
+Agendamento
+
+id: Identificador único
+pacienteId: Identificador do paciente relacionado
+fisioterapeutaId: Identificador do fisioterapeuta responsável
+dataHora: Data e hora do agendamento
+status: Status do agendamento (ex: confirmado, pendente, concluído)
+observacoes: Observações adicionais sobre a sessão
+Fisioterapeuta
+
+id: Identificador único
+nome: Nome do fisioterapeuta
+especialidade: Área de especialidade
+contato: Informações de contato
+usuarioId: Relacionamento com a entidade Usuário
+
+![entidades_diagrama](https://github.com/user-attachments/assets/c13f5357-3b4b-4ca0-bcc4-3bc3e9444db0)
+
+
 ## Projeto da Interface Web
 [Descreva o projeto da interface Web da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
 
