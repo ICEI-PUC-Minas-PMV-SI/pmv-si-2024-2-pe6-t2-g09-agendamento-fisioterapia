@@ -50,8 +50,8 @@ Essa modelagem organiza as informações necessárias para a aplicação de agen
 
 
 ## Projeto da Interface Web
-[Descreva o projeto da interface Web da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
 
+A interface web da aplicação de Agendamento de Fisioterapia é intuitiva e visualmente clean, focada em oferecer uma experiência agradável para os clientes e para o fisioterapeuta Davi. A página inicial é dedicada aos clientes, com acesso fácil a informações sobre serviços e links para redes sociais. O layout responsivo, baseado no Bootstrap, garante compatibilidade com diversos dispositivos. Após o login, o fisioterapeuta Davi pode gerenciar pacientes e agendamentos. Transições suaves e feedback visual melhoram a interatividade, otimizando a comunicação e agendamentos.
 ### Wireframes
 
 Login Fisioterapeuta 
