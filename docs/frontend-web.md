@@ -85,7 +85,14 @@ Dashboard
 [Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
 
 ### Layout Responsivo
-[Discuta como a interface será adaptada para diferentes tamanhos de tela e dispositivos.]
+
+Para garantir que a interface do nosso projeto de Agendamento de Fisioterapia seja acessível em diversos dispositivos, utilizaremos:
+
+Bootstrap: A biblioteca foi importada para facilitar a criação de um layout responsivo com componentes flexíveis, como Container, Row e Col, permitindo que os elementos se ajustem automaticamente a diferentes tamanhos de tela.
+
+Classes de Visibilidade: Usaremos classes do Bootstrap para mostrar ou ocultar elementos conforme necessário, garantindo uma interface otimizada para dispositivos variados.
+
+Navegação Adaptável: O componente Navbar do Bootstrap garantirá que a navegação seja intuitiva em todos os dispositivos.
 
 ### Interações do Usuário
 [Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
