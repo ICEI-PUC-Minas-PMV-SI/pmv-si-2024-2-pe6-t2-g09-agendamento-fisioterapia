@@ -33,10 +33,13 @@ A aplicação será estruturada em uma arquitetura modular, onde o front-end, de
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
 
 1. Entidades e Estrutura de Dados
+   
 Usuário
 
 id: Identificador único
+
 nome: Nome do usuário
+
 email: Email do usuário
 senha: Senha para autenticação
 tipo: Tipo de usuário (ex: administrador, paciente, fisioterapeuta)
