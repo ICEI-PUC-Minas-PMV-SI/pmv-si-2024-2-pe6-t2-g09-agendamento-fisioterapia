@@ -79,10 +79,21 @@ Dashboard
 ![image](https://github.com/user-attachments/assets/d19c753f-b2c5-4a23-a470-ae17fc5fe591)
 
 
-[Inclua os wireframes das páginas principais da interface, mostrando a disposição dos elementos na página.]
 
 ### Design Visual
-[Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
+
+A interface da aplicação de Agendamento de Fisioterapia apresenta um estilo visual moderno e harmonioso. A tipografia utilizada é a fonte Roboto, uma sans-serif que garante legibilidade e um aspecto clean, contribuindo para uma experiência de usuário agradável.
+
+A paleta de cores é composta por tons suaves, incluindo:
+
+Branco (#fff), que proporciona um fundo limpo e espaçoso.
+Azul (#386bc0), que é utilizado para elementos de destaque, como botões e links, transmitindo confiança e tranquilidade.
+Cinza (#9aa2a8), que é aplicado em textos secundários, detalhes e botões secundários, oferecendo contraste sem poluição visual.
+Além desses, outros tons são usados para criar uma combinação suave e coesa, garantindo uma estética agradável em toda a aplicação.
+
+A interface também incorpora uma foto do Davi, o fisioterapeuta, para personalizar e humanizar a experiência do usuário. Ícones de redes sociais são utilizados para facilitar o acesso às plataformas como Instagram e Facebook, reforçando a conexão com os clientes. Esses elementos gráficos são cuidadosamente escolhidos para manter a identidade visual da aplicação e promover uma navegação intuitiva.
+
+
 
 ### Layout Responsivo
 
