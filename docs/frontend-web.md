@@ -95,7 +95,16 @@ Classes de Visibilidade: Usaremos classes do Bootstrap para mostrar ou ocultar e
 Navegação Adaptável: O componente Navbar do Bootstrap garantirá que a navegação seja intuitiva em todos os dispositivos.
 
 ### Interações do Usuário
-[Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
+
+A interface da aplicação de Agendamento de Fisioterapia foi projetada para ser intuitiva e livre de poluição visual, garantindo uma experiência fluida para os usuários. As principais interações incluem:
+
+Página Inicial para Clientes: A home page é exclusiva para os clientes do fisioterapeuta, permitindo fácil acesso a informações relevantes e links diretos para redes sociais, como Instagram e Facebook, além de um botão para enviar mensagens via WhatsApp. Isso facilita a comunicação e interação com o fisioterapeuta.
+
+Menu de Navegação: O menu de login permite que os usuários façam login ou se registrem facilmente. Após o login, o fisioterapeuta tem acesso a uma área dedicada onde pode gerenciar pacientes e agendamentos, além de visualizar um dashboard que fornece dados sobre a quantidade de agendamentos na semana.
+
+Feedback Visual: Os elementos interativos, como botões de navegação e links, fornecerão feedback visual ao serem clicados, garantindo que os usuários saibam que suas ações foram reconhecidas.
+
+Gerenciamento de Agendamentos: O fisioterapeuta poderá acessar facilmente a funcionalidade de gerenciamento de agendamentos e pacientes, permitindo uma gestão eficiente e intuitiva de suas atividades.
 
 ## Fluxo de Dados
 
