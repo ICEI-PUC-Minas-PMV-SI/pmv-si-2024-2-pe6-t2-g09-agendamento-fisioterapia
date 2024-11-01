@@ -36,22 +36,17 @@ A aplicação possui as seguintes entidades:
 
 Usuário: Cada usuário possui um identificador único (id), um nome (nome), um email (email), uma senha (senha). 
 
-Paciente: Cada paciente possui um identificador único (id), um nome (nome), uma data de nascimento (dataNascimento), informações de contato (contato, como telefone ou email), um histórico médico (historicoMedico) e um identificador de usuário (usuarioId) que o relaciona com a entidade Usuário.
+Paciente: Cada paciente possui um identificador único (id), um nome (nome), uma data de nascimento (dataNascimento), informações de contato (contato, como telefone ou email) e um identificador de usuário (usuarioId). 
 
-Agendamento: Cada agendamento possui um identificador único (id), um identificador de paciente (pacienteId) que o relaciona com a entidade Paciente, um identificador de fisioterapeuta (fisioterapeutaId) que o relaciona com a entidade Fisioterapeuta, uma data e hora do agendamento (dataHora), um status do agendamento (status, como confirmado, pendente, concluído) e observações adicionais (observacoes) sobre a sessão.
+Agendamento: Cada agendamento possui um identificador único (id), um identificador de paciente (pacienteId) que o relaciona com a entidade Paciente, um identificador de fisioterapeuta (fisioterapeutaId) que o relaciona com a entidade Fisioterapeuta, uma data e hora do agendamento (dataHora). 
 
-Fisioterapeuta: Cada fisioterapeuta possui um identificador único (id), um nome (nome), uma área de especialidade (especialidade), informações de contato (contato) e um identificador de usuário (usuarioId) que o relaciona com a entidade Usuário.
+Fisioterapeuta: Cada fisioterapeuta possui um identificador único (id), um nome (nome), informações de contato (contato) e um identificador de usuário (usuarioId). 
 
 Essa modelagem organiza as informações necessárias para a aplicação de agendamento de fisioterapia, permitindo o gerenciamento de usuários, pacientes, fisioterapeutas e agendamentos, com relacionamentos que facilitam a integração dos dados entre as entidades.
 
 
 
-![entidades_modelagem_visual](https://github.com/user-attachments/assets/447bde5b-0e97-4c44-b667-d20a279051c2)
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/fa29d60b-89e6-4af0-8b7d-f48b03fa238b)
 
 
 
