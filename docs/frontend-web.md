@@ -113,24 +113,16 @@ Comunicação com HTTPS: O protocolo HTTPS é utilizado para garantir uma comuni
 **Requisitos necessários de Hardware e Software:**
 
 - CPU de 4 núcleos ou mais
-- Memória RAM no mínimo 16 GB
-- Armazenato SSD de no mínimo 500GB
+- Memória RAM no mínimo 4 GB
+- Armazenato SSD de no mínimo 256GB
 - Conexão de rede de alta velocidade
-
-
 - Servidor de banco de dados SQLServer
 - Servidor web
-- Ambiente de execução: C# e .NET Core
+- Ambiente de execução: C#, .NET Core e React
 - Windows
 
 
-  
 
-1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
-2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
-3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
-4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
-5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
 
 ## Testes
 
