@@ -31,19 +31,6 @@ A aplicação será estruturada em uma arquitetura baseada em componente , onde 
 
 ## Modelagem da Aplicação
 
-A aplicação possui as seguintes entidades:
-
-Usuário: Cada usuário possui um identificador único (id), um nome (nome), um email (email), uma senha (senha). 
-
-Paciente: Cada paciente possui um identificador único (id), um nome (nome), uma data de nascimento (dataNascimento), informações de contato (contato, como telefone ou email) e um identificador de usuário (usuarioId). 
-
-Agendamento: Cada agendamento possui um identificador único (id), um identificador de paciente (pacienteId) que o relaciona com a entidade Paciente, um identificador de fisioterapeuta (fisioterapeutaId) que o relaciona com a entidade Fisioterapeuta, uma data e hora do agendamento (dataHora). 
-
-Fisioterapeuta: Cada fisioterapeuta possui um identificador único (id), um nome (nome), informações de contato (contato) e um identificador de usuário (usuarioId). 
-
-Essa modelagem organiza as informações necessárias para a aplicação de agendamento de fisioterapia, permitindo o gerenciamento de usuários, pacientes, fisioterapeutas e agendamentos, com relacionamentos que facilitam a integração dos dados entre as entidades.
-
-
 
 ![image](https://github.com/user-attachments/assets/fa29d60b-89e6-4af0-8b7d-f48b03fa238b)
 
@@ -82,16 +69,17 @@ Dashboard
 
 ### Design Visual
 
-A interface da aplicação de Agendamento de Fisioterapia apresenta um estilo visual moderno e harmonioso. A tipografia utilizada é a fonte Roboto, uma sans-serif que garante legibilidade e um aspecto clean, contribuindo para uma experiência de usuário agradável.
+![image](https://github.com/user-attachments/assets/25dbcc11-90f0-48d8-90e8-94943a6eb9d6)
+![image](https://github.com/user-attachments/assets/1946587a-8680-4ec0-9855-ae37606d2299)
+![image](https://github.com/user-attachments/assets/b6ed2553-1fff-4f98-ad0b-03b899e4b2be)
+![image](https://github.com/user-attachments/assets/136198a7-b409-431f-92b1-14e34f7f12aa)
+![image](https://github.com/user-attachments/assets/d90d9c75-79ed-4911-b3d2-f6253109efa0)
+![image](https://github.com/user-attachments/assets/55cce371-7778-499a-801f-d74e0335bf13)
+![image](https://github.com/user-attachments/assets/5b6db1d6-e18a-4c5a-8b06-57f9bc16a52f)
+![image](https://github.com/user-attachments/assets/9fa16658-c57c-482a-86d2-f3716a407860)
+![image](https://github.com/user-attachments/assets/8509ae7b-8bd7-40a8-bdb5-9ad5987350a5)
+![image](https://github.com/user-attachments/assets/acc73824-d3a0-4f03-9eb8-6956c06ac30b)
 
-A paleta de cores é composta por tons suaves, incluindo:
-
-Branco (#fff), que proporciona um fundo limpo e espaçoso.
-Azul (#386bc0), que é utilizado para elementos de destaque, como botões e links, transmitindo confiança e tranquilidade.
-Cinza (#9aa2a8), que é aplicado em textos secundários, detalhes e botões secundários, oferecendo contraste sem poluição visual.
-Além desses, outros tons são usados para criar uma combinação suave e coesa, garantindo uma estética agradável em toda a aplicação.
-
-A interface também incorpora uma foto do Davi, o fisioterapeuta, para personalizar e humanizar a experiência do usuário. Ícones de redes sociais são utilizados para facilitar o acesso às plataformas como Instagram e Facebook, reforçando a conexão com os clientes. Esses elementos gráficos são cuidadosamente escolhidos para manter a identidade visual da aplicação e promover uma navegação intuitiva.
 
 
 
