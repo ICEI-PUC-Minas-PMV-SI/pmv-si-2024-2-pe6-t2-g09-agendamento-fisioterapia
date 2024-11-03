@@ -201,7 +201,7 @@ Ao clicar sobre a opção Login, disponível na parte superior da tela principal
 
 ![image](https://github.com/user-attachments/assets/64acaa28-500e-4f9c-bfd3-8b8bc4da288c)
 
-Ao clicar sobre a opção Registre-se aqui, será demonstrado a tela de cadastro de usuários. É necessário informar o Nome, email e senha para o regitro. 
+Ao clicar sobre a opção Registre-se aqui, será demonstrado a tela de cadastro de usuários. É necessário informar o Nome, email e senha para o registro. 
 
 ![image](https://github.com/user-attachments/assets/60f7cecc-47b2-4a84-acf7-b45bddb985be)
 
