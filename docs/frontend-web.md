@@ -197,11 +197,11 @@ Assim que o paciente clicar sobre a opção, será direcionado ao whatsapp, onde
 
 **Cenário: Cadastro de usuário e login**
 
-Ao clicar sobre a opção Login, disponível na parte superior da tela principal, será direcionado à página para realizar o logon e caso ainda não tenha uma conta criada, clicar sobre a opção Registre-se aqui para cadastro.
+Ao clicar sobre a opção Login, disponível na parte superior da tela principal, é direcionada à página para realizar o logon e caso ainda não tenha uma conta criada, clicar sobre a opção Registre-se aqui para cadastro.
 
 ![image](https://github.com/user-attachments/assets/64acaa28-500e-4f9c-bfd3-8b8bc4da288c)
 
-Ao clicar sobre a opção Registre-se aqui, será demonstrado a tela de cadastro de usuários. É necessário informar o Nome, email e senha para o registro. 
+Ao clicar sobre a opção Registre-se aqui, é demonstrada a tela de cadastro de usuários, sendo necessário informar o nome, email e senha para o registro. 
 
 ![image](https://github.com/user-attachments/assets/60f7cecc-47b2-4a84-acf7-b45bddb985be)
 
@@ -210,7 +210,7 @@ Assim que efetuar o registro será retornado automaticamente para a tela de logi
 
 **Cenário: Cadastro de pacientes e manutenção de cadastro**
 
-Após relizar o logon, na opção Pacientes serão demontrados os cadastros de pacientes, clicando sobre a opção Adicionar Paciente será aberta a tela Adicionar Usuário, onde serão informados os dados necessários para inclusão de pacientes.
+Após relizar o logon, na opção Pacientes serão demontrados os cadastros de pacientes, clicando sobre a opção Adicionar Paciente é aberta a tela Adicionar Usuário, onde serão informados os dados necessários para inclusão de pacientes.
 
 ![image](https://github.com/user-attachments/assets/c7327bc3-5090-464d-81e2-9c6c243f43f9)
 
