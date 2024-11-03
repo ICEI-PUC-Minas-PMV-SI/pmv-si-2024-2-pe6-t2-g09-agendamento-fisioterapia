@@ -1,0 +1,205 @@
+.container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 0 20px;
+    position: relative;
+  }
+  
+  .hero {
+    text-align: center;
+    background-color: #e0f7fa;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #00796b;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin: 10px 0 20px;
+    color: #004d40;
+  }
+.ctaButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00796b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .aboutContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .imageContainer {
+    margin-bottom: 15px;
+  }
+  
+  .aboutImage {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+    color: #00796b;
+    border-bottom: 2px solid #00796b;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sectionText {
+    font-size: 1rem;
+    color: #555;
+    max-width: 600px;
+  }
+  
+  .services {
+    margin-bottom: 30px;
+  }
+  
+  .serviceList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    list-style-type: none;
+  }
+  .serviceList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+.serviceItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 15px;
+    font-size: 1rem;
+    color: #333;
+    max-width: 200px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .serviceItem img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+  
+  .serviceText h3 {
+    font-size: 1.2rem;
+    color: #00796b;
+    margin-bottom: 5px;
+  }
+  
+  .serviceText p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  
+  .serviceItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    font-size: 1rem;
+    color: #333;
+    max-width: 150px;
+  }
+  
+  .serviceItem img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  .serviceText {
+    text-align: center;
+  }
+  
+  .testimonials {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .testimonialItem {
+    margin: 20px 0;
+  }
+  
+  .testimonial {
+    font-style: italic;
+    margin: 15px 0;
+    color: #666;
+  }
+  
+  .testimonialAuthor {
+    font-weight: bold;
+    color: #444;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #00796b;
+    color: #fff;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  
+  .whatsappBalloon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  
+  .whatsappLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 8px;
+  }
+
+  
+  .whatsappIcon {
+    width: 24px;
+    height: 24px;
+  }
