@@ -214,7 +214,8 @@ Após relizar o logon, na opção Pacientes serão demontrados os cadastros de p
 
 Ainda na tela de Pacientes é possível Ver Detalhes do cadastro do usuário
 
-![image](https://github.com/user-attachments/assets/7ca318d1-0202-4aa6-9083-f69db39e8fcb)
+![image](https://github.com/user-attachments/assets/520dca93-fed9-4033-a197-d0d0fb167600)
+
 
 Onde será possível Editar ou Excluir um usuário já cadastrado
 
