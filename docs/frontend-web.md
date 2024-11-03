@@ -206,6 +206,21 @@ Ao clicar sobre a opção REgistre-se aqui, será demonstrado a tela de cadastro
 
 Assim que efetuar o registro será retornado automaticamente para a tela de login.
 
+**Cenário: Cadastro de pacientes e manutenção de cadastro**
+
+Após relizar o logon, na opção Pacientes serão demontrados os cadastros de pacientes, clicando sobre a opção Adicionar Paciente será aberta a tela Adicionar Usuário onde serão informados os dados necessários para inclusão de pacientes.
+
+![image](https://github.com/user-attachments/assets/c7327bc3-5090-464d-81e2-9c6c243f43f9)
+
+Ainda na tela de Pacientes é possível Ver Detalhes do cadastro do usuário
+
+![image](https://github.com/user-attachments/assets/7ca318d1-0202-4aa6-9083-f69db39e8fcb)
+
+Onde será possível Editar ou Excluir um usuário já cadastrado
+
+![image](https://github.com/user-attachments/assets/c5ee0f63-1d8c-4c6f-8ee0-09f8f88aa0b7)
+
+
 
 # Referências
 
