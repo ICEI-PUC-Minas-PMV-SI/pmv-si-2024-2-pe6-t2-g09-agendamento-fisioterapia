@@ -194,6 +194,7 @@ Assim que o paciente clicar sobre a opção será direcionado ao whatsapp, onde 
 
 ![image](https://github.com/user-attachments/assets/55515fac-75cc-442a-866c-1bbb0cc97783)
 
+
 **Cenário: Cadastro de usuário e login**
 
 Ao clicar sobre a opção Login, disponivel na parte superior da tela principal será direcionado a pagina para realizar o logon e caso ainda não tenha uma conta criada Clicar sobre a opção Registre-se aqui
@@ -205,6 +206,7 @@ Ao clicar sobre a opção REgistre-se aqui, será demonstrado a tela de cadastro
 ![image](https://github.com/user-attachments/assets/60f7cecc-47b2-4a84-acf7-b45bddb985be)
 
 Assim que efetuar o registro será retornado automaticamente para a tela de login.
+
 
 **Cenário: Cadastro de pacientes e manutenção de cadastro**
 
@@ -220,6 +222,24 @@ Ainda na tela de Pacientes é possível Ver Detalhes do cadastro do usuário
 Onde será possível Editar ou Excluir um usuário já cadastrado
 
 ![image](https://github.com/user-attachments/assets/c5ee0f63-1d8c-4c6f-8ee0-09f8f88aa0b7)
+
+
+**Cenário: Cadastro e manutenção de Agendamentos**
+
+Ao entrar em Agendamentos no canto superior, é possível realizar o cadastro de novos agendamentos através da opção Adicionar Agendamento
+
+![image](https://github.com/user-attachments/assets/7fb6e025-30b1-4e5e-b917-fd37697848d0)
+
+
+Após adicionado os agendamentos é possível visualiza-los através da tela e consultar as informações do agendamento na opção Ver Detalhes
+
+![image](https://github.com/user-attachments/assets/64291a53-0259-4863-abc8-ac21f8a91621)
+
+![image](https://github.com/user-attachments/assets/ba49273a-a5a2-4b68-9662-991bfb988bae)
+
+Nos Detalhes do agendamento é possível Editar ao Excluir um agendamento 
+
+![image](https://github.com/user-attachments/assets/a81c2eb0-4714-40d9-b895-5171cad2e3c8)
 
 
 
