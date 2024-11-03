@@ -194,6 +194,18 @@ Assim que o paciente clicar sobre a opção será direcionado ao whatsapp, onde 
 
 ![image](https://github.com/user-attachments/assets/55515fac-75cc-442a-866c-1bbb0cc97783)
 
+**Cenário: Cadastro de usuário e login**
+
+Ao clicar sobre a opção Login, disponivel na parte superior da tela principal será direcionado a pagina para realizar o logon e caso ainda não tenha uma conta criada Clicar sobre a opção Registre-se aqui
+
+![image](https://github.com/user-attachments/assets/64acaa28-500e-4f9c-bfd3-8b8bc4da288c)
+
+Ao clicar sobre a opção REgistre-se aqui, será demonstrado a tela de cadastro de usuários é necessário informar o Nome, email e senha para o regitro. 
+
+![image](https://github.com/user-attachments/assets/60f7cecc-47b2-4a84-acf7-b45bddb985be)
+
+Assim que efetuar o registro será retornado automaticamente para a tela de login.
+
 
 # Referências
 
