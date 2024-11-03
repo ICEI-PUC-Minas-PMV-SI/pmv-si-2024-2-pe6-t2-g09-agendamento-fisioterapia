@@ -186,22 +186,22 @@ Comunicação com HTTPS: O protocolo HTTPS é utilizado para garantir uma comuni
 
 **Cenário: Solicitação de agendamento de consulta**
 
-Na pagina inicial será demonstrado a opção Agende sua consulta
+Na página inicial é demonstrada a opção Agende sua consulta
 
 ![image](https://github.com/user-attachments/assets/78200547-b942-423a-83c4-f9d49be35aa6)
 
-Assim que o paciente clicar sobre a opção será direcionado ao whatsapp, onde entrará em contato para realizar o agendamento.
+Assim que o paciente clicar sobre a opção, será direcionado ao whatsapp, onde entrará em contato para realizar o agendamento.
 
 ![image](https://github.com/user-attachments/assets/55515fac-75cc-442a-866c-1bbb0cc97783)
 
 
 **Cenário: Cadastro de usuário e login**
 
-Ao clicar sobre a opção Login, disponivel na parte superior da tela principal será direcionado a pagina para realizar o logon e caso ainda não tenha uma conta criada Clicar sobre a opção Registre-se aqui
+Ao clicar sobre a opção Login, disponível na parte superior da tela principal, será direcionado à página para realizar o logon e caso ainda não tenha uma conta criada, clicar sobre a opção Registre-se aqui para cadastro.
 
 ![image](https://github.com/user-attachments/assets/64acaa28-500e-4f9c-bfd3-8b8bc4da288c)
 
-Ao clicar sobre a opção REgistre-se aqui, será demonstrado a tela de cadastro de usuários é necessário informar o Nome, email e senha para o regitro. 
+Ao clicar sobre a opção Registre-se aqui, será demonstrado a tela de cadastro de usuários. É necessário informar o Nome, email e senha para o regitro. 
 
 ![image](https://github.com/user-attachments/assets/60f7cecc-47b2-4a84-acf7-b45bddb985be)
 
@@ -210,7 +210,7 @@ Assim que efetuar o registro será retornado automaticamente para a tela de logi
 
 **Cenário: Cadastro de pacientes e manutenção de cadastro**
 
-Após relizar o logon, na opção Pacientes serão demontrados os cadastros de pacientes, clicando sobre a opção Adicionar Paciente será aberta a tela Adicionar Usuário onde serão informados os dados necessários para inclusão de pacientes.
+Após relizar o logon, na opção Pacientes serão demontrados os cadastros de pacientes, clicando sobre a opção Adicionar Paciente será aberta a tela Adicionar Usuário, onde serão informados os dados necessários para inclusão de pacientes.
 
 ![image](https://github.com/user-attachments/assets/c7327bc3-5090-464d-81e2-9c6c243f43f9)
 
@@ -219,7 +219,7 @@ Ainda na tela de Pacientes é possível Ver Detalhes do cadastro do usuário
 ![image](https://github.com/user-attachments/assets/520dca93-fed9-4033-a197-d0d0fb167600)
 
 
-Onde será possível Editar ou Excluir um usuário já cadastrado
+Onde é possível Editar ou Excluir um usuário já cadastrado
 
 ![image](https://github.com/user-attachments/assets/c5ee0f63-1d8c-4c6f-8ee0-09f8f88aa0b7)
 
@@ -240,6 +240,14 @@ Após adicionado os agendamentos é possível visualiza-los através da tela e c
 Nos Detalhes do agendamento é possível Editar ao Excluir um agendamento 
 
 ![image](https://github.com/user-attachments/assets/a81c2eb0-4714-40d9-b895-5171cad2e3c8)
+
+
+
+**Cenário: Dashboard**
+
+Ao entrar na opção Dashboard serão apresentados os dados de forma estratégica, facilitando na tomada de descisões e melhorias no processo. 
+
+![image](https://github.com/user-attachments/assets/4f443473-287f-457f-b270-1d00a274a38a)
 
 
 
