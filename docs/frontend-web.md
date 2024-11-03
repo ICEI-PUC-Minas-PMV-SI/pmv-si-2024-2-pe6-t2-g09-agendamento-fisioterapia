@@ -32,7 +32,7 @@ A aplicação será estruturada em uma arquitetura baseada em componente , onde 
 ## Modelagem da Aplicação
 
 
-![image](https://github.com/user-attachments/assets/fa29d60b-89e6-4af0-8b7d-f48b03fa238b)
+![Fluxograma Pedido Online Amarelo Marrom](https://github.com/user-attachments/assets/57cc0744-43b6-4b93-b266-b6aed6bb8df7)
 
 
 
