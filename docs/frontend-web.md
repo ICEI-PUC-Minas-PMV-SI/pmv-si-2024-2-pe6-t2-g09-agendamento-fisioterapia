@@ -184,13 +184,16 @@ Comunicação com HTTPS: O protocolo HTTPS é utilizado para garantir uma comuni
 
 ## Testes
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+**Cénário: Solicitação de agendamento de consulta**
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+Na pagina inicial será demonstrado a opção Agende sua consulta
+
+![image](https://github.com/user-attachments/assets/78200547-b942-423a-83c4-f9d49be35aa6)
+
+Assim que o paciente clicar sobre a opção será direcionado ao whatsapp, onde entrará em contato para realizar o agendamento.
+
+![image](https://github.com/user-attachments/assets/55515fac-75cc-442a-866c-1bbb0cc97783)
+
 
 # Referências
 
