@@ -184,7 +184,7 @@ Comunicação com HTTPS: O protocolo HTTPS é utilizado para garantir uma comuni
 
 ## Testes
 
-**Cénário: Solicitação de agendamento de consulta**
+**Cenário: Solicitação de agendamento de consulta**
 
 Na pagina inicial será demonstrado a opção Agende sua consulta
 
