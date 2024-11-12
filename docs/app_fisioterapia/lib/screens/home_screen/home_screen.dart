@@ -19,8 +19,22 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime currentDay = DateTime.now();
   Map<String, Journal> database = {};
   final ScrollController _listScrollController = ScrollController();
-  final journal_service.ApiService _ApiService =
-      journal_service.ApiService();
+  final journal_service.ApiService _ApiService = journal_service.ApiService();
+
+  // Future<void> refresh() async {
+  //   List<Journal> listJournal = await _ApiService.buscaAgendamentos();
+
+  //   setState(() {
+  //     database = {};
+  //     for (Journal journal in listJournal) {
+  //       database[journal.id] = journal;
+  //     }
+
+  //     WidgetsBinding.instance.addPostFrameCallback((_) {
+  //       scrollToCurrentDay();
+  //     });
+  //   });
+  // }
 
   @override
   void initState() {
@@ -94,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   // Mostra um indicador de carregamento enquanto verifica
-                  return  const ListTile(
+                  return const ListTile(
                     leading: Icon(
                       Icons.warning_amber,
                       size: 40,
@@ -172,8 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> refresh() async {
-    List<Journal> listJournal =
-        await _ApiService.carregaCalendario(context);
+    List<Journal> listJournal = await _ApiService.buscaAgendamentos();
 
     setState(() {
       database = {};
@@ -188,10 +201,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<bool> _hasPendingSchedules() async {
-    List<Journal> listJournal =
-        await _ApiService.carregaCalendario(context);
-    return listJournal
-        .isNotEmpty; // Retorna verdadeiro se houver algum horário pendente
+    List<Journal> listJournal = await _ApiService.buscaAgendamentos();
+    return listJournal.isNotEmpty;
   }
 
   void scrollToCurrentDay() {

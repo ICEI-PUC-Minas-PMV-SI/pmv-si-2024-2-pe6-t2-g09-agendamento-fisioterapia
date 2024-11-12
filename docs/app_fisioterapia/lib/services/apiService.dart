@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:clinica_fisioterapia/models/user/dataUser.dart';
 import 'package:clinica_fisioterapia/services/http_interceptors.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http/http.dart';
@@ -6,16 +7,15 @@ import 'package:flutter/material.dart';
 import '../models/journal.dart';
 
 class ApiService {
-  static const String url =
-      "http://192.168.0.17:3000/"; 
-  static const String resource = "journals/"; 
+  static const String urlApi = "http://192.168.0.17:5005/";
+  static const String resource = "journals/";
 
   http.Client client = InterceptedClient.build(
     interceptors: [LoggingInterceptor()],
   );
 
   String getURL() {
-    return "$url$resource";
+    return "$urlApi$resource";
   }
 
   Uri getUri() {
@@ -23,7 +23,7 @@ class ApiService {
   }
 
   Future<List<Journal>> tentarConexao() async {
-    final uri = Uri.parse('$url$resource');
+    final uri = Uri.parse('$urlApi$resource');
     print('Attempting to connect to: $uri');
 
     try {
@@ -40,7 +40,8 @@ class ApiService {
     }
   }
 
-  Future<bool> registarAgendamento(Journal journal, BuildContext context) async {
+  Future<bool> registarAgendamento(
+      Journal journal, BuildContext context) async {
     journal.status = "pendente";
     String journalJSON = json.encode(journal.toMap());
 
@@ -71,7 +72,7 @@ class ApiService {
     String journalJSON = json.encode(journal.toMap());
 
     try {
-      Uri uri = Uri.parse('$url$resource${journal.id}');
+      Uri uri = Uri.parse('$urlApi$resource${journal.id}');
       http.Response response = await client.put(
         uri,
         headers: {'Content-type': 'application/json'},
@@ -85,7 +86,7 @@ class ApiService {
   }
 
   Future<bool> rejeitaHorario(Journal journal) async {
-    Uri uri = Uri.parse('$url$resource${journal.id}');
+    Uri uri = Uri.parse('$urlApi$resource${journal.id}');
 
     journal.status = "rejeitado";
     String journalJSON = json.encode(journal.toMap());
@@ -137,15 +138,15 @@ class ApiService {
       }
       return result;
     } catch (e) {
-      _showError(
-          "Não foi possível conectar ao servidor. Verifique sua conexão.",
-          context);
+      // _showError(
+      // "Não foi possível conectar ao servidor. Verifique sua conexão.",
+      // context);
       return [];
     }
   }
 
   Future<bool> remove(String id) async {
-    Uri uri = Uri.parse('$url$resource$id');
+    Uri uri = Uri.parse('$urlApi$resource$id');
 
     try {
       http.Response response = await client.delete(uri);
@@ -160,10 +161,34 @@ class ApiService {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
     scaffoldMessenger.showSnackBar(SnackBar(content: Text(message)));
   }
-  
 
-    Future<bool> login(String email, String password) async {
-    final url = Uri.parse("https://192.168.0.17:3000/login"); 
+  Future<List<Journal>> buscaAgendamentos() async {
+    DataUser dataUser = DataUser();
+    String? userId = await dataUser.getUserId();
+    final url = Uri.parse("${urlApi}Agendamentos/1");
+
+    try {
+      final response = await client.get(url);
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+
+        Journal agendamento = Journal.fromMap(jsonResponse);
+
+        return [agendamento];
+      } else if (response.statusCode == 204 || response.body.isEmpty) {
+        return [];
+      } else {
+        throw Exception(
+            'Falha ao carregar agendamentos. Código de status: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Erro ao conectar ao servidor: $e');
+    }
+  }
+
+  Future<bool> login(String email, String password) async {
+    final url = Uri.parse("${urlApi}Usuario/authenticate");
     final response = await http.post(
       url,
       headers: {"Content-Type": "application/json"},
@@ -175,7 +200,9 @@ class ApiService {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      return data['success'] ?? false; 
+      DataUser authService = DataUser();
+      await authService.saveUserData(data);
+      return true;
     } else {
       return false;
     }

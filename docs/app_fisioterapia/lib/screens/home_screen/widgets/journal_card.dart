@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:clinica_fisioterapia/helpers/weekday.dart'; // Verifique se esse arquivo existe e está correto
+import 'package:clinica_fisioterapia/helpers/weekday.dart';
 import 'package:clinica_fisioterapia/models/journal.dart';
 import 'package:uuid/uuid.dart';
 import 'package:intl/intl.dart'; // Para formatação da hora
@@ -22,6 +22,7 @@ class JournalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isPending = journal?.isPending ?? false;
 
+    // Formatação da hora do agendamento
     String formattedTime = '';
     if (journal?.time != null) {
       final timeOfDay = DateTime(
@@ -37,6 +38,7 @@ class JournalCard extends StatelessWidget {
     }
 
     if (journal != null) {
+      // Exibe o card com o agendamento
       return InkWell(
         onTap: () {},
         child: Container(
@@ -52,6 +54,7 @@ class JournalCard extends StatelessWidget {
             children: [
               Column(
                 children: [
+                  // Exibe a data do agendamento
                   Container(
                     height: 75,
                     width: 75,
@@ -73,6 +76,7 @@ class JournalCard extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // Exibe o dia da semana
                   Container(
                     height: 38,
                     width: 75,
@@ -89,7 +93,7 @@ class JournalCard extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               Expanded(
@@ -99,6 +103,7 @@ class JournalCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Exibe o conteúdo do agendamento e hora
                       Text(
                         journal!.content + formattedTime,
                         style: const TextStyle(
@@ -108,7 +113,8 @@ class JournalCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
-                      if (isPending) // Adiciona um indicador visual se estiver pendente
+                      // Exibe a indicação de pendente, se aplicável
+                      if (isPending)
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0),
                           child: Row(
@@ -135,6 +141,7 @@ class JournalCard extends StatelessWidget {
         ),
       );
     } else {
+      // Caso não haja agendamento, exibe um card vazio com a data
       return InkWell(
         onTap: () {
           callAddJournalScreen(context);
@@ -169,7 +176,7 @@ class JournalCard extends StatelessWidget {
     if (result == DisposeStatus.success) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("registarAgendamento salvo com sucesso."),
+          content: Text("Agendamento salvo com sucesso."),
         ),
       );
     } else if (result == DisposeStatus.error) {

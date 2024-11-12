@@ -1,5 +1,5 @@
 import 'package:uuid/uuid.dart';
-import 'package:day_night_time_picker/day_night_time_picker.dart'; // Verifique se a importação está correta
+import 'package:day_night_time_picker/day_night_time_picker.dart';
 
 class Journal {
   String id;
@@ -9,7 +9,7 @@ class Journal {
   String status;
   Time? time;
 
-  // Construtor padrão
+  // Construtor principal
   Journal({
     required this.id,
     required this.content,
@@ -19,7 +19,7 @@ class Journal {
     this.time,
   });
 
-  // Construtor vazio para novos objetos
+  // Construtor para um Journal vazio
   Journal.empty()
       : id = const Uuid().v1(),
         content = "",
@@ -28,31 +28,26 @@ class Journal {
         status = 'pendente',
         time = null;
 
-  // Construtor para criar um objeto a partir de um mapa
+  // Construtor de fábrica para criar um Journal a partir de um mapa (geralmente usado para ler dados de uma API ou banco de dados)
   factory Journal.fromMap(Map<String, dynamic> map) {
     return Journal(
-      id: map['id'] ??
-          const Uuid().v1(), // Valor padrão para id, se não estiver presente
-      content: map['content'] ?? '',
-      createdAt: DateTime.parse(map['created_at'] ??
-          DateTime.now().toIso8601String()), // Valor padrão para createdAt
-      updatedAt: DateTime.parse(map['updated_at'] ??
-          DateTime.now().toIso8601String()), // Valor padrão para updatedAt
-      status: map['status'] ?? 'pendente', // Valor padrão para status
+      id: map['id']?.toString() ?? '',
+      content: map['nomePaciente'] ??
+          '', // Agora 'content' recebe o nome do paciente
+      createdAt: DateTime.parse(
+          map['dataAtendimento'] ?? DateTime.now().toIso8601String()),
+      updatedAt: DateTime.now(),
+      status: map['status'] ?? 'pendente',
       time: map['time'] != null
           ? Time(
               hour: map['time']['hour'] ?? 0,
               minute: map['time']['minute'] ?? 0,
             )
-          : null, // Se o horário não estiver presente, define como nulo
+          : null,
     );
   }
 
-  @override
-  String toString() {
-    return "$content \ncreated_at: $createdAt\nupdated_at:$updatedAt\nstatus: $status\nTime: ${time?.hour ?? 'Não definido'}:${time?.minute.toString().padLeft(2, '0') ?? '00'}";
-  }
-
+  // Método para converter o Journal de volta para um mapa
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -65,9 +60,25 @@ class Journal {
               'hour': time!.hour,
               'minute': time!.minute,
             }
-          : null, // Adiciona o horário ao mapa, se disponível
+          : null,
     };
   }
 
+  // Método toString para exibir o conteúdo do Journal de forma legível
+  @override
+  String toString() {
+    return "$content \ncreated_at: $createdAt\nupdated_at:$updatedAt\nstatus: $status\nTime: ${time?.hour ?? 'Não definido'}:${time?.minute.toString().padLeft(2, '0') ?? '00'}";
+  }
+
+  // Método para verificar se o status é 'pendente'
   bool get isPending => status == 'pendente';
+
+  // Formatar a data e hora para exibição (por exemplo, para exibir no UI)
+  String formattedDate() {
+    return '${createdAt.day}/${createdAt.month}/${createdAt.year}';
+  }
+
+  String formattedTime() {
+    return '${time?.hour ?? 0}:${time?.minute?.toString().padLeft(2, '0') ?? '00'}';
+  }
 }

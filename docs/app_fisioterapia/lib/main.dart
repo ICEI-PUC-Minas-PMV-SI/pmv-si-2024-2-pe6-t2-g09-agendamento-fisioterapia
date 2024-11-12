@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "login",
       routes: {
-        "login": (context) => Login(),
+        "login": (context) => const Login(),
         "home": (context) => const HomeScreen(),
         "horariosPendentes": (context) => const PendingSchedulesScreen(),
       },

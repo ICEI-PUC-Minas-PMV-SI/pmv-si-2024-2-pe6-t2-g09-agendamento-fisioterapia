@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../../../models/journal.dart';
 import 'package:clinica_fisioterapia/screens/home_screen/widgets/journal_card.dart';
 
@@ -20,21 +19,25 @@ List<JournalCard> generateListJournalCards({
     (index) => JournalCard(
       refreshFunction: refreshFunction,
       showedDate: DateTime(startOfMonth.year, startOfMonth.month, index + 1),
+      journal: null, // Inicialmente nenhum journal
     ),
   );
 
   // Preenche os espaços com entradas existentes no banco de dados
   database.forEach(
     (key, value) {
+      // Verifica se o journal pertence ao mês atual
       if (value.createdAt.month == currentDay.month &&
           value.createdAt.year == currentDay.year) {
-        int dayOfMonth = value.createdAt.day - 1;
+        int dayOfMonth =
+            value.createdAt.day - 1; // Ajusta o índice, pois o dia começa de 1
 
+        // Verifica se o dia existe na lista
         if (dayOfMonth >= 0 && dayOfMonth < list.length) {
           // Atualiza o JournalCard correspondente no índice
           list[dayOfMonth] = JournalCard(
             showedDate: list[dayOfMonth].showedDate, // Preserva a data mostrada
-            journal: value,
+            journal: value, // Passa o agendamento recuperado do banco de dados
             refreshFunction: refreshFunction,
           );
         }
