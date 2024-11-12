@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:clinica_fisioterapia/models/journal.dart';
-import 'package:clinica_fisioterapia/services/journal_service.dart';
+import 'package:clinica_fisioterapia/services/apiService.dart';
 
 class PendingSchedulesScreen extends StatefulWidget {
   const PendingSchedulesScreen({Key? key}) : super(key: key);

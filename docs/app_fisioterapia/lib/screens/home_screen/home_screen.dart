@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/services/journal_service.dart' as journal_service;
+import '../../services/apiService.dart' as journal_service;
 import '../../models/journal.dart';
 import '/screens/home_screen/widgets/home_screen_list.dart' as home_screen_list;
 import 'package:intl/intl.dart';
