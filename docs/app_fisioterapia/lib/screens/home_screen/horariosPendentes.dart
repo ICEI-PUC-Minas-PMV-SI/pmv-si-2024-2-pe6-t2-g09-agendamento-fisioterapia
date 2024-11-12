@@ -16,7 +16,7 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
   @override
   void initState() {
     super.initState();
-    _pendingSchedules = JournalService().buscaHorarioPendente();
+    _pendingSchedules = ApiService().buscaHorarioPendente();
   }
 
   @override
@@ -97,10 +97,10 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
   }
 
   Future<void> _acceptSchedule(Journal journal) async {
-    bool success = await JournalService().aceitaHorario(journal);
+    bool success = await ApiService().aceitaHorario(journal);
     if (success) {
       setState(() {
-        _pendingSchedules = JournalService().buscaHorarioPendente();
+        _pendingSchedules = ApiService().buscaHorarioPendente();
       });
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Horário aceito com sucesso!')),
@@ -113,10 +113,10 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
   }
 
   Future<void> _rejectSchedule(Journal journal) async {
-    bool success = await JournalService().rejeitaHorario(journal);
+    bool success = await ApiService().rejeitaHorario(journal);
     if (success) {
       setState(() {
-        _pendingSchedules = JournalService().buscaHorarioPendente();
+        _pendingSchedules = ApiService().buscaHorarioPendente();
       });
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Horário recusado com sucesso!')),

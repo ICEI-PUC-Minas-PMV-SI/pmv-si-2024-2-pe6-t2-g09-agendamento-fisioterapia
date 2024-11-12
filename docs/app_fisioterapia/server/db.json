@@ -1,4 +1,16 @@
 {
   "learnhttp": {},
-  "journals": []
+  "journals": [
+    {
+      "id": "2f2bbe10-8592-11ef-b50a-f5b917d8c1b7",
+      "content": "teste",
+      "created_at": "2024-10-10T00:00:00.000",
+      "updated_at": "2024-10-08T13:27:25.292419",
+      "status": "pendente",
+      "time": {
+        "hour": 13,
+        "minute": 27
+      }
+    }
+  ]
 }

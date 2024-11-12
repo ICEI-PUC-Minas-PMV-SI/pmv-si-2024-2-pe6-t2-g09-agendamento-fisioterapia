@@ -49,7 +49,6 @@ class MyApp extends StatelessWidget {
             },
           );
         }
-        // Adicione um tratamento de rota desconhecida se necessário
         return MaterialPageRoute(
           builder: (context) => Scaffold(
             appBar: AppBar(title: const Text('Rota desconhecida')),

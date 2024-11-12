@@ -19,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime currentDay = DateTime.now();
   Map<String, Journal> database = {};
   final ScrollController _listScrollController = ScrollController();
-  final journal_service.JournalService _journalService =
-      journal_service.JournalService();
+  final journal_service.ApiService _ApiService =
+      journal_service.ApiService();
 
   @override
   void initState() {
@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> refresh() async {
     List<Journal> listJournal =
-        await _journalService.carregaCalendario(context);
+        await _ApiService.carregaCalendario(context);
 
     setState(() {
       database = {};
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<bool> _hasPendingSchedules() async {
     List<Journal> listJournal =
-        await _journalService.carregaCalendario(context);
+        await _ApiService.carregaCalendario(context);
     return listJournal
         .isNotEmpty; // Retorna verdadeiro se houver algum horário pendente
   }
@@ -281,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     if (selectedId != null) {
-      bool wasDeleted = await _journalService.remove(selectedId);
+      bool wasDeleted = await _ApiService.remove(selectedId);
       if (wasDeleted) {
         setState(() {
           database.remove(selectedId);

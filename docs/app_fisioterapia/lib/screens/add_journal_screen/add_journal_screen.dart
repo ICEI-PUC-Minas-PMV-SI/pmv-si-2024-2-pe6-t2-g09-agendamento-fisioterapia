@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clinica_fisioterapia/models/journal.dart';
-import 'package:clinica_fisioterapia/services/journal_service.dart';
+import 'package:clinica_fisioterapia/services/apiService.dart';
 import 'package:clinica_fisioterapia/screens/home_screen/horariosPendentes.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:intl/intl.dart'; // Importa a biblioteca intl
@@ -171,12 +171,12 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
   }
 
   Future<void> registerJournal(BuildContext context) async {
-    JournalService journalService = JournalService();
+    ApiService apiService = ApiService();
     widget.journal.content = contentController.text;
     widget.journal.updatedAt = DateTime.now();
-    widget.journal.time = _time; // Atualize o horário selecionado
+    widget.journal.time = _time; 
 
-    bool success = await journalService.registro(widget.journal, context);
+    bool success = await apiService.registarAgendamento(widget.journal, context);
 
     if (success) {
       Navigator.pushReplacement(

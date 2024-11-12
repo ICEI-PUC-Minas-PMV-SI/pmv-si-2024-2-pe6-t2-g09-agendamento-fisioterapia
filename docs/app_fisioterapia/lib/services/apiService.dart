@@ -5,10 +5,10 @@ import 'package:http_interceptor/http/http.dart';
 import 'package:flutter/material.dart';
 import '../models/journal.dart';
 
-class JournalService {
+class ApiService {
   static const String url =
-      "http://192.168.0.21:3000/"; 
-  static const String resource = "journals/";
+      "http://192.168.0.17:3000/"; 
+  static const String resource = "journals/"; 
 
   http.Client client = InterceptedClient.build(
     interceptors: [LoggingInterceptor()],
@@ -40,7 +40,7 @@ class JournalService {
     }
   }
 
-  Future<bool> registro(Journal journal, BuildContext context) async {
+  Future<bool> registarAgendamento(Journal journal, BuildContext context) async {
     journal.status = "pendente";
     String journalJSON = json.encode(journal.toMap());
 
@@ -116,7 +116,6 @@ class JournalService {
 
       return result;
     } catch (e) {
-      // Handle errors as needed, here simply returning an empty list
       return [];
     }
   }
@@ -160,5 +159,25 @@ class JournalService {
   void _showError(String message, BuildContext context) {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
     scaffoldMessenger.showSnackBar(SnackBar(content: Text(message)));
+  }
+  
+
+    Future<bool> login(String email, String password) async {
+    final url = Uri.parse("https://192.168.0.17:3000/login"); 
+    final response = await http.post(
+      url,
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "email": email,
+        "password": password,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['success'] ?? false; 
+    } else {
+      return false;
+    }
   }
 }

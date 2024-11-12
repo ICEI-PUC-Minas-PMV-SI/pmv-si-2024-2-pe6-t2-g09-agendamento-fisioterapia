@@ -169,7 +169,7 @@ class JournalCard extends StatelessWidget {
     if (result == DisposeStatus.success) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Registro salvo com sucesso."),
+          content: Text("registarAgendamento salvo com sucesso."),
         ),
       );
     } else if (result == DisposeStatus.error) {
