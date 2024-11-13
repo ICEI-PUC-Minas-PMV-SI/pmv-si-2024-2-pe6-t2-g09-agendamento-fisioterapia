@@ -22,129 +22,6 @@ class ApiService {
     return Uri.parse(getURL());
   }
 
-  Future<List<Journal>> tentarConexao() async {
-    final uri = Uri.parse('$urlApi$resource');
-    print('Attempting to connect to: $uri');
-
-    try {
-      final response = await http.get(uri);
-
-      if (response.statusCode == 200) {
-        List<dynamic> jsonList = json.decode(response.body);
-        return jsonList.map((json) => Journal.fromMap(json)).toList();
-      } else {
-        throw Exception('Falha ao carregar journals: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Falha ao conectar ao servidor: $e');
-    }
-  }
-
-  Future<bool> registarAgendamento(
-      Journal journal, BuildContext context) async {
-    journal.status = "pendente";
-    String journalJSON = json.encode(journal.toMap());
-
-    try {
-      http.Response response = await client.post(
-        getUri(),
-        headers: {'Content-type': 'application/json'},
-        body: journalJSON,
-      );
-
-      if (response.statusCode == 201) {
-        return true;
-      } else {
-        _showError(
-            "Não foi possível registrar o diário. Verifique sua conexão.",
-            context);
-        return false;
-      }
-    } catch (e) {
-      _showError("Não foi possível registrar o diário. Verifique sua conexão.",
-          context);
-      return false;
-    }
-  }
-
-  Future<bool> aceitaHorario(Journal journal) async {
-    journal.status = "aceito";
-    String journalJSON = json.encode(journal.toMap());
-
-    try {
-      Uri uri = Uri.parse('$urlApi$resource${journal.id}');
-      http.Response response = await client.put(
-        uri,
-        headers: {'Content-type': 'application/json'},
-        body: journalJSON,
-      );
-
-      return response.statusCode == 200;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  Future<bool> rejeitaHorario(Journal journal) async {
-    Uri uri = Uri.parse('$urlApi$resource${journal.id}');
-
-    journal.status = "rejeitado";
-    String journalJSON = json.encode(journal.toMap());
-
-    try {
-      http.Response response = await client.delete(uri);
-
-      return response.statusCode == 200;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  Future<List<Journal>> buscaHorarioPendente() async {
-    try {
-      Uri uri = Uri.parse('${getURL()}?status=pendente');
-      http.Response response = await client.get(uri);
-
-      if (response.statusCode != 200) {
-        throw Exception("Erro ao carregar os horários pendentes.");
-      }
-
-      List<Journal> result = [];
-      List<dynamic> jsonList = json.decode(response.body);
-      for (var jsonMap in jsonList) {
-        result.add(Journal.fromMap(jsonMap));
-      }
-
-      return result;
-    } catch (e) {
-      return [];
-    }
-  }
-
-  Future<List<Journal>> carregaCalendario(BuildContext context) async {
-    try {
-      http.Response response = await client.get(getUri());
-
-      if (response.statusCode != 200) {
-        _showError(
-            "Não foi possível carregar os diários. Verifique sua conexão.",
-            context);
-        return [];
-      }
-      List<Journal> result = [];
-      List<dynamic> jsonList = json.decode(response.body);
-      for (var jsonMap in jsonList) {
-        result.add(Journal.fromMap(jsonMap));
-      }
-      return result;
-    } catch (e) {
-      // _showError(
-      // "Não foi possível conectar ao servidor. Verifique sua conexão.",
-      // context);
-      return [];
-    }
-  }
-
   Future<bool> remove(String id) async {
     Uri uri = Uri.parse('$urlApi$resource$id');
 
@@ -155,11 +32,6 @@ class ApiService {
     } catch (e) {
       return false;
     }
-  }
-
-  void _showError(String message, BuildContext context) {
-    final scaffoldMessenger = ScaffoldMessenger.of(context);
-    scaffoldMessenger.showSnackBar(SnackBar(content: Text(message)));
   }
 
   Future<List<Journal>> buscaAgendamentos() async {
@@ -175,7 +47,6 @@ class ApiService {
         List<Journal> agendamentos = jsonResponse.map((agendamentoJson) {
           return Journal.fromMap(agendamentoJson);
         }).toList();
-        print(agendamentos);
         return agendamentos;
       } else if (response.statusCode == 204 || response.body.isEmpty) {
         return [];
@@ -210,7 +81,7 @@ class ApiService {
   }
 
   Future<bool> registrarAgendamento(
-      Journal journal, BuildContext context) async {
+      Journal journal, String formattedDateTime, BuildContext context) async {
     final url = Uri.parse("${urlApi}Agendamentos");
 
     final response = await http.post(
@@ -218,13 +89,31 @@ class ApiService {
       headers: {"Content-Type": "application/json"},
       body: jsonEncode({
         "nomePaciente": journal.nomePaciente,
-        "dataAtendimento": "23-11-2024-09-00",
+        "dataAtendimento": formattedDateTime,
         "email": journal.emailPaciente,
         "emailMedicoResponsavel": journal.emailMedico,
       }),
     );
 
-    if (response.statusCode == 201) {
+    return response.statusCode == 201;
+  }
+
+  Future<bool> apagarAgendamento(
+      Journal journal, String formattedDateTime, BuildContext context) async {
+    final url = Uri.parse("${urlApi}Agendamentos/${journal.id}");
+
+    final response = await http.delete(
+      url,
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "nomePaciente": journal.nomePaciente,
+        "dataAtendimento": formattedDateTime,
+        "email": journal.emailPaciente,
+        "emailMedicoResponsavel": journal.emailMedico,
+      }),
+    );
+
+    if (response.statusCode == 200) {
       return true;
     } else {
       return false;

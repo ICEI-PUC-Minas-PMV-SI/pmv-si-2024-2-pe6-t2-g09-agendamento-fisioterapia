@@ -1,7 +1,7 @@
+import 'package:clinica_fisioterapia/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:clinica_fisioterapia/models/journal.dart';
 import 'package:clinica_fisioterapia/services/apiService.dart';
-import 'package:clinica_fisioterapia/screens/home_screen/horariosPendentes.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:intl/intl.dart';
 
@@ -29,6 +29,13 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
         ? DateTime.now()
         : widget.journal.createdAt;
     _time = widget.journal.time ?? _time;
+  }
+
+  String _formatDateTimeForApi(DateTime date, Time time) {
+    final formattedDate = DateFormat('dd-MM-yyyy').format(date);
+    final formattedTime =
+        '${time.hour.toString().padLeft(2, '0')}-${time.minute.toString().padLeft(2, '0')}';
+    return '$formattedDate-$formattedTime';
   }
 
   void onTimeChanged(Time newTime) {
@@ -144,7 +151,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
               TextField(
                 controller: nomePacienteController,
                 keyboardType: TextInputType.multiline,
-                style: const TextStyle(fontSize: 20, color: Colors.blue),
+                style: const TextStyle(fontSize: 20),
                 maxLines: null,
                 minLines: 1,
                 decoration: const InputDecoration(
@@ -164,7 +171,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
               TextField(
                 controller: emailPacienteController,
                 keyboardType: TextInputType.emailAddress,
-                style: const TextStyle(fontSize: 20, color: Colors.blue),
+                style: const TextStyle(fontSize: 20),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blue),
@@ -182,7 +189,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
               TextField(
                 controller: emailMedicoController,
                 keyboardType: TextInputType.emailAddress,
-                style: const TextStyle(fontSize: 20, color: Colors.blue),
+                style: const TextStyle(fontSize: 20),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blue),
@@ -217,20 +224,26 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     widget.journal.time = _time;
     widget.journal.createdAt = selectedDate;
 
-    bool success =
-        await apiService.registrarAgendamento(widget.journal, context);
+    String formattedDateTime = _formatDateTimeForApi(selectedDate, _time);
+
+    bool success = await apiService.registrarAgendamento(
+        widget.journal, formattedDateTime, context);
 
     if (success) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const PendingSchedulesScreen(),
-        ),
-      );
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        );
+      }
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao registrar o agendamento')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Erro ao registrar o agendamento')),
+        );
+      }
     }
   }
 }

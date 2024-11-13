@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     refresh();
-    // Ensures that scrollToCurrentDay is called after layout is complete
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollToCurrentDay();
     });
@@ -36,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
     int indexOfToday = currentDay.day - 1;
 
     if (indexOfToday >= 0 && indexOfToday < endOfMonth.day) {
-      // Add a check to make sure _listScrollController is attached
       if (_listScrollController.hasClients) {
         _listScrollController.animateTo(
           _listScrollController.position.maxScrollExtent *
@@ -261,55 +259,67 @@ class _HomeScreenState extends State<HomeScreen> {
             'Escolha o agendamento para remover',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: ids.map((id) {
-              final journal = database[id];
-              String formattedTime = '';
-              if (journal?.time != null) {
-                final timeOfDay = DateTime(
-                  0, // ano fictício
-                  1, // mês fictício
-                  1, // dia fictício
-                  journal!.time!.hour,
-                  journal.time!.minute,
-                );
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: ids.map((id) {
+                final journal = database[id];
+                String formattedTime = '';
+                if (journal?.time != null) {
+                  final timeOfDay = DateTime(
+                    0,
+                    1,
+                    1,
+                    journal!.time!.hour,
+                    journal.time!.minute,
+                  );
 
-                final dateFormat = DateFormat('HH:mm');
-                formattedTime = ' - ${dateFormat.format(timeOfDay)}';
-              }
+                  final dateFormat = DateFormat('HH:mm');
+                  formattedTime = ' - ${dateFormat.format(timeOfDay)}';
+                }
 
-              return ListTile(
-                title: Text(
-                  '${journal?.nomePaciente ?? 'Sem Conteúdo'}$formattedTime',
-                  style: const TextStyle(
-                    color: Colors.red,
-                    fontSize: 18,
+                return ListTile(
+                  title: Text(
+                    '${journal?.nomePaciente ?? 'Sem Conteúdo'}$formattedTime',
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 18,
+                    ),
                   ),
-                ),
-                onTap: () {
-                  Navigator.pop(context, id);
-                },
-              );
-            }).toList(),
+                  onTap: () {
+                    Navigator.pop(context, id);
+                  },
+                );
+              }).toList(),
+            ),
           ),
         );
       },
     );
 
     if (selectedId != null) {
-      bool wasDeleted = await _apiService.remove(selectedId);
-      if (wasDeleted) {
-        setState(() {
-          database.remove(selectedId);
-        });
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Agendamento removido com sucesso')),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Erro ao remover agendamento')),
-        );
+      final journal = database[selectedId];
+      if (journal != null) {
+        final formattedDateTime = journal.time != null
+            ? DateFormat('yyyy-MM-ddTHH:mm:ss').format(
+                DateTime(0, 1, 1, journal.time!.hour, journal.time!.minute),
+              )
+            : '';
+
+        bool wasDeleted = await _apiService.apagarAgendamento(
+            journal, formattedDateTime, context);
+        if (wasDeleted) {
+          setState(() {
+            database.remove(selectedId);
+          });
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Agendamento removido com sucesso')),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Erro ao remover agendamento')),
+          );
+        }
       }
     }
   }

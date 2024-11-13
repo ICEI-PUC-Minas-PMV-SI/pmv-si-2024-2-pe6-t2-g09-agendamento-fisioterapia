@@ -29,6 +29,7 @@ class JournalCard extends StatelessWidget {
     final bool isPending = journal?.isPending ?? false;
 
     String formattedTime = '';
+
     if (journal?.time != null) {
       final timeOfDay = DateTime(
         0,
@@ -40,6 +41,13 @@ class JournalCard extends StatelessWidget {
 
       final dateFormat = DateFormat('HH:mm');
       formattedTime = ' - ${dateFormat.format(timeOfDay)}';
+    } else {
+      formattedTime = ' - Hora não definida';
+    }
+
+    String formatHoraAtendimento(DateTime data) {
+      final DateFormat dateFormat = DateFormat('HH:mm');
+      return dateFormat.format(data);
     }
 
     if (journal != null) {
@@ -105,9 +113,8 @@ class JournalCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Exibe o conteúdo do agendamento e hora
                       Text(
-                        journal!.nomePaciente + formattedTime,
+                        journal!.nomePaciente,
                         style: const TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.bold,
@@ -115,7 +122,15 @@ class JournalCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
-                      // Exibe a indicação de pendente, se aplicável
+                      Text(
+                        'Horário: ${formatHoraAtendimento(journal!.createdAt)}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
                       if (isPending)
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0),
@@ -123,12 +138,11 @@ class JournalCard extends StatelessWidget {
                             children: const [
                               Icon(Icons.warning_amber,
                                   color: Colors.orange, size: 16),
-                              SizedBox(width: 4),
                               Text(
                                 'Pendente aprovação',
                                 style: TextStyle(
                                   color: Colors.orange,
-                                  fontSize: 16,
+                                  fontSize: 14,
                                 ),
                               ),
                             ],
@@ -143,15 +157,14 @@ class JournalCard extends StatelessWidget {
         ),
       );
     } else {
-      // Caso não haja agendamento, exibe um card vazio com a data
       return InkWell(
         onTap: () {
-          // Passando o nome do paciente ao chamar a função
           callAddJournalScreen(
             context,
             nomePaciente,
             emailMedico,
             emailPaciente,
+            showedDate,
           );
         },
         child: Container(
@@ -167,11 +180,13 @@ class JournalCard extends StatelessWidget {
     }
   }
 
-  // Corrigindo a função para passar o nome do paciente para a tela add-journal
-  Future<void> callAddJournalScreen(BuildContext context, String nomePaciente,
-      String emailMedico, String emailPaciente) async {
-    DateTime showedDate = DateTime.now(); // Data para o agendamento
-
+  Future<void> callAddJournalScreen(
+    BuildContext context,
+    String nomePaciente,
+    String emailMedico,
+    String emailPaciente,
+    DateTime showedDate,
+  ) async {
     final result = await Navigator.pushNamed(
       context,
       'add-journal',
@@ -179,15 +194,14 @@ class JournalCard extends StatelessWidget {
         id: const Uuid().v1(),
         createdAt: showedDate,
         updatedAt: showedDate,
-        nomePaciente: nomePaciente, emailMedico: emailMedico,
-        emailPaciente: emailPaciente, // Nome do paciente
+        nomePaciente: nomePaciente,
+        emailMedico: emailMedico,
+        emailPaciente: emailPaciente,
       ),
     );
 
-    // Chamando a função de atualização depois que o resultado for retornado
     refreshFunction();
 
-    // Verificando o resultado da navegação e exibindo o snack bar adequado
     if (result == DisposeStatus.success) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

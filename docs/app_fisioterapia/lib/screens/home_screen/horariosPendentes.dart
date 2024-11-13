@@ -16,7 +16,6 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
   @override
   void initState() {
     super.initState();
-    _pendingSchedules = ApiService().buscaHorarioPendente();
   }
 
   @override
@@ -75,14 +74,14 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
                           Icons.check_box,
                           color: Colors.green,
                         ),
-                        onPressed: () => _acceptSchedule(journal),
+                        onPressed: () => {},
                       ),
                       IconButton(
                         icon: const Icon(
                           Icons.cancel,
                           color: Colors.red,
                         ),
-                        onPressed: () => _rejectSchedule(journal),
+                        onPressed: () => {},
                       ),
                     ],
                   ),
@@ -93,37 +92,5 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
         },
       ),
     );
-  }
-
-  Future<void> _acceptSchedule(Journal journal) async {
-    bool success = await ApiService().aceitaHorario(journal);
-    if (success) {
-      setState(() {
-        _pendingSchedules = ApiService().buscaHorarioPendente();
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Horário aceito com sucesso!')),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao aceitar o horário.')),
-      );
-    }
-  }
-
-  Future<void> _rejectSchedule(Journal journal) async {
-    bool success = await ApiService().rejeitaHorario(journal);
-    if (success) {
-      setState(() {
-        _pendingSchedules = ApiService().buscaHorarioPendente();
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Horário recusado com sucesso!')),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao recusar o horário.')),
-      );
-    }
   }
 }

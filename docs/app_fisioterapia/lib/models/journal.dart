@@ -22,7 +22,6 @@ class Journal {
     this.time,
   });
 
-  // Construtor vazio para criar instâncias "em branco"
   Journal.empty()
       : id = const Uuid().v1(),
         nomePaciente = "",
@@ -33,7 +32,6 @@ class Journal {
         status = 'pendente',
         time = null;
 
-  // Método de fábrica para criar o objeto a partir de um mapa JSON
   factory Journal.fromMap(Map<String, dynamic> map) {
     return Journal(
       id: map['id']?.toString() ?? '',
@@ -65,7 +63,6 @@ class Journal {
         "Time: ${time?.hour ?? 'Não definido'}:${time?.minute.toString().padLeft(2, '0') ?? '00'}";
   }
 
-  // Método para converter o objeto de volta para um mapa, para salvar ou enviar à API
   Map<String, dynamic> toMap() {
     return {
       'id': id,
