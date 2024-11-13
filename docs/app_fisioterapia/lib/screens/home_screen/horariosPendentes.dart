@@ -50,7 +50,6 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
               itemBuilder: (context, index) {
                 Journal journal = snapshot.data![index];
 
-                // Formata o horário, usando valores padrão se journal.time for null
                 final time = journal.time;
                 final formattedTime = time != null
                     ? '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}'
@@ -58,7 +57,7 @@ class _PendingSchedulesScreenState extends State<PendingSchedulesScreen> {
 
                 return ListTile(
                   title: Text(
-                    '${journal.content} - $formattedTime',
+                    '${journal.nomePaciente} - $formattedTime',
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,

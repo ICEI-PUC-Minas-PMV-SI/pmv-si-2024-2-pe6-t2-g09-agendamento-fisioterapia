@@ -3,7 +3,7 @@ import 'package:clinica_fisioterapia/models/journal.dart';
 import 'package:clinica_fisioterapia/services/apiService.dart';
 import 'package:clinica_fisioterapia/screens/home_screen/horariosPendentes.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
-import 'package:intl/intl.dart'; // Importa a biblioteca intl
+import 'package:intl/intl.dart';
 
 class AddJournalScreen extends StatefulWidget {
   final Journal journal;
@@ -21,7 +21,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
   @override
   void initState() {
     super.initState();
-    contentController.text = widget.journal.content;
+    contentController.text = widget.journal.nomePaciente;
     selectedDate = widget.journal.createdAt.isBefore(DateTime(2000))
         ? DateTime.now()
         : widget.journal.createdAt;
@@ -164,7 +164,6 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     );
   }
 
-  // Formata a data no formato português
   String _formatDateInPortuguese(DateTime date) {
     final formatter = DateFormat('d MMMM yyyy', 'pt_BR');
     return formatter.format(date);
@@ -172,11 +171,12 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
 
   Future<void> registerJournal(BuildContext context) async {
     ApiService apiService = ApiService();
-    widget.journal.content = contentController.text;
+    widget.journal.nomePaciente = contentController.text;
     widget.journal.updatedAt = DateTime.now();
-    widget.journal.time = _time; 
+    widget.journal.time = _time;
 
-    bool success = await apiService.registarAgendamento(widget.journal, context);
+    bool success =
+        await apiService.registarAgendamento(widget.journal, context);
 
     if (success) {
       Navigator.pushReplacement(

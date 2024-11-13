@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:clinica_fisioterapia/helpers/weekday.dart';
 import 'package:clinica_fisioterapia/models/journal.dart';
 import 'package:uuid/uuid.dart';
-import 'package:intl/intl.dart'; // Para formatação da hora
+import 'package:intl/intl.dart';
 
 enum DisposeStatus { exit, error, success }
 
@@ -10,19 +10,20 @@ class JournalCard extends StatelessWidget {
   final Journal? journal;
   final DateTime showedDate;
   final Function refreshFunction;
+  final String nomePaciente;
 
   const JournalCard({
     Key? key,
     this.journal,
     required this.showedDate,
     required this.refreshFunction,
+    required this.nomePaciente,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final bool isPending = journal?.isPending ?? false;
 
-    // Formatação da hora do agendamento
     String formattedTime = '';
     if (journal?.time != null) {
       final timeOfDay = DateTime(
@@ -38,7 +39,6 @@ class JournalCard extends StatelessWidget {
     }
 
     if (journal != null) {
-      // Exibe o card com o agendamento
       return InkWell(
         onTap: () {},
         child: Container(
@@ -54,7 +54,6 @@ class JournalCard extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  // Exibe a data do agendamento
                   Container(
                     height: 75,
                     width: 75,
@@ -76,7 +75,6 @@ class JournalCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Exibe o dia da semana
                   Container(
                     height: 38,
                     width: 75,
@@ -105,7 +103,7 @@ class JournalCard extends StatelessWidget {
                     children: [
                       // Exibe o conteúdo do agendamento e hora
                       Text(
-                        journal!.content + formattedTime,
+                        journal!.nomePaciente + formattedTime,
                         style: const TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.bold,
@@ -144,7 +142,8 @@ class JournalCard extends StatelessWidget {
       // Caso não haja agendamento, exibe um card vazio com a data
       return InkWell(
         onTap: () {
-          callAddJournalScreen(context);
+          // Passando o nome do paciente ao chamar a função
+          callAddJournalScreen(context, nomePaciente);
         },
         child: Container(
           height: 115,
@@ -159,20 +158,26 @@ class JournalCard extends StatelessWidget {
     }
   }
 
-  Future<void> callAddJournalScreen(BuildContext context) async {
+  // Corrigindo a função para passar o nome do paciente para a tela add-journal
+  Future<void> callAddJournalScreen(
+      BuildContext context, String nomePaciente) async {
+    DateTime showedDate = DateTime.now(); // Data para o agendamento
+
     final result = await Navigator.pushNamed(
       context,
       'add-journal',
       arguments: Journal(
         id: const Uuid().v1(),
-        content: "",
         createdAt: showedDate,
         updatedAt: showedDate,
+        nomePaciente: nomePaciente, // Nome do paciente
       ),
     );
 
+    // Chamando a função de atualização depois que o resultado for retornado
     refreshFunction();
 
+    // Verificando o resultado da navegação e exibindo o snack bar adequado
     if (result == DisposeStatus.success) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

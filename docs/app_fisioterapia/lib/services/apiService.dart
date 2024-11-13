@@ -165,17 +165,18 @@ class ApiService {
   Future<List<Journal>> buscaAgendamentos() async {
     DataUser dataUser = DataUser();
     String? userId = await dataUser.getUserId();
-    final url = Uri.parse("${urlApi}Agendamentos/1");
+    final url = Uri.parse("${urlApi}Agendamentos");
 
     try {
       final response = await client.get(url);
 
       if (response.statusCode == 200) {
-        Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-
-        Journal agendamento = Journal.fromMap(jsonResponse);
-
-        return [agendamento];
+        List<dynamic> jsonResponse = jsonDecode(response.body);
+        List<Journal> agendamentos = jsonResponse.map((agendamentoJson) {
+          return Journal.fromMap(agendamentoJson);
+        }).toList();
+        print(agendamentos);
+        return agendamentos;
       } else if (response.statusCode == 204 || response.body.isEmpty) {
         return [];
       } else {

@@ -1,3 +1,4 @@
+import 'package:clinica_fisioterapia/screens/home_screen/widgets/journal_card.dart';
 import 'package:flutter/material.dart';
 import '../../services/apiService.dart' as journal_service;
 import '../../models/journal.dart';
@@ -19,27 +20,32 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime currentDay = DateTime.now();
   Map<String, Journal> database = {};
   final ScrollController _listScrollController = ScrollController();
-  final journal_service.ApiService _ApiService = journal_service.ApiService();
-
-  // Future<void> refresh() async {
-  //   List<Journal> listJournal = await _ApiService.buscaAgendamentos();
-
-  //   setState(() {
-  //     database = {};
-  //     for (Journal journal in listJournal) {
-  //       database[journal.id] = journal;
-  //     }
-
-  //     WidgetsBinding.instance.addPostFrameCallback((_) {
-  //       scrollToCurrentDay();
-  //     });
-  //   });
-  // }
+  final journal_service.ApiService _apiService = journal_service.ApiService();
 
   @override
   void initState() {
     super.initState();
     refresh();
+    // Ensures that scrollToCurrentDay is called after layout is complete
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      scrollToCurrentDay();
+    });
+  }
+
+  void scrollToCurrentDay() {
+    int indexOfToday = currentDay.day - 1;
+
+    if (indexOfToday >= 0 && indexOfToday < endOfMonth.day) {
+      // Add a check to make sure _listScrollController is attached
+      if (_listScrollController.hasClients) {
+        _listScrollController.animateTo(
+          _listScrollController.position.maxScrollExtent *
+              (indexOfToday / (endOfMonth.day - 1)),
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
+    }
   }
 
   @override
@@ -103,11 +109,10 @@ class _HomeScreenState extends State<HomeScreen> {
             FutureBuilder<bool>(
               future: _hasPendingSchedules(),
               builder: (context, snapshot) {
-                Color iconColor = Colors.grey; // Cor padrão para o ícone
-                Color textColor = Colors.grey; // Cor padrão para o texto
+                Color iconColor = Colors.grey;
+                Color textColor = Colors.grey;
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  // Mostra um indicador de carregamento enquanto verifica
                   return const ListTile(
                     leading: Icon(
                       Icons.warning_amber,
@@ -128,10 +133,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   bool hasPending = snapshot.data ?? false;
                   iconColor = hasPending ? Colors.orange : Colors.grey;
                   textColor = hasPending ? Colors.orange : Colors.grey;
-                } else {
-                  // Em caso de erro na verificação, você pode definir cores padrão ou de erro
-                  iconColor = Colors.grey;
-                  textColor = Colors.grey;
                 }
 
                 return ListTile(
@@ -168,54 +169,59 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: ListView(
-        controller: _listScrollController,
-        children: _generateJournalCards(),
+      body: FutureBuilder<List<Widget>>(
+        future: _generateJournalCards(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return const Center(child: Text('Erro ao carregar agendamentos'));
+          } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+            return ListView(
+              controller: _listScrollController,
+              children: snapshot.data!,
+            );
+          } else {
+            return const Center(child: Text('Nenhum agendamento encontrado'));
+          }
+        },
       ),
     );
   }
 
-  List<Widget> _generateJournalCards() {
-    return home_screen_list
-        .generateListJournalCards(
-          currentDay: currentDay,
-          database: database,
-          refreshFunction: refresh,
-        )
-        .cast<Widget>();
+  Future<List<Widget>> _generateJournalCards() async {
+    return home_screen_list.generateListJournalCards(
+      currentDay: currentDay,
+      refreshFunction: refresh,
+      buscaAgendamentos: _apiService.buscaAgendamentos,
+    );
   }
 
   Future<void> refresh() async {
-    List<Journal> listJournal = await _ApiService.buscaAgendamentos();
+    try {
+      List<Journal> listJournal = await _apiService.buscaAgendamentos();
 
-    setState(() {
-      database = {};
-      for (Journal journal in listJournal) {
-        database[journal.id] = journal;
-      }
+      setState(() {
+        database = {};
 
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        scrollToCurrentDay();
+        for (Journal journal in listJournal) {
+          database[journal.id] = journal;
+        }
+
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          scrollToCurrentDay();
+        });
       });
-    });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erro ao atualizar os agendamentos: $e')),
+      );
+    }
   }
 
   Future<bool> _hasPendingSchedules() async {
-    List<Journal> listJournal = await _ApiService.buscaAgendamentos();
+    List<Journal> listJournal = await _apiService.buscaAgendamentos();
     return listJournal.isNotEmpty;
-  }
-
-  void scrollToCurrentDay() {
-    int indexOfToday = currentDay.day - 1;
-
-    if (indexOfToday >= 0 && indexOfToday < endOfMonth.day) {
-      _listScrollController.animateTo(
-        _listScrollController.position.maxScrollExtent *
-            (indexOfToday / (endOfMonth.day - 1)),
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
   }
 
   String getMonthName(int month) {
@@ -275,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               return ListTile(
                 title: Text(
-                  '${journal?.content ?? 'Sem Conteúdo'}$formattedTime',
+                  '${journal?.nomePaciente ?? 'Sem Conteúdo'}$formattedTime',
                   style: const TextStyle(
                     color: Colors.red,
                     fontSize: 18,
@@ -292,17 +298,17 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     if (selectedId != null) {
-      bool wasDeleted = await _ApiService.remove(selectedId);
+      bool wasDeleted = await _apiService.remove(selectedId);
       if (wasDeleted) {
         setState(() {
           database.remove(selectedId);
         });
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Agendamento removido com sucesso')),
+          const SnackBar(content: Text('Agendamento removido com sucesso')),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erro ao remover agendamento')),
+          const SnackBar(content: Text('Erro ao remover agendamento')),
         );
       }
     }
