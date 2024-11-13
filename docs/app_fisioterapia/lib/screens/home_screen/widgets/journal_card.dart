@@ -11,6 +11,8 @@ class JournalCard extends StatelessWidget {
   final DateTime showedDate;
   final Function refreshFunction;
   final String nomePaciente;
+  final String emailMedico;
+  final String emailPaciente;
 
   const JournalCard({
     Key? key,
@@ -18,6 +20,8 @@ class JournalCard extends StatelessWidget {
     required this.showedDate,
     required this.refreshFunction,
     required this.nomePaciente,
+    required this.emailMedico,
+    required this.emailPaciente,
   }) : super(key: key);
 
   @override
@@ -143,7 +147,12 @@ class JournalCard extends StatelessWidget {
       return InkWell(
         onTap: () {
           // Passando o nome do paciente ao chamar a função
-          callAddJournalScreen(context, nomePaciente);
+          callAddJournalScreen(
+            context,
+            nomePaciente,
+            emailMedico,
+            emailPaciente,
+          );
         },
         child: Container(
           height: 115,
@@ -159,8 +168,8 @@ class JournalCard extends StatelessWidget {
   }
 
   // Corrigindo a função para passar o nome do paciente para a tela add-journal
-  Future<void> callAddJournalScreen(
-      BuildContext context, String nomePaciente) async {
+  Future<void> callAddJournalScreen(BuildContext context, String nomePaciente,
+      String emailMedico, String emailPaciente) async {
     DateTime showedDate = DateTime.now(); // Data para o agendamento
 
     final result = await Navigator.pushNamed(
@@ -170,7 +179,8 @@ class JournalCard extends StatelessWidget {
         id: const Uuid().v1(),
         createdAt: showedDate,
         updatedAt: showedDate,
-        nomePaciente: nomePaciente, // Nome do paciente
+        nomePaciente: nomePaciente, emailMedico: emailMedico,
+        emailPaciente: emailPaciente, // Nome do paciente
       ),
     );
 

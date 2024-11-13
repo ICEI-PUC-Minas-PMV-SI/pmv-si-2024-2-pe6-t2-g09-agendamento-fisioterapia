@@ -208,4 +208,26 @@ class ApiService {
       return false;
     }
   }
+
+  Future<bool> registrarAgendamento(
+      Journal journal, BuildContext context) async {
+    final url = Uri.parse("${urlApi}Agendamentos");
+
+    final response = await http.post(
+      url,
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "nomePaciente": journal.nomePaciente,
+        "dataAtendimento": "23-11-2024-09-00",
+        "email": journal.emailPaciente,
+        "emailMedicoResponsavel": journal.emailMedico,
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -24,6 +24,8 @@ Map<String, Journal> generateRandomDatabase({
       createdAt: date,
       updatedAt: date,
       nomePaciente: '',
+      emailMedico: '',
+      emailPaciente: '',
     );
   }
   return map;

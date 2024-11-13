@@ -17,8 +17,10 @@ Future<List<JournalCard>> generateListJournalCards({
     (index) => JournalCard(
       refreshFunction: refreshFunction,
       showedDate: DateTime(startOfMonth.year, startOfMonth.month, index + 1),
-      nomePaciente: "",
+      nomePaciente: "TESTE",
       journal: null,
+      emailMedico: '',
+      emailPaciente: '',
     ),
   );
 
@@ -40,6 +42,8 @@ Future<List<JournalCard>> generateListJournalCards({
           showedDate: diaAtual,
           nomePaciente: journal.nomePaciente,
           journal: journal,
+          emailMedico: journal.emailMedico,
+          emailPaciente: journal.emailPaciente,
         );
       }
     }

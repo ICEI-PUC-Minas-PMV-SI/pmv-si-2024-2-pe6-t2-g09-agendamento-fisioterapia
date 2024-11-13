@@ -14,14 +14,17 @@ class AddJournalScreen extends StatefulWidget {
 }
 
 class _AddJournalScreenState extends State<AddJournalScreen> {
-  TextEditingController contentController = TextEditingController();
+  TextEditingController nomePacienteController = TextEditingController();
+  TextEditingController emailPacienteController = TextEditingController();
+  TextEditingController emailMedicoController = TextEditingController();
+
   DateTime selectedDate = DateTime.now();
   Time _time = Time(hour: TimeOfDay.now().hour, minute: TimeOfDay.now().minute);
 
   @override
   void initState() {
     super.initState();
-    contentController.text = widget.journal.nomePaciente;
+    nomePacienteController.text = widget.journal.nomePaciente;
     selectedDate = widget.journal.createdAt.isBefore(DateTime(2000))
         ? DateTime.now()
         : widget.journal.createdAt;
@@ -139,7 +142,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
               ),
               const SizedBox(height: 16),
               TextField(
-                controller: contentController,
+                controller: nomePacienteController,
                 keyboardType: TextInputType.multiline,
                 style: const TextStyle(fontSize: 20, color: Colors.blue),
                 maxLines: null,
@@ -154,7 +157,43 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blue, width: 2.0),
                   ),
-                  hintText: 'Digite o conteúdo do agendamento',
+                  hintText: 'Digite o nome do paciente',
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: emailPacienteController,
+                keyboardType: TextInputType.emailAddress,
+                style: const TextStyle(fontSize: 20, color: Colors.blue),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 4.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
+                  hintText: 'Digite o email do paciente',
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: emailMedicoController,
+                keyboardType: TextInputType.emailAddress,
+                style: const TextStyle(fontSize: 20, color: Colors.blue),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 4.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
+                  hintText: 'Digite o email do médico responsável',
                 ),
               ),
             ],
@@ -171,12 +210,15 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
 
   Future<void> registerJournal(BuildContext context) async {
     ApiService apiService = ApiService();
-    widget.journal.nomePaciente = contentController.text;
+    widget.journal.nomePaciente = nomePacienteController.text;
+    widget.journal.emailPaciente = emailPacienteController.text;
+    widget.journal.emailMedico = emailMedicoController.text;
     widget.journal.updatedAt = DateTime.now();
     widget.journal.time = _time;
+    widget.journal.createdAt = selectedDate;
 
     bool success =
-        await apiService.registarAgendamento(widget.journal, context);
+        await apiService.registrarAgendamento(widget.journal, context);
 
     if (success) {
       Navigator.pushReplacement(
