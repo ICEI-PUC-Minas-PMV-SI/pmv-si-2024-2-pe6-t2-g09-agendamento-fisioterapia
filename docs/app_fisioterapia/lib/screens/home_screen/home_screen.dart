@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void scrollToCurrentDay() {
+    // Cálculo do índice de hoje, ajustado para garantir que a rolagem seja correta
     int indexOfToday = currentDay.day - 1;
 
     if (indexOfToday >= 0 && indexOfToday < endOfMonth.day) {
@@ -206,9 +207,11 @@ class _HomeScreenState extends State<HomeScreen> {
           database[journal.id] = journal;
         }
 
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          scrollToCurrentDay();
-        });
+        currentDay = DateTime.now();
+      });
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        scrollToCurrentDay();
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -244,10 +247,9 @@ class _HomeScreenState extends State<HomeScreen> {
     List<String> ids = database.keys.toList();
 
     if (ids.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text('Nenhum agendamento disponível para remover.')),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Nenhum agendamento disponível para remover.')));
+      ;
       return;
     }
 
@@ -265,6 +267,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: ids.map((id) {
                 final journal = database[id];
                 String formattedTime = '';
+                String formattedDate = '';
+
                 if (journal?.time != null) {
                   final timeOfDay = DateTime(
                     0,
@@ -278,13 +282,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   formattedTime = ' - ${dateFormat.format(timeOfDay)}';
                 }
 
+                if (journal?.createdAt != null) {
+                  final dateFormat = DateFormat('dd/MM/yyyy');
+                  formattedDate = dateFormat.format(journal!.createdAt);
+                }
                 return ListTile(
-                  title: Text(
-                    '${journal?.nomePaciente ?? 'Sem Conteúdo'}$formattedTime',
-                    style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 18,
-                    ),
+                  title: Row(
+                    children: [
+                      Text(
+                        '${journal?.nomePaciente} -',
+                        style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 18,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'dia: $formattedDate$formattedTime',
+                        style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
                   ),
                   onTap: () {
                     Navigator.pop(context, id);
@@ -308,17 +328,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
         bool wasDeleted = await _apiService.apagarAgendamento(
             journal, formattedDateTime, context);
+
         if (wasDeleted) {
           setState(() {
             database.remove(selectedId);
           });
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Agendamento removido com sucesso')),
-          );
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Agendamento removido com sucesso')),
+            );
+          }
         } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Erro ao remover agendamento')),
-          );
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Erro ao remover agendamento')),
+            );
+          }
         }
       }
     }

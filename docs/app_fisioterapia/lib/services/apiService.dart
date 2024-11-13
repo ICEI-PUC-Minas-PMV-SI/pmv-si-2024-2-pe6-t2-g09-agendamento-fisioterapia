@@ -35,8 +35,6 @@ class ApiService {
   }
 
   Future<List<Journal>> buscaAgendamentos() async {
-    DataUser dataUser = DataUser();
-    String? userId = await dataUser.getUserId();
     final url = Uri.parse("${urlApi}Agendamentos");
 
     try {

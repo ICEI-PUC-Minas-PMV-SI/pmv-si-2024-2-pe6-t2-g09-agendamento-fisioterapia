@@ -224,6 +224,16 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     widget.journal.time = _time;
     widget.journal.createdAt = selectedDate;
 
+    if (selectedDate
+        .isBefore(DateTime.now().subtract(const Duration(days: 1)))) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text(
+                'Não é permitido agendar para dias anteriores ao dia atual.')),
+      );
+      return;
+    }
+
     String formattedDateTime = _formatDateTimeForApi(selectedDate, _time);
 
     bool success = await apiService.registrarAgendamento(
