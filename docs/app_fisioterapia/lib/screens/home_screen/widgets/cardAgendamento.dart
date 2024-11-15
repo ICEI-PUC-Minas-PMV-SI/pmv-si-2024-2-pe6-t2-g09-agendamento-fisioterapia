@@ -89,10 +89,16 @@ class CardAgendamento extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: journals.map((journal) {
-                      final formattedTime = journal.time != null
+                      final formattedTime = (journal.createdAt != null)
                           ? DateFormat('HH:mm').format(
-                              DateTime(0, 1, 1, journal.time!.hour,
-                                  journal.time!.minute),
+                              DateTime(
+                                0,
+                                1,
+                                1,
+                                journal.time?.hour ?? journal.createdAt.hour,
+                                journal.time?.minute ??
+                                    journal.createdAt.minute,
+                              ),
                             )
                           : 'Horário não disponível';
 

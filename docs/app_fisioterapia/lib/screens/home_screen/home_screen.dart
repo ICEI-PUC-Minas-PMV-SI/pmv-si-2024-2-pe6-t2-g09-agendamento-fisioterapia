@@ -1,3 +1,4 @@
+import 'package:clinica_fisioterapia/models/user/dataUser.dart';
 import 'package:clinica_fisioterapia/screens/home_screen/widgets/cardAgendamento.dart';
 import 'package:flutter/material.dart';
 import '../../services/apiService.dart' as journal_service;
@@ -13,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String? username;
+  final DataUser _dataUser = DataUser();
   DateTime startOfMonth =
       DateTime(DateTime.now().year, DateTime.now().month, 1);
   DateTime endOfMonth =
@@ -25,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _loadUserData();
     refresh();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollToCurrentDay();
@@ -44,6 +48,22 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       }
     }
+  }
+
+  Future<void> _loadUserData() async {
+    String? storedUsername = await _dataUser.getUsername();
+    if (storedUsername != null) {
+      setState(() {
+        username = _capitalizeFirstLetter(storedUsername);
+      });
+    }
+  }
+
+  String _capitalizeFirstLetter(String text) {
+    if (text.isEmpty) {
+      return text;
+    }
+    return text[0].toUpperCase() + text.substring(1);
   }
 
   @override
@@ -77,15 +97,15 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: const EdgeInsets.symmetric(),
           children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
+            DrawerHeader(
+              decoration: const BoxDecoration(
                 color: Colors.blue,
               ),
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Olá Davi Aburjeli!',
-                  style: TextStyle(
+                  'Olá $username',
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                   ),

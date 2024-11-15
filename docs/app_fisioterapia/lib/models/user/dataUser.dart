@@ -16,6 +16,11 @@ class DataUser {
     await prefs.setString('email', email);
   }
 
+  Future<String?> getUsername() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('username');
+  }
+
   Future<String?> getUserId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('userId');
