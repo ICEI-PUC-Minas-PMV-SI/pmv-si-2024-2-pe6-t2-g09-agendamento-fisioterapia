@@ -1,4 +1,5 @@
-import 'package:clinica_fisioterapia/services/apiService.dart';
+import 'package:clinica_fisioterapia/screens/cadastrar_usuario.dart';
+import 'package:clinica_fisioterapia/services/api_service.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -133,7 +134,6 @@ class _LoginState extends State<Login> {
         "Entrar",
         style: TextStyle(color: Colors.white, fontSize: 20),
       ),
-      
       onPressed: () async {
         final email = _emailController.text;
         final password = _passwordController.text;
@@ -190,14 +190,9 @@ class _LoginState extends State<Login> {
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Container(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, "cadastrarUsuario");
                 },
-            ),
+            )
           ],
         ),
       ),

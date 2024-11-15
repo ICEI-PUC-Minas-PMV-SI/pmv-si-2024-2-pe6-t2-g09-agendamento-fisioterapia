@@ -1,6 +1,7 @@
-import 'package:clinica_fisioterapia/models/user/dataUser.dart';
+import 'package:clinica_fisioterapia/models/user/data_user.dart';
 import 'package:flutter/material.dart';
-import '../../services/apiService.dart' as journal_service;
+import 'package:uuid/uuid.dart';
+import '../../services/api_service.dart' as journal_service;
 import '../../models/journal.dart';
 import '/screens/home_screen/widgets/home_screen_list.dart' as home_screen_list;
 import 'package:intl/intl.dart';
@@ -25,29 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
   final ScrollController _listScrollController = ScrollController();
   final journal_service.ApiService _apiService = journal_service.ApiService();
 
+  get nomePaciente => null;
+  get emailMedico => null;
+  get emailPaciente => null;
+
   @override
   void initState() {
     super.initState();
     _loadUserData();
     refresh();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      scrollToCurrentDay();
-    });
-  }
-
-  void scrollToCurrentDay() {
-    int indexOfToday = currentDay.day - 1;
-
-    if (indexOfToday >= 0 && indexOfToday < endOfMonth.day) {
-      if (_listScrollController.hasClients) {
-        _listScrollController.animateTo(
-          _listScrollController.position.maxScrollExtent *
-              (indexOfToday / (endOfMonth.day - 1)),
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.easeInOut,
-        );
-      }
-    }
+    WidgetsBinding.instance.addPostFrameCallback((_) {});
   }
 
   Future<void> _loadUserData() async {
@@ -75,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "${currentDay.day} de ${getMonthName(currentDay.month)} de ${currentDay.year}",
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 17,
+            fontSize: 15,
           ),
         ),
         actions: [
@@ -84,6 +72,23 @@ class _HomeScreenState extends State<HomeScreen> {
               await _showDeleteDialog(context);
             },
             icon: const Icon(Icons.delete),
+          ),
+          IconButton(
+            onPressed: () async {
+              Navigator.pushNamed(
+                context,
+                'adicionarAgendamento',
+                arguments: Journal(
+                  id: const Uuid().v1(),
+                  createdAt: currentDay,
+                  updatedAt: currentDay,
+                  nomePaciente: nomePaciente,
+                  emailMedico: emailMedico,
+                  emailPaciente: emailPaciente,
+                ),
+              );
+            },
+            icon: const Icon(Icons.add),
           ),
           IconButton(
             onPressed: () {
@@ -195,10 +200,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<List<Widget>> _generateJournalCards() async {
+    String formattedMonth = DateFormat('MMMM', 'pt_BR').format(currentDay);
+
     return home_screen_list.generateListJournalCards(
       currentDay: currentDay,
       refreshFunction: refresh,
       buscaAgendamentos: _apiService.buscaAgendamentos,
+      formattedMonth: formattedMonth,
     );
   }
 
@@ -207,8 +215,6 @@ class _HomeScreenState extends State<HomeScreen> {
       List<Journal> listJournal = await _apiService.buscaAgendamentos();
 
       setState(() {
-        database = {};
-
         for (Journal journal in listJournal) {
           database[journal.id] = journal;
         }
@@ -216,9 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
         currentDay = DateTime.now();
       });
 
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        scrollToCurrentDay();
-      });
+      WidgetsBinding.instance.addPostFrameCallback((_) {});
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Erro ao atualizar os agendamentos: $e')),

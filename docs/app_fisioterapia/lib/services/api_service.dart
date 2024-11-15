@@ -1,10 +1,11 @@
 import 'dart:convert';
-import 'package:clinica_fisioterapia/models/user/dataUser.dart';
+import 'package:clinica_fisioterapia/models/user/data_user.dart';
 import 'package:clinica_fisioterapia/services/http_interceptors.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http/http.dart';
 import 'package:flutter/material.dart';
 import '../models/journal.dart';
+import '../models/user/cadastro_usuario.dart';
 import '../models/user/usuarios.dart';
 
 class ApiService {
@@ -21,18 +22,6 @@ class ApiService {
 
   Uri getUri() {
     return Uri.parse(getURL());
-  }
-
-  Future<bool> remove(String id) async {
-    Uri uri = Uri.parse('$urlApi$resource$id');
-
-    try {
-      http.Response response = await client.delete(uri);
-
-      return response.statusCode == 200;
-    } catch (e) {
-      return false;
-    }
   }
 
   Future<List<Journal>> buscaAgendamentos() async {
@@ -151,6 +140,29 @@ class ApiService {
     );
 
     if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> cadastrarUsuario(CadastroUsuario usuario) async {
+    final url = Uri.parse("${urlApi}Usuario");
+
+    final response = await http.post(
+      url,
+      body: jsonEncode({
+        'nomeUsuario': usuario.nomeUsuario,
+        'password': usuario.password,
+        'email': usuario.email,
+        'telefone': usuario.telefone,
+        'tipo': usuario.tipo,
+        'perfil': usuario.perfil,
+      }),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (response.statusCode == 201) {
       return true;
     } else {
       return false;

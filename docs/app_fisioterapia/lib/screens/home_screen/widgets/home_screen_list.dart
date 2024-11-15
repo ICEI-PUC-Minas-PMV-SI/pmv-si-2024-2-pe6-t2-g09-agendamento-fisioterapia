@@ -1,97 +1,49 @@
 import 'package:intl/intl.dart';
 import '../../../models/journal.dart';
-import 'package:clinica_fisioterapia/screens/home_screen/widgets/cardAgendamento.dart';
+import 'package:clinica_fisioterapia/screens/home_screen/widgets/card_agendamento.dart';
 
 Future<List<CardAgendamento>> generateListJournalCards({
   required DateTime currentDay,
   required Function refreshFunction,
+  required String formattedMonth,
   required Future<List<Journal>> Function() buscaAgendamentos,
 }) async {
-  DateTime startOfDay =
-      DateTime(currentDay.year, currentDay.month, currentDay.day);
-  DateTime nextMonth = DateTime(currentDay.year, currentDay.month + 1, 1);
-  DateTime endOfNextMonth = DateTime(nextMonth.year, nextMonth.month + 1, 0);
-  int totalDays = endOfNextMonth.difference(startOfDay).inDays + 1;
+  DateTime startOfDay = DateTime(currentDay.year, currentDay.month, 1);
+  DateTime endOfDay = DateTime(currentDay.year, currentDay.month + 1, 0);
 
-  List<CardAgendamento> list = List.generate(totalDays, (index) {
-    DateTime date = startOfDay.add(Duration(days: index));
+  List<Journal> agendamentos = await buscaAgendamentos();
 
-    String formattedDate =
-        DateFormat('d MMMM').format(date); // Ex: "15 Novembro"
-    String formattedDay = DateFormat('d').format(date); // Ex: "15"
-    String formattedMonth = DateFormat('MMMM').format(date); // Ex: "Novembro"
-
-    return CardAgendamento(
-      refreshFunction: refreshFunction,
-      showedDate: date,
-      nomePaciente: "",
-      journals: [],
-      emailMedico: '',
-      emailPaciente: '',
-    );
-  });
-
-  try {
-    List<Journal> agendamentos = await buscaAgendamentos();
-    Map<int, List<Journal>> agendamentosPorDia = {};
-
-    for (var agendamento in agendamentos) {
-      int dia = agendamento.createdAt.day;
-      if (agendamentosPorDia.containsKey(dia)) {
-        agendamentosPorDia[dia]!.add(agendamento);
-      } else {
-        agendamentosPorDia[dia] = [agendamento];
-      }
-    }
-
-    for (int i = 0; i < totalDays; i++) {
-      DateTime diaAtual = startOfDay.add(Duration(days: i));
-      if (agendamentosPorDia.containsKey(diaAtual.day)) {
-        List<Journal> journals = agendamentosPorDia[diaAtual.day]!;
-        list[i] = CardAgendamento(
-          refreshFunction: refreshFunction,
-          showedDate: diaAtual,
-          nomePaciente: journals.isNotEmpty ? journals.first.nomePaciente : "",
-          journals: journals,
-          emailMedico: journals.isNotEmpty ? journals.first.emailMedico : '',
-          emailPaciente:
-              journals.isNotEmpty ? journals.first.emailPaciente : '',
-        );
-      }
-    }
-  } catch (e) {
-    print('Erro ao buscar agendamentos: $e');
-  }
-
-  List<CardAgendamento> finalList = [];
-
-  List<CardAgendamento> currentMonthList = list.where((item) {
-    return item.showedDate.month == currentDay.month;
+  List<Journal> agendamentosDoMes = agendamentos.where((journal) {
+    return journal.createdAt
+            .isAfter(startOfDay.subtract(const Duration(days: 1))) &&
+        journal.createdAt.isBefore(endOfDay.add(const Duration(days: 1)));
   }).toList();
 
-  List<CardAgendamento> nextMonthList = list.where((item) {
-    return item.showedDate.month == currentDay.month + 1;
-  }).toList();
+  List<CardAgendamento> journalCards = [];
 
-  finalList.addAll(currentMonthList);
+  for (int i = currentDay.day - 1; i < endOfDay.day; i++) {
+    DateTime diaAtual = startOfDay.add(Duration(days: i));
 
-  if (nextMonthList.isNotEmpty && nextMonthList.first.showedDate.day != 1) {
-    finalList.add(CardAgendamento(
+    if (diaAtual.isBefore(currentDay)) {
+      continue;
+    }
+
+    List<Journal> journalsDoDia = agendamentosDoMes.where((journal) {
+      return journal.createdAt.day == diaAtual.day;
+    }).toList();
+
+    journalCards.add(CardAgendamento(
       refreshFunction: refreshFunction,
-      showedDate: DateTime(currentDay.year, currentDay.month + 1, 1),
+      showedDate: diaAtual,
       nomePaciente:
-          "Agendamentos de ${DateFormat('MMMM yyyy').format(nextMonth)}",
-      journals: [],
-      emailMedico: '',
-      emailPaciente: '',
+          journalsDoDia.isNotEmpty ? journalsDoDia.first.nomePaciente! : '',
+      journals: journalsDoDia,
+      emailMedico:
+          journalsDoDia.isNotEmpty ? journalsDoDia.first.emailMedico! : '',
+      emailPaciente:
+          journalsDoDia.isNotEmpty ? journalsDoDia.first.emailPaciente! : '',
     ));
   }
 
-  finalList.addAll(nextMonthList.where((item) {
-    return !finalList.any((finalItem) =>
-        finalItem.showedDate.day == item.showedDate.day &&
-        finalItem.showedDate.month == item.showedDate.month);
-  }));
-
-  return finalList;
+  return journalCards;
 }

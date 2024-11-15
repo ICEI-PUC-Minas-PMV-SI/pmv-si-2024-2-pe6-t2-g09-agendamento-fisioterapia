@@ -1,7 +1,7 @@
 import 'package:clinica_fisioterapia/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:clinica_fisioterapia/models/journal.dart';
-import 'package:clinica_fisioterapia/services/apiService.dart';
+import 'package:clinica_fisioterapia/services/api_service.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:intl/intl.dart';
 
@@ -25,7 +25,9 @@ class _AdicionarAgendamentoState extends State<AdicionarAgendamento> {
   @override
   void initState() {
     super.initState();
-    nomePacienteController.text = widget.journal.nomePaciente;
+    nomePacienteController.text =
+        widget.journal.nomePaciente ?? 'Nome não disponível';
+
     selectedDate = widget.journal.createdAt.isBefore(DateTime(2000))
         ? DateTime.now()
         : widget.journal.createdAt;

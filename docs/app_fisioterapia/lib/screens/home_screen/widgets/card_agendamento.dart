@@ -119,7 +119,7 @@ class CardAgendamento extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            journal.nomePaciente,
+                            journal.nomePaciente!,
                             style: const TextStyle(
                               fontSize: 23,
                               fontWeight: FontWeight.bold,
@@ -160,7 +160,7 @@ class CardAgendamento extends StatelessWidget {
           height: 115,
           alignment: Alignment.center,
           child: Text(
-            "${WeekDay(showedDate).short} - ${showedDate.day}",
+            "${WeekDay(showedDate).short} - ${showedDate.day} de ${DateFormat('MMMM', 'pt_BR').format(showedDate)}",
             style: const TextStyle(fontSize: 15),
             textAlign: TextAlign.center,
           ),
@@ -183,9 +183,6 @@ class CardAgendamento extends StatelessWidget {
         id: const Uuid().v1(),
         createdAt: showedDate,
         updatedAt: showedDate,
-        nomePaciente: nomePaciente,
-        emailMedico: emailMedico,
-        emailPaciente: emailPaciente,
       ),
     );
 

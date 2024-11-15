@@ -3,9 +3,9 @@ import 'package:day_night_time_picker/day_night_time_picker.dart';
 
 class Journal {
   String id;
-  String nomePaciente;
-  String emailPaciente;
-  String emailMedico;
+  String? nomePaciente;
+  String? emailPaciente;
+  String? emailMedico;
   DateTime createdAt;
   DateTime updatedAt;
   String status;
@@ -13,9 +13,9 @@ class Journal {
 
   Journal({
     required this.id,
-    required this.nomePaciente,
-    required this.emailPaciente,
-    required this.emailMedico,
+    this.nomePaciente,
+    this.emailPaciente,
+    this.emailMedico,
     required this.createdAt,
     required this.updatedAt,
     this.status = 'pendente',

@@ -1,11 +1,13 @@
+import 'package:clinica_fisioterapia/models/user/cadastro_usuario.dart';
+import 'package:clinica_fisioterapia/screens/cadastrar_usuario.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'models/journal.dart';
-import 'screens/Agendamento/adicionarAgendamento.dart';
+import 'screens/Agendamento/adicionar_agendamento.dart';
 import 'screens/home_screen/home_screen.dart';
-import 'screens/login/login.dart';
-import 'screens/home_screen/apagarUsuario.dart';
+import 'screens/login.dart';
+import 'screens/home_screen/apagar_usuario.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
         "login": (context) => const Login(),
         "home": (context) => const HomeScreen(),
         "apagarUsuarios": (context) => const ApagarUsuario(),
+        "cadastrarUsuario": (context) => const CadastroUsuarioScreen(),
       },
       onGenerateRoute: (routeSettings) {
         if (routeSettings.name == "adicionarAgendamento") {
