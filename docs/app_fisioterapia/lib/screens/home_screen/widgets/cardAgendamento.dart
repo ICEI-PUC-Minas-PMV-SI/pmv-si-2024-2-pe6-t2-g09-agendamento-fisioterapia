@@ -53,14 +53,28 @@ class CardAgendamento extends StatelessWidget {
                         bottom: BorderSide(color: Colors.lightBlue),
                       ),
                     ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      showedDate.day.toString(),
-                      style: const TextStyle(
-                        fontSize: 32,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    padding: const EdgeInsets.all(3),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          DateFormat('d').format(showedDate),
+                          style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          DateFormat('MMMM', 'pt_BR').format(showedDate),
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Container(
@@ -72,11 +86,10 @@ class CardAgendamento extends StatelessWidget {
                         right: BorderSide(color: Colors.lightBlue),
                       ),
                     ),
-                    padding: const EdgeInsets.all(8),
                     child: Text(
-                      WeekDay(showedDate).long,
+                      WeekDay(showedDate).short,
                       style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 15,
                       ),
                     ),
                   ),
@@ -165,7 +178,7 @@ class CardAgendamento extends StatelessWidget {
   ) async {
     final result = await Navigator.pushNamed(
       context,
-      'add-journal',
+      'adicionarAgendamento',
       arguments: Journal(
         id: const Uuid().v1(),
         createdAt: showedDate,

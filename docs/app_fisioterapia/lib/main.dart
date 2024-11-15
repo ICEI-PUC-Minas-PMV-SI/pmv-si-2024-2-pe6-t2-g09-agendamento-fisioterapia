@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         "apagarUsuarios": (context) => const ApagarUsuario(),
       },
       onGenerateRoute: (routeSettings) {
-        if (routeSettings.name == "add-journal") {
+        if (routeSettings.name == "adicionarAgendamento") {
           final journal = routeSettings.arguments as Journal;
           return MaterialPageRoute(
             builder: (context) {

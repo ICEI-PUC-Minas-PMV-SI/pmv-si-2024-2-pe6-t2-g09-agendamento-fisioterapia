@@ -1,5 +1,4 @@
 import 'package:clinica_fisioterapia/models/user/dataUser.dart';
-import 'package:clinica_fisioterapia/screens/home_screen/widgets/cardAgendamento.dart';
 import 'package:flutter/material.dart';
 import '../../services/apiService.dart' as journal_service;
 import '../../models/journal.dart';
@@ -20,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       DateTime(DateTime.now().year, DateTime.now().month, 1);
   DateTime endOfMonth =
       DateTime(DateTime.now().year, DateTime.now().month + 1, 0);
+
   DateTime currentDay = DateTime.now();
   Map<String, Journal> database = {};
   final ScrollController _listScrollController = ScrollController();

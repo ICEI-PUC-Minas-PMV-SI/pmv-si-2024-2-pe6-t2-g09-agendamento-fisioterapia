@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../../../models/journal.dart';
 import 'package:clinica_fisioterapia/screens/home_screen/widgets/cardAgendamento.dart';
 
@@ -7,26 +7,32 @@ Future<List<CardAgendamento>> generateListJournalCards({
   required Function refreshFunction,
   required Future<List<Journal>> Function() buscaAgendamentos,
 }) async {
-  DateTime startOfMonth = DateTime(currentDay.year, currentDay.month, 1);
-  DateTime endOfMonth = DateTime(currentDay.year, currentDay.month + 1, 0);
+  DateTime startOfDay =
+      DateTime(currentDay.year, currentDay.month, currentDay.day);
+  DateTime nextMonth = DateTime(currentDay.year, currentDay.month + 1, 1);
+  DateTime endOfNextMonth = DateTime(nextMonth.year, nextMonth.month + 1, 0);
+  int totalDays = endOfNextMonth.difference(startOfDay).inDays + 1;
 
-  int daysInMonth = endOfMonth.day;
+  List<CardAgendamento> list = List.generate(totalDays, (index) {
+    DateTime date = startOfDay.add(Duration(days: index));
 
-  List<CardAgendamento> list = List.generate(
-    daysInMonth,
-    (index) => CardAgendamento(
+    String formattedDate =
+        DateFormat('d MMMM').format(date); // Ex: "15 Novembro"
+    String formattedDay = DateFormat('d').format(date); // Ex: "15"
+    String formattedMonth = DateFormat('MMMM').format(date); // Ex: "Novembro"
+
+    return CardAgendamento(
       refreshFunction: refreshFunction,
-      showedDate: DateTime(startOfMonth.year, startOfMonth.month, index + 1),
+      showedDate: date,
       nomePaciente: "",
       journals: [],
       emailMedico: '',
       emailPaciente: '',
-    ),
-  );
+    );
+  });
 
   try {
     List<Journal> agendamentos = await buscaAgendamentos();
-
     Map<int, List<Journal>> agendamentosPorDia = {};
 
     for (var agendamento in agendamentos) {
@@ -38,9 +44,8 @@ Future<List<CardAgendamento>> generateListJournalCards({
       }
     }
 
-    for (int i = 0; i < daysInMonth; i++) {
-      DateTime diaAtual =
-          DateTime(startOfMonth.year, startOfMonth.month, i + 1);
+    for (int i = 0; i < totalDays; i++) {
+      DateTime diaAtual = startOfDay.add(Duration(days: i));
       if (agendamentosPorDia.containsKey(diaAtual.day)) {
         List<Journal> journals = agendamentosPorDia[diaAtual.day]!;
         list[i] = CardAgendamento(
@@ -58,5 +63,35 @@ Future<List<CardAgendamento>> generateListJournalCards({
     print('Erro ao buscar agendamentos: $e');
   }
 
-  return list;
+  List<CardAgendamento> finalList = [];
+
+  List<CardAgendamento> currentMonthList = list.where((item) {
+    return item.showedDate.month == currentDay.month;
+  }).toList();
+
+  List<CardAgendamento> nextMonthList = list.where((item) {
+    return item.showedDate.month == currentDay.month + 1;
+  }).toList();
+
+  finalList.addAll(currentMonthList);
+
+  if (nextMonthList.isNotEmpty && nextMonthList.first.showedDate.day != 1) {
+    finalList.add(CardAgendamento(
+      refreshFunction: refreshFunction,
+      showedDate: DateTime(currentDay.year, currentDay.month + 1, 1),
+      nomePaciente:
+          "Agendamentos de ${DateFormat('MMMM yyyy').format(nextMonth)}",
+      journals: [],
+      emailMedico: '',
+      emailPaciente: '',
+    ));
+  }
+
+  finalList.addAll(nextMonthList.where((item) {
+    return !finalList.any((finalItem) =>
+        finalItem.showedDate.day == item.showedDate.day &&
+        finalItem.showedDate.month == item.showedDate.month);
+  }));
+
+  return finalList;
 }
