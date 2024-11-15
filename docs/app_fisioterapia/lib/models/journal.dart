@@ -81,6 +81,5 @@ class Journal {
     };
   }
 
-  // Retorna um valor booleano para verificar se o status é 'pendente'
   bool get isPending => status == 'pendente';
 }

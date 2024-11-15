@@ -6,17 +6,17 @@ import 'package:intl/intl.dart';
 
 enum DisposeStatus { exit, error, success }
 
-class JournalCard extends StatelessWidget {
-  final Journal? journal;
+class CardAgendamento extends StatelessWidget {
+  final List<Journal> journals;
   final DateTime showedDate;
   final Function refreshFunction;
   final String nomePaciente;
   final String emailMedico;
   final String emailPaciente;
 
-  const JournalCard({
+  const CardAgendamento({
     Key? key,
-    this.journal,
+    required this.journals,
     required this.showedDate,
     required this.refreshFunction,
     required this.nomePaciente,
@@ -26,36 +26,12 @@ class JournalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isPending = journal?.isPending ?? false;
-
-    String formattedTime = '';
-
-    if (journal?.time != null) {
-      final timeOfDay = DateTime(
-        0,
-        1,
-        1,
-        journal!.time!.hour,
-        journal!.time!.minute,
-      );
-
-      final dateFormat = DateFormat('HH:mm');
-      formattedTime = ' - ${dateFormat.format(timeOfDay)}';
-    } else {
-      formattedTime = ' - Hora não definida';
-    }
-
-    String formatHoraAtendimento(DateTime data) {
-      final DateFormat dateFormat = DateFormat('HH:mm');
-      return dateFormat.format(data);
-    }
-
-    if (journal != null) {
+    if (journals.isNotEmpty) {
       return InkWell(
         onTap: () {},
         child: Container(
-          height: 115,
           margin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
@@ -79,7 +55,7 @@ class JournalCard extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(16),
                     child: Text(
-                      journal!.createdAt.day.toString(),
+                      showedDate.day.toString(),
                       style: const TextStyle(
                         fontSize: 32,
                         color: Colors.white,
@@ -98,7 +74,7 @@ class JournalCard extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(8),
                     child: Text(
-                      WeekDay(journal!.createdAt).short,
+                      WeekDay(showedDate).long,
                       style: const TextStyle(
                         fontSize: 16,
                       ),
@@ -112,43 +88,37 @@ class JournalCard extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        journal!.nomePaciente,
-                        style: const TextStyle(
-                          fontSize: 23,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                      Text(
-                        'Horário: ${formatHoraAtendimento(journal!.createdAt)}',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                      if (isPending)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: Row(
-                            children: const [
-                              Icon(Icons.warning_amber,
-                                  color: Colors.orange, size: 16),
-                              Text(
-                                'Pendente aprovação',
-                                style: TextStyle(
-                                  color: Colors.orange,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
+                    children: journals.map((journal) {
+                      final formattedTime = journal.time != null
+                          ? DateFormat('HH:mm').format(
+                              DateTime(0, 1, 1, journal.time!.hour,
+                                  journal.time!.minute),
+                            )
+                          : 'Horário não disponível';
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            journal.nomePaciente,
+                            style: const TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
                           ),
-                        ),
-                    ],
+                          Text(
+                            'Horário: $formattedTime',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                        ],
+                      );
+                    }).toList(),
                   ),
                 ),
               ),

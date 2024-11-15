@@ -5,15 +5,16 @@ import 'package:clinica_fisioterapia/services/apiService.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:intl/intl.dart';
 
-class AddJournalScreen extends StatefulWidget {
+class AdicionarAgendamento extends StatefulWidget {
   final Journal journal;
-  const AddJournalScreen({Key? key, required this.journal}) : super(key: key);
+  const AdicionarAgendamento({Key? key, required this.journal})
+      : super(key: key);
 
   @override
-  State<AddJournalScreen> createState() => _AddJournalScreenState();
+  State<AdicionarAgendamento> createState() => _AdicionarAgendamentoState();
 }
 
-class _AddJournalScreenState extends State<AddJournalScreen> {
+class _AdicionarAgendamentoState extends State<AdicionarAgendamento> {
   TextEditingController nomePacienteController = TextEditingController();
   TextEditingController emailPacienteController = TextEditingController();
   TextEditingController emailMedicoController = TextEditingController();
@@ -49,7 +50,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Solicitar agendamento",
+          "Adicionar agendamento",
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
         actions: [

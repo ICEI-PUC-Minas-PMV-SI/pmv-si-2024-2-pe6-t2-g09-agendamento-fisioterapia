@@ -1,4 +1,4 @@
-import 'package:clinica_fisioterapia/screens/home_screen/widgets/journal_card.dart';
+import 'package:clinica_fisioterapia/screens/home_screen/widgets/cardAgendamento.dart';
 import 'package:flutter/material.dart';
 import '../../services/apiService.dart' as journal_service;
 import '../../models/journal.dart';
@@ -32,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void scrollToCurrentDay() {
-    // Cálculo do índice de hoje, ajustado para garantir que a rolagem seja correta
     int indexOfToday = currentDay.day - 1;
 
     if (indexOfToday >= 0 && indexOfToday < endOfMonth.day) {
@@ -108,47 +107,34 @@ class _HomeScreenState extends State<HomeScreen> {
             FutureBuilder<bool>(
               future: _hasPendingSchedules(),
               builder: (context, snapshot) {
-                Color iconColor = Colors.grey;
-                Color textColor = Colors.grey;
-
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const ListTile(
                     leading: Icon(
                       Icons.warning_amber,
                       size: 40,
-                      color: Colors.grey,
                     ),
                     title: Text(
                       'Horários Pendentes',
                       style: TextStyle(
                         fontSize: 15,
-                        color: Colors.grey,
                       ),
                     ),
                   );
                 }
 
-                if (snapshot.hasData) {
-                  bool hasPending = snapshot.data ?? false;
-                  iconColor = hasPending ? Colors.orange : Colors.grey;
-                  textColor = hasPending ? Colors.orange : Colors.grey;
-                }
-
                 return ListTile(
-                  leading: Icon(
-                    Icons.warning_amber,
+                  leading: const Icon(
+                    Icons.delete,
                     size: 40,
-                    color: iconColor,
                   ),
-                  title: Text(
-                    'Horários Pendentes',
+                  title: const Text(
+                    'Apagar usuários',
                     style: TextStyle(
                       fontSize: 15,
-                      color: textColor,
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, "horariosPendentes");
+                    Navigator.pushNamed(context, "apagarUsuarios");
                   },
                 );
               },

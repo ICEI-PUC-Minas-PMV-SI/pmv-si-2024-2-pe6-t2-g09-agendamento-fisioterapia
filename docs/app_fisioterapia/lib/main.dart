@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'models/journal.dart';
-import 'screens/add_journal_screen/add_journal_screen.dart';
+import 'screens/Agendamento/adicionarAgendamento.dart';
 import 'screens/home_screen/home_screen.dart';
 import 'screens/login/login.dart';
-import 'screens/home_screen/horariosPendentes.dart';
+import 'screens/home_screen/apagarUsuario.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,14 +38,14 @@ class MyApp extends StatelessWidget {
       routes: {
         "login": (context) => const Login(),
         "home": (context) => const HomeScreen(),
-        "horariosPendentes": (context) => const PendingSchedulesScreen(),
+        "apagarUsuarios": (context) => const ApagarUsuario(),
       },
       onGenerateRoute: (routeSettings) {
         if (routeSettings.name == "add-journal") {
           final journal = routeSettings.arguments as Journal;
           return MaterialPageRoute(
             builder: (context) {
-              return AddJournalScreen(journal: journal);
+              return AdicionarAgendamento(journal: journal);
             },
           );
         }
