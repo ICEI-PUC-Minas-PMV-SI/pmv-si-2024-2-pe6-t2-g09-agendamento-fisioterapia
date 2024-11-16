@@ -25,8 +25,6 @@ class _AdicionarAgendamentoState extends State<AdicionarAgendamento> {
   @override
   void initState() {
     super.initState();
-    nomePacienteController.text =
-        widget.journal.nomePaciente ?? 'Nome não disponível';
 
     selectedDate = widget.journal.createdAt.isBefore(DateTime(2000))
         ? DateTime.now()

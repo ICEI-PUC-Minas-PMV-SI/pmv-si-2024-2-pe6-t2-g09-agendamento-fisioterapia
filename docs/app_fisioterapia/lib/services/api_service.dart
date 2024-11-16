@@ -139,7 +139,7 @@ class ApiService {
       headers: {"Content-Type": "application/json"},
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 204) {
       return true;
     } else {
       return false;

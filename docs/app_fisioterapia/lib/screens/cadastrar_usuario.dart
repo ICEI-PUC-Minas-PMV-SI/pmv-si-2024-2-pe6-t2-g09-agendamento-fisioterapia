@@ -37,7 +37,7 @@ class _CadastroUsuarioScreenState extends State<CadastroUsuarioScreen> {
       bool sucesso = await apiService.cadastrarUsuario(novoUsuario);
 
       if (sucesso) {
-        Navigator.pushNamed(context, "cadastrarUsuario");
+        Navigator.pushNamed(context, "login");
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Falha ao cadastrar o usuário')),
