@@ -1,9 +1,21 @@
-# Front-end Móvel
+# Link do Repositório onde aplicação  mobile foi desenvolvida
+Colocar o Link
 
-[Inclua uma breve descrição do projeto e seus objetivos.]
+# Front-end Móvel
+O principal objetivo do nosso front-end mobile é otimizar o controle do fisioterapeuta sobre os agendamentos de consultas de fisioterapia. A aplicação será desenvolvida para permitir que o profissional gerencie seus horários de forma eficiente e prática, proporcionando maior organização e produtividade no dia a dia.
+
+Entre as principais funcionalidades planejadas, destacam-se:
+
+1. Agenda dinâmica:
+Uma ferramenta moderna e intuitiva será disponibilizada para que o fisioterapeuta visualize e gerencie sua agenda de maneira eficiente. Essa funcionalidade facilitará o agendamento de consultas, evitará conflitos de horários e permitirá ajustes rápidos e simples, garantindo uma melhor organização da rotina.
 
 ## Tecnologias Utilizadas
-[Lista das tecnologias principais que serão utilizadas no projeto.]
+Tecnologias utilizadas na implementação da solução:
+
+Visual Studio Code: Escolhemos o Visual Studio Code como nosso editor de código, o que torna nosso processo de desenvolvimento mais eficiente e organizado. Com uma vasta gama de extensões, o VS Code nos ajuda a aumentar nossa produtividade.
+
+GitHub: Para garantir que todas as versões do projeto fossem devidamente salvas e compartilhadas entre a equipe, utilizamos o GitHub. Essa plataforma nos permitiu monitorar as mudanças no código, colaborar de maneira estruturada e garantir que todos os desenvolvedores pudessem contribuir sem confusões.
+
 
 ## Arquitetura
 
