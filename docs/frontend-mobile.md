@@ -1,4 +1,4 @@
-# Link do Repositório onde aplicação  mobile foi desenvolvida
+# Link do Repositório onde Front-end Móvel foi desenvolvido
 A aplicação está na Branch App
 
 https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia 
