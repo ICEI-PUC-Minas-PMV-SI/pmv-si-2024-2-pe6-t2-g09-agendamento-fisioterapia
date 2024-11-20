@@ -3,10 +3,8 @@ Colocar o Link
 
 # Front-end Móvel
 O principal objetivo do nosso front-end mobile é otimizar o controle do fisioterapeuta sobre os agendamentos de consultas de fisioterapia. A aplicação será desenvolvida para permitir que o profissional gerencie seus horários de forma eficiente e prática, proporcionando maior organização e produtividade no dia a dia.
-
-Entre as principais funcionalidades planejadas, destacam-se:
-
-1. Agenda dinâmica:
+Uma das principais funcionalidades planejadas: 
+Agenda dinâmica:
 Uma ferramenta moderna e intuitiva será disponibilizada para que o fisioterapeuta visualize e gerencie sua agenda de maneira eficiente. Essa funcionalidade facilitará o agendamento de consultas, evitará conflitos de horários e permitirá ajustes rápidos e simples, garantindo uma melhor organização da rotina.
 
 ## Tecnologias Utilizadas
