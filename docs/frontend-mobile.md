@@ -52,13 +52,28 @@ A aplicação foi estruturada em uma arquitetura baseada em camadas, onde o fron
 
 [Diagrama ou descrição do fluxo de dados na aplicação.]
 
+
+
+
 ## Requisitos Funcionais
 
-[Liste os principais requisitos funcionais da aplicação.]
+|ID    | Descrição do Requisito  | Prioridade |
+|------|-----------------------------------------|----|
+|RF-001| O sistema deve permitir ao fisioterapeuta gerenciar os horários de consultas em uma agenda dinâmica.	 | ALTA | 
+|RF-002| O sistema deve incluir um mecanismo de recuperação de senha. 	 | MÉDIA |
+|RF-003| O sistema deve permitir que usuários (fisioterapeutas) realizem login utilizando e-mail e senha. | MÉDIA |
+|RF-003| O sistema deve permitir o gerenciamento de usuários | MÉDIA |
+
+
 
 ## Requisitos Não Funcionais
 
-[Liste os principais requisitos não funcionais da aplicação, como desempenho, segurança, escalabilidade, etc.]
+|ID     | Descrição do Requisito  |Prioridade |
+|-------|-------------------------|----|
+|RNF-001| A interfrace deve se intiutiva e de fácil de usar| ALTA |  
+|RNF-002| O sistema deve ser compactivel com diferentes dispositivos | ALTA | 
+|RNF-003| O sistema deve ser Responsível	| MÉDIA |
+
 
 
 ## Considerações de Segurança
