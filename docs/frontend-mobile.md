@@ -4,11 +4,15 @@ Colocar o Link
 # Front-end Móvel
 O principal objetivo do nosso front-end mobile é otimizar o controle do fisioterapeuta sobre os agendamentos de consultas de fisioterapia. A aplicação será desenvolvida para permitir que o profissional gerencie seus horários de forma eficiente e prática, proporcionando maior organização e produtividade no dia a dia.
 Uma das principais funcionalidades planejadas: 
+
 Agenda dinâmica:
+
 Uma ferramenta moderna e intuitiva será disponibilizada para que o fisioterapeuta visualize e gerencie sua agenda de maneira eficiente. Essa funcionalidade facilitará o agendamento de consultas, evitará conflitos de horários e permitirá ajustes rápidos e simples, garantindo uma melhor organização da rotina.
 
 ## Tecnologias Utilizadas
 Tecnologias utilizadas na implementação da solução:
+
+Flutter: Utilizamos o Flutter como framework para o desenvolvimento do aplicativo mobile. Ele nos permitiu criar uma interface de usuário responsiva e moderna, além de possibilitar o desenvolvimento multiplataforma (Android e iOS) com um único código base. A escolha do Flutter também se deu por sua alta performance e rica coleção de widgets personalizáveis, que facilitaram a criação de uma experiência intuitiva e eficiente para os usuários.
 
 Visual Studio Code: Escolhemos o Visual Studio Code como nosso editor de código, o que torna nosso processo de desenvolvimento mais eficiente e organizado. Com uma vasta gama de extensões, o VS Code nos ajuda a aumentar nossa produtividade.
 
