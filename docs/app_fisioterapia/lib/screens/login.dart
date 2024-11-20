@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
             children: [
               Center(
                 child: Text(
-                  'Clinica de Fisioterapia',
+                  'Agenda Fisio',
                   style: GoogleFonts.raleway(
                     textStyle: const TextStyle(
                       color: Colors.blue,
