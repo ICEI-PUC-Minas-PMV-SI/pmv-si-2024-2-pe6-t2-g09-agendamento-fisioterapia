@@ -86,6 +86,19 @@ class ApiService {
     return response.statusCode == 201;
   }
 
+  Future<bool> editarDataAgendamento(
+      Journal journal, String formattedDateTime, BuildContext context) async {
+    final url = Uri.parse(
+        "${urlApi}Agendamentos/AtualizarData/${journal.id}?data=$formattedDateTime");
+
+    final response = await http.put(
+      url,
+      headers: {"Content-Type": "application/json"},
+    );
+
+    return response.statusCode == 200;
+  }
+
   Future<bool> apagarAgendamento(
       Journal journal, String formattedDateTime, BuildContext context) async {
     final url = Uri.parse("${urlApi}Agendamentos/${journal.id}");

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import '../../services/api_service.dart' as journal_service;
 import '../../models/journal.dart';
+import '../Agendamento/editar_agendamento.dart';
 import '/screens/home_screen/widgets/home_screen_list.dart' as home_screen_list;
 import 'package:intl/intl.dart';
 
@@ -59,11 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
-        title: Text(
-          "${currentDay.day} de ${getMonthName(currentDay.month)} de ${currentDay.year}",
-          style: const TextStyle(
+        title: const Text(
+          "Agenda",
+          style: TextStyle(
             color: Colors.white,
-            fontSize: 15,
+            fontSize: 20,
           ),
         ),
         actions: [
@@ -75,20 +76,38 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           IconButton(
             onPressed: () async {
-              Navigator.pushNamed(
-                context,
-                'adicionarAgendamento',
-                arguments: Journal(
-                  id: const Uuid().v1(),
-                  createdAt: currentDay,
-                  updatedAt: currentDay,
-                  nomePaciente: nomePaciente,
-                  emailMedico: emailMedico,
-                  emailPaciente: emailPaciente,
-                ),
-              );
+              if (database.isNotEmpty) {
+                final String journalId = database.keys.first;
+                final Journal? journalToEdit = database[journalId];
+
+                if (journalToEdit != null) {
+                  final editedJournal = await Navigator.push<Journal>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditJournalScreen(),
+                    ),
+                  );
+
+                  if (editedJournal != null) {
+                    setState(() {
+                      database[editedJournal.id] = editedJournal;
+                    });
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                          content: Text('Agendamento atualizado com sucesso!')),
+                    );
+                  }
+                }
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content:
+                          Text('Nenhum agendamento disponível para editar.')),
+                );
+              }
             },
-            icon: const Icon(Icons.add),
+            icon: const Icon(Icons.edit),
           ),
           IconButton(
             onPressed: () {
@@ -195,6 +214,28 @@ class _HomeScreenState extends State<HomeScreen> {
             return const Center(child: Text('Nenhum agendamento encontrado'));
           }
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          Navigator.pushNamed(
+            context,
+            'adicionarAgendamento',
+            arguments: Journal(
+              id: const Uuid().v1(),
+              createdAt: currentDay,
+              updatedAt: currentDay,
+              nomePaciente: nomePaciente,
+              emailMedico: emailMedico,
+              emailPaciente: emailPaciente,
+            ),
+          );
+        },
+        backgroundColor: Colors.blue,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        tooltip: 'Adicionar Agendamento',
       ),
     );
   }
