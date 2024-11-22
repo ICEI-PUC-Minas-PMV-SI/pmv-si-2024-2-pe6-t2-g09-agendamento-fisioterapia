@@ -45,7 +45,11 @@ A interface mobile da aplicação de Agendamento de Fisioterapia é intuitiva e 
 
 
 ### Design Visual
-[Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
+
+![Imagem do WhatsApp de 2024-11-19 à(s) 19 18 01_f0cf8b32](https://github.com/user-attachments/assets/60762b9d-64ab-4cf6-ad8c-9b16694ce11b)
+
+![Imagem do WhatsApp de 2024-11-19 à(s) 19 18 10_36b2c77c](https://github.com/user-attachments/assets/0d53c0fe-552d-4653-bdb8-f6a140594b6f)
+
 
 ### Layout Responsivo
 
