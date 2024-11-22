@@ -48,7 +48,16 @@ A interface mobile da aplicação de Agendamento de Fisioterapia é intuitiva e 
 [Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
 
 ### Layout Responsivo
-[Discuta como a interface será adaptada para diferentes tamanhos de tela e dispositivos.]
+
+No Flutter, a interface do sistema será projetada para ser totalmente responsiva, garantindo uma experiência consistente para os usuários, independentemente do dispositivo utilizado, como smartphones, tablets ou telas maiores. Para alcançar essa adaptabilidade, será utilizado o MediaQuery, que fornece informações sobre as dimensões, orientação da tela e densidade de pixels do dispositivo em uso.
+
+A aplicação ajustará automaticamente elementos como:
+
+Margens e espaçamentos, garantindo que o layout permaneça legível e organizado;
+
+Tamanhos de fontes, proporcionando uma leitura confortável em diferentes telas;
+
+Disposição de widgets, adaptando-se às mudanças de orientação (retrato ou paisagem) e otimizando o uso do espaço disponível.
 
 ### Interações do Usuário
 [Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
