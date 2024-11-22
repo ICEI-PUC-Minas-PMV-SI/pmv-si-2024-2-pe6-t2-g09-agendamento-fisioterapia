@@ -69,14 +69,33 @@ Tamanhos de fontes, proporcionando uma leitura confortável em diferentes telas;
 Disposição de widgets, adaptando-se às mudanças de orientação (retrato ou paisagem) e otimizando o uso do espaço disponível.
 
 ### Interações do Usuário
-[Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
+A interface da aplicação de Agendamento de Fisioterapia foi projetada com foco na simplicidade e funcionalidade, proporcionando uma experiência agradável e eficiente. As principais interações incluem: 
+
+Página de Login: 
+ 1. O fisioterapeuta pode realizar login ou se registrar facilmente através de campos claros e botões visíveis.
+ 2. Mensagens de erro ou sucesso são exibidas instantaneamente em caso de dados inválidos ou autenticação bem-sucedida, respectivamente.
+ 3.  Após o login, o fisioterapeuta é direcionado para sua área de trabalho principal, evitando confusão.
+
+Gerenciamento de Agendamentos e Pacientes:
+1. O fisioterapeuta pode acessar a agenda com poucos cliques, visualizando compromissos do dia ou da semana.
+2. As funções de adicionar, editar ou excluir agendamentos e informações de pacientes são apresentadas de maneira clara, com etapas simplificadas.
+3.O sistema notifica sobre alterações ou ações importantes, como cancelamentos ou novos agendamentos.
+
+A interface foi desenvolvida para ser limpa e responsiva, com cores neutras, ícones claros e um layout adaptado para dispositivos móveis e desktops, garantindo uma experiência consistente. O design inclusivo prioriza acessibilidade, com fontes legíveis, botões de tamanho adequado e suporte à navegação por teclado. Elementos interativos, como botões e links, oferecem feedback visual através de mudanças sutis, como alterações de cor e sombreamento, enquanto transições suaves tornam a navegação mais fluida e intuitiva.
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+O fluxo de dados na aplicação foi projetado para ser simples e eficiente. Ao acessar a aplicação, o fisioterapeuta é recebido na tela de login, onde pode optar por realizar o login, caso já tenha cadastro, ou se registrar, caso contrário. Durante o login, as credenciais fornecidas são enviadas à API de autenticação, que verifica os dados e, se corretos, redireciona o usuário para a Home Interna.
 
+Na Home Interna, o usuário encontra duas funcionalidades principais:
 
+Pacientes:
+Nesta área, o fisioterapeuta pode visualizar, adicionar, editar e consultar dados de pacientes.
+Cada ação (busca, cadastro, atualização ou consulta) interage diretamente com a API de gerenciamento de pacientes, que processa e retorna as informações necessárias em tempo real.
 
+Agendamentos:
+O fisioterapeuta pode criar, visualizar e editar agendamentos de sessões ou consultas.
+Todas as operações relacionadas a agendamentos são enviadas para a API de agendamentos, que gerencia a criação, atualização e recuperação de informações de forma integrada.
 
 ## Requisitos Funcionais
 
