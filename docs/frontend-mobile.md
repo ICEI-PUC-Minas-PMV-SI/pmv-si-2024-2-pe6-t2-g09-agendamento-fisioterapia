@@ -41,14 +41,8 @@ A interface mobile da aplicação de Agendamento de Fisioterapia é intuitiva e 
 
 ### Wireframes
 
-Tela de login e cadastro de usuário                                                  Agenda e Menu Lateral  
-
-![image](https://github.com/user-attachments/assets/506b1f27-da43-4772-82b3-a3c7f3c0c1ae) ![image](https://github.com/user-attachments/assets/8afa4f8d-7ef0-4c9e-a087-efb40cb26b55)
-
-
-
-
-
+Tela de login e cadastro de usuário                                                 
+![image](https://github.com/user-attachments/assets/506b1f27-da43-4772-82b3-a3c7f3c0c1ae) 
 
 
 
