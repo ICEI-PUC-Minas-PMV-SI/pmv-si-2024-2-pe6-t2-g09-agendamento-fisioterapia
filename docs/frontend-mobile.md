@@ -49,6 +49,15 @@ Agenda e Menu Lateral
 
 ![image](https://github.com/user-attachments/assets/8afa4f8d-7ef0-4c9e-a087-efb40cb26b55)
 
+Adicionar agendamentos e apagar usuários 
+
+![image](https://github.com/user-attachments/assets/5537e75a-1d89-45d0-9921-e98342cefe90)
+
+
+
+
+
+
 ### Design Visual
 
 ![Imagem do WhatsApp de 2024-11-19 à(s) 19 18 01_f0cf8b32](https://github.com/user-attachments/assets/60762b9d-64ab-4cf6-ad8c-9b16694ce11b) ![Imagem do WhatsApp de 2024-11-19 à(s) 19 18 10_36b2c77c](https://github.com/user-attachments/assets/0d53c0fe-552d-4653-bdb8-f6a140594b6f)
