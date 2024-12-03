@@ -169,13 +169,19 @@ Windows
 
 ## Testes
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+**Cenário: Cadastro de usuário e login**
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+Na tela inicial será demonstrado campos e-mail e senha para login, caso o usuário ainda não esteja cadastrado, clicando sobre a opção "Criar Conta" será direcionado a tela de cadastro de usuário.
+
+![image](https://github.com/user-attachments/assets/ddc99479-3242-41d7-9cea-cb6e87eeb4be)
+
+
+Na tela de cadastro de usuários, é necessário informar o nome, senha, e-mail, telefone de contato, tipo de usuario e perfil para então realizar o cadastro. 
+
+![image](https://github.com/user-attachments/assets/b0649f9c-9fbf-4062-a421-d927b394fc1a)
+
+
+Assim que efetuar o registro será retornado automaticamente para a tela de login.
 
 # Referências
 
