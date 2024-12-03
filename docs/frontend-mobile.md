@@ -44,9 +44,24 @@ A interface mobile da aplicação de Agendamento de Fisioterapia é intuitiva e 
 Tela de login e cadastro de usuário                                                 
 ![image](https://github.com/user-attachments/assets/506b1f27-da43-4772-82b3-a3c7f3c0c1ae) 
 
+Tela apagar usuário
+
+![image](https://github.com/user-attachments/assets/5c87b93c-1190-48fb-8363-58f3542b7ea3)
+
+
 Tela de agendamento e cadastro de agendamento  
 
 ![image](https://github.com/user-attachments/assets/6c19e385-abcc-4b81-87b0-4e11e380585e)
+
+Tela de editar agendamento e remover agendamento
+
+![image](https://github.com/user-attachments/assets/ba19bbc4-1102-454e-a169-247a05fc0dba)
+
+Tela inicial e agenda
+
+![image](https://github.com/user-attachments/assets/bea33748-3be6-4875-a91e-3dc9ceb0c286)
+
+
 
 
 
