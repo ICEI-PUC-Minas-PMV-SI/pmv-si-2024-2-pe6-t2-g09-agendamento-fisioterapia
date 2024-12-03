@@ -171,12 +171,12 @@ Windows
 
 **Cenário: Cadastro de usuário e login**
 
-Na tela inicial será demonstrado campos e-mail e senha para login, caso o usuário ainda não esteja cadastrado, clicando sobre a opção "Criar Conta" será direcionado a tela de cadastro de usuário.
+Na tela inicial serão demonstrados os campos e-mail e senha para login, caso o usuário ainda não esteja cadastrado, clicando sobre a opção "Criar Conta" será direcionado à tela de cadastro de usuário.
 
 ![image](https://github.com/user-attachments/assets/ddc99479-3242-41d7-9cea-cb6e87eeb4be)
 
 
-Na tela de cadastro de usuários, é necessário informar o nome, senha, e-mail, telefone de contato, tipo de usuario e perfil para então realizar o cadastro. 
+Na tela de cadastro de usuário é necessário informar o nome, senha, e-mail, telefone de contato, tipo de usuario e perfil para então realizar o cadastro. 
 
 ![image](https://github.com/user-attachments/assets/b0649f9c-9fbf-4062-a421-d927b394fc1a)
 
