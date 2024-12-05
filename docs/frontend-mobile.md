@@ -183,6 +183,33 @@ Na tela de cadastro de usuário é necessário informar o nome, senha, e-mail, t
 
 Assim que efetuar o registro será retornado automaticamente para a tela de login.
 
+
+**Cenário: Cadastro e manutenção dos agendamentos**
+
+Após relizar o login no aplicativo, será demonstrado o calendário com os agendamentos
+
+![image](https://github.com/user-attachments/assets/79d318f4-45b3-40cc-a00d-d4bc1a511b30)
+
+
+Clicando sobre a data, será aberta a tela Adicionar agendamento, onde informamos a data, horário, nome do paciente, e-mail do paciente e o e-mail do profissional responsavel pelo atendimento. 
+
+![image](https://github.com/user-attachments/assets/6c3a0918-9871-4082-ad84-58ebc5489a21)
+
+
+Após preencher os dados clicando sobre a opção confirmar no canto superior da tela o agentamento automaticamente será demonstrado na data em questão.
+
+![image](https://github.com/user-attachments/assets/f0b06250-2a31-48c1-b65f-e33b0daed4b6)
+
+
+Para alteração do agendamento, clicar sobre o agendamento em questão, será aberta a tela Editar Agendamento, que poderá ser realizada a edição e em seguida salvar 
+
+![image](https://github.com/user-attachments/assets/8a518b76-7efc-4697-9104-d88485e35e1a)
+
+Para realizar a exclusão do agendamento inserido, basta clicar sobre o icone de lixeira ao lado da data que serão apresentados os agendamentos do dia em questão para exclusão.
+
+![image](https://github.com/user-attachments/assets/afdfbc47-d6ed-46ce-a32b-9baa2155266a)
+
+
 # Referências
 
 Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
