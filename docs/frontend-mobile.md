@@ -160,11 +160,11 @@ Requisitos necessários de Hardware e Software:
 
 - CPU de 4 núcleos ou mais
 - Memória RAM no mínimo 8 GB
--Armazenato SSD de no mínimo 256GB
-Conexão de rede de alta velocidade
-Servidor de banco de dados SQLServer
-Servidor web
-Ambiente de execução: C#: Para backend com .NET Core. e Dart: Para desenvolvimento do aplicativo Flutter.
+- Armazenato SSD de no mínimo 256GB
+- Conexão de rede de alta velocidade
+- Servidor de banco de dados SQLServer
+- Servidor web
+- Ambiente de execução: C#: Para backend com .NET Core. e Dart: Para desenvolvimento do aplicativo Flutter.
 Windows
 
 ## Testes
