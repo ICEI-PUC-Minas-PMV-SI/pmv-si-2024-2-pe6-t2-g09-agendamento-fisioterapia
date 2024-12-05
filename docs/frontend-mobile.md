@@ -158,9 +158,9 @@ Comunicação com HTTPS: O protocolo HTTPS é utilizado para garantir uma comuni
 
 Requisitos necessários de Hardware e Software:
 
-CPU de 4 núcleos ou mais
-Memória RAM no mínimo 8 GB
-Armazenato SSD de no mínimo 256GB
+- CPU de 4 núcleos ou mais
+- Memória RAM no mínimo 8 GB
+-Armazenato SSD de no mínimo 256GB
 Conexão de rede de alta velocidade
 Servidor de banco de dados SQLServer
 Servidor web
@@ -209,6 +209,16 @@ Para realizar a exclusão do agendamento inserido, basta clicar sobre o icone de
 
 ![image](https://github.com/user-attachments/assets/afdfbc47-d6ed-46ce-a32b-9baa2155266a)
 
+
+**Cenário: Exclusão de usuários**
+
+Na tela inicial do aplicado, clicando sobre o menu hamburguer no canto superior, será apresentada a opção Apagar usuários.
+
+![image](https://github.com/user-attachments/assets/18405297-b0d9-4a59-b05e-a9847fa5b0fa)
+
+Clicando sobre a opção será demonstrados todos os usuário disponiveis no banco de dados, clicando sobre o icone de lixeira na frente do usúario o mesmo será removido do banco de dados.
+
+![image](https://github.com/user-attachments/assets/4069541a-c71c-4462-a224-833d737116cd)
 
 
 # Referências
