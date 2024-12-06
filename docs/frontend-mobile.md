@@ -223,4 +223,10 @@ Clicando sobre a opção será demonstrados todos os usuário disponiveis no ban
 
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+* DOMINGUES, Sérgio. Desenvolvimento Multiplataforma com Flutter: Crie Aplicativos Android e iOS com um Único Código. Novatec, 2022.
+* Google Developers. Documentação do Flutter. Disponível em: https://flutter.dev/docs.
+* Android Developers. Documentação do Android Studio. Disponível em: https://developer.android.com/studio.
+* Microsoft. Documentação do Visual Studio Code. Disponível em: https://code.visualstudio.com/docs.
+* GitHub Docs. Introdução ao GitHub. Disponível em: https://docs.github.com/pt.
+* Material Design. Diretrizes de Design do Material Design. Disponível em: https://material.io/design.
+* Nielsen Norman Group. Usabilidade de Aplicativos Móveis. Disponível em: https://www.nngroup.com/topic/mobile-ux/.
