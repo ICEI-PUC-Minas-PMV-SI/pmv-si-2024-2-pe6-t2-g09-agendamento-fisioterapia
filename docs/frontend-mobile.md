@@ -4,11 +4,11 @@ A aplicação está na Branch App
 https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-2-pe6-t2-g09-agendamento-fisioterapia 
 
 # Front-end Móvel
-O principal objetivo do nosso front-end mobile é otimizar o controle do fisioterapeuta sobre os agendamentos de consultas de fisioterapia. A aplicação será desenvolvida para permitir que o profissional gerencie seus horários de forma eficiente e prática, proporcionando maior organização e produtividade no dia a dia.
+O principal objetivo do nosso front-end mobile é otimizar o controle do fisioterapeuta sobre os agendamentos de consultas de fisioterapia. A aplicação será desenvolvida para permitir que o profissional gerencie seus horários, proporcionando maior organização e produtividade no dia a dia.
 
 Principais Funcionalidades
 Agenda Dinâmica
-Uma ferramenta moderna e intuitiva será disponibilizada para que o fisioterapeuta visualize e gerencie sua agenda de maneira eficiente.
+Uma ferramenta moderna que será disponibilizada para que o fisioterapeuta visualize e gerencie sua agenda. 
 
 Facilitará o agendamento de consultas.
 Evitará conflitos de horários.
@@ -41,7 +41,7 @@ Diagrama representando o fluxo básico da aplicação móvel, incluindo as funci
 
 
 ## Projeto da Interface
-A interface mobile da aplicação de Agendamento de Fisioterapia foi desenvolvida com o foco em ser intuitiva.  Assim que acessar a aplicação o usuário é direcionado para  o login, no  qual o fisioterapeuta Davi já pode-ra gerenciar pacientes e agendamentos. No desenvolvimento da aplicação foi pensando em todos os detalhes como transições suaves e feedback visual melhoram a interatividade, otimizando os  agendamentos.
+A interface mobile da aplicação de Agendamento de Fisioterapia foi projetada para direcionar o usuário diretamente para a tela de login. Após autenticação, o fisioterapeuta Davi terá acesso às funcionalidades de gerenciamento de pacientes e agendamentos.
 
 ### Wireframes
 
@@ -87,23 +87,23 @@ Tela inicial e agenda
 
 
 ### Interações do Usuário
-A interface da aplicação de Agendamento de Fisioterapia foi projetada com foco na simplicidade e funcionalidade, proporcionando uma experiência agradável e eficiente. As principais interações incluem: 
+ As principais interações incluem: 
 
 Página de Login: 
- 1. O fisioterapeuta pode realizar login ou se registrar facilmente através de campos claros e botões visíveis.
+ 1. O fisioterapeuta pode realizar login ou se registrar. 
  2. Mensagens de erro ou sucesso são exibidas instantaneamente em caso de dados inválidos ou autenticação bem-sucedida, respectivamente.
- 3.  Após o login, o fisioterapeuta é direcionado para sua área de trabalho principal, evitando confusão.
+ 3.  Após o login, o fisioterapeuta é direcionado para sua área de trabalho principal. 
 
 Gerenciamento de Agendamentos e Pacientes:
-1. O fisioterapeuta pode acessar a agenda com poucos cliques, visualizando compromissos do dia ou da semana.
-2. As funções de adicionar, editar ou excluir agendamentos e informações de pacientes são apresentadas de maneira clara, com etapas simplificadas.
+1. O fisioterapeuta pode acessar a agenda visualizando compromissos do dia ou da semana.
+2. Funções de adicionar, editar ou excluir agendamentos e informações de pacientes são apresentadas de maneira clara. 
 3.O sistema notifica sobre alterações ou ações importantes, como cancelamentos ou novos agendamentos.
 
-A interface foi desenvolvida para ser limpa, com cores neutras, ícones claros e um layout adaptado para dispositivos móveis e desktops, garantindo uma experiência consistente. O design inclusivo prioriza acessibilidade, com fontes legíveis, botões de tamanho adequado e suporte à navegação por teclado. Elementos interativos, como botões e links, oferecem feedback visual através de mudanças sutis, como alterações de cor e sombreamento, enquanto transições suaves tornam a navegação mais fluida e intuitiva.
+
 
 ## Fluxo de Dados
 
-O fluxo de dados na aplicação foi projetado para ser simples e eficiente. Ao acessar a aplicação, o fisioterapeuta é recebido na tela de login, onde pode optar por realizar o login, caso já tenha cadastro, ou se registrar, caso contrário. Durante o login, as credenciais fornecidas são enviadas à API de autenticação, que verifica os dados e, se corretos, redireciona o usuário para a Home Interna.
+Ao acessar a aplicação, o fisioterapeuta é recebido na tela de login, onde pode optar por realizar o login, caso já tenha cadastro, ou se registrar, caso contrário. Durante o login, as credenciais fornecidas são enviadas à API de autenticação, que verifica os dados e, se corretos, redireciona o usuário para a Home Interna.
 
 Na Home Interna, o usuário encontra duas funcionalidades principais:
 
@@ -148,17 +148,15 @@ Comunicação com HTTPS: O protocolo HTTPS é utilizado para garantir uma comuni
 
 ## Implantação
 
-Requisitos necessários de Hardware e Software:
+A implantação será realizada por meio da Google Play. O aplicativo será enviado para o Google Play Console, onde passará por uma revisão para garantir a conformidade com as políticas da loja. Após a aprovação, estará disponível para os usuários na Play Store.
 
-- CPU de 4 núcleos ou mais
-- Memória RAM no mínimo 8 GB
-- Armazenato SSD de no mínimo 256GB
-- Conexão de rede de alta velocidade
-- Servidor de banco de dados SQLServer
-- Servidor web
-- Ambiente de execução: C#: Para backend com .NET Core. e Dart: Para desenvolvimento do aplicativo Flutter.
-Windows
-
+Requisitos de Hardware e Software
+Sistema Operacional: Android
+Memória RAM: 4 GB
+Armazenamento: 64 GB
+Processador: Octa-Core
+Conexão de Rede
+  
 ## Testes
 
 **Cenário: Cadastro de usuário e login**
