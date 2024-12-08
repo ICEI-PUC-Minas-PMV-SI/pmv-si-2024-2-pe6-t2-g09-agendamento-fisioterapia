@@ -150,12 +150,13 @@ Comunicação com HTTPS: O protocolo HTTPS é utilizado para garantir uma comuni
 
 A implantação será realizada por meio da Google Play. O aplicativo será enviado para o Google Play Console, onde passará por uma revisão para garantir a conformidade com as políticas da loja. Após a aprovação, estará disponível para os usuários na Play Store.
 
-Requisitos de Hardware e Software
-Sistema Operacional: Android
-Memória RAM: 4 GB
-Armazenamento: 64 GB
-Processador: Octa-Core
-Conexão de Rede
+Requisitos de Hardware e Software: 
+
+-Sistema Operacional: Android
+-Memória RAM: 4 GB
+-Armazenamento: 64 GB
+-Processador: Octa-Core
+-Conexão de Rede
   
 ## Testes
 
