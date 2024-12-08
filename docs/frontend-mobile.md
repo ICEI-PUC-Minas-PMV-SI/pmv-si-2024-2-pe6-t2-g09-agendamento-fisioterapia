@@ -95,7 +95,7 @@ Gerenciamento de Agendamentos e Pacientes:
 2. As funções de adicionar, editar ou excluir agendamentos e informações de pacientes são apresentadas de maneira clara, com etapas simplificadas.
 3.O sistema notifica sobre alterações ou ações importantes, como cancelamentos ou novos agendamentos.
 
-A interface foi desenvolvida para ser limpa e responsiva, com cores neutras, ícones claros e um layout adaptado para dispositivos móveis e desktops, garantindo uma experiência consistente. O design inclusivo prioriza acessibilidade, com fontes legíveis, botões de tamanho adequado e suporte à navegação por teclado. Elementos interativos, como botões e links, oferecem feedback visual através de mudanças sutis, como alterações de cor e sombreamento, enquanto transições suaves tornam a navegação mais fluida e intuitiva.
+A interface foi desenvolvida para ser limpa, com cores neutras, ícones claros e um layout adaptado para dispositivos móveis e desktops, garantindo uma experiência consistente. O design inclusivo prioriza acessibilidade, com fontes legíveis, botões de tamanho adequado e suporte à navegação por teclado. Elementos interativos, como botões e links, oferecem feedback visual através de mudanças sutis, como alterações de cor e sombreamento, enquanto transições suaves tornam a navegação mais fluida e intuitiva.
 
 ## Fluxo de Dados
 
