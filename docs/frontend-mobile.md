@@ -82,18 +82,6 @@ Tela inicial e agenda
 
 
 
-### Layout Responsivo
-
-No Flutter, a interface do sistema será projetada para ser totalmente responsiva, garantindo uma experiência consistente para os usuários, independentemente do dispositivo utilizado, como smartphones, tablets ou telas maiores. Para alcançar essa adaptabilidade, será utilizado o MediaQuery, que fornece informações sobre as dimensões, orientação da tela e densidade de pixels do dispositivo em uso.
-
-A aplicação ajustará automaticamente elementos como:
-
-Margens e espaçamentos, garantindo que o layout permaneça legível e organizado;
-
-Tamanhos de fontes, proporcionando uma leitura confortável em diferentes telas;
-
-Disposição de widgets, adaptando-se às mudanças de orientação (retrato ou paisagem) e otimizando o uso do espaço disponível.
-
 ### Interações do Usuário
 A interface da aplicação de Agendamento de Fisioterapia foi projetada com foco na simplicidade e funcionalidade, proporcionando uma experiência agradável e eficiente. As principais interações incluem: 
 
