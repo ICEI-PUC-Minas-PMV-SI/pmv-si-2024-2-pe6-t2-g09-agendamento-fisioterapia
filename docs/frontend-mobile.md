@@ -41,7 +41,7 @@ Diagrama representando o fluxo básico da aplicação móvel, incluindo as funci
 
 
 ## Projeto da Interface
-A interface mobile da aplicação de Agendamento de Fisioterapia é intuitiva e visualmente limpa, focada em oferecer uma experiência agradável para o fisioterapeuta Davi. Assim que acessar a aplicação o usuário é direcionado para  o login, no  qual o fisioterapeuta Davi já pode-ra gerenciar pacientes e agendamentos. No desenvolvimento da aplicação foi pensando em todos os detalhes como transições suaves e feedback visual melhoram a interatividade, otimizando os  agendamentos.
+A interface mobile da aplicação de Agendamento de Fisioterapia foi desenvolvida com o foco em ser intuitiva.  Assim que acessar a aplicação o usuário é direcionado para  o login, no  qual o fisioterapeuta Davi já pode-ra gerenciar pacientes e agendamentos. No desenvolvimento da aplicação foi pensando em todos os detalhes como transições suaves e feedback visual melhoram a interatividade, otimizando os  agendamentos.
 
 ### Wireframes
 
