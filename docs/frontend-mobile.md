@@ -33,7 +33,9 @@ A aplicação foi estruturada em uma arquitetura baseada em camadas, onde o fron
 
 ## Modelagem da Aplicação
 
-![image](https://github.com/user-attachments/assets/e567e077-0617-4504-acb1-0d6d85c7d2aa)
+Fluxograma de Modelagem da Aplicação Móvel: 
+Diagrama representando o fluxo básico da aplicação móvel, incluindo as funcionalidades de Login, Registro, Agendamentos e Gerenciamento de Pacientes.
+![image](https://github.com/user-attachments/assets/dc28275b-3fb7-4d8d-85b7-8657bbc00154)
 
 
 ## Projeto da Interface
