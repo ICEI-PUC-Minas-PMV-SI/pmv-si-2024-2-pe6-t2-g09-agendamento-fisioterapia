@@ -1,0 +1,10 @@
+.footer_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_content {
+  max-width: 200vh;
+}

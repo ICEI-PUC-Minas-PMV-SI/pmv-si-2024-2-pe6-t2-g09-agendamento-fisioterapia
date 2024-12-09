@@ -1,0 +1,38 @@
+/* login.css */
+
+.login_container {
+  background-color: #f8f9fa; /* Cor de fundo leve */
+  max-width: 400px; /* Largura máxima do cartão */
+}
+
+.login_card {
+  width: 100%;
+  max-width: 400px; /* Largura máxima do cartão */
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra do cartão */
+}
+
+.login_title {
+  font-size: 1.5rem; /* Tamanho da fonte do título */
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.login_label {
+  font-weight: bold; /* Rótulos em negrito */
+}
+
+.login_button {
+  margin-top: 20px;
+  width: 100%; /* Botão ocupa toda a largura do cartão */
+  background-color: #007bff; /* Cor do botão */
+  border: none; /* Remove a borda padrão */
+}
+
+.login_button:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+.login_error {
+  text-align: center; /* Centraliza mensagens de erro */
+}
