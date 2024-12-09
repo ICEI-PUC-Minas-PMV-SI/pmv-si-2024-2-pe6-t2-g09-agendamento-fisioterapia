@@ -1,57 +1,49 @@
+import 'package:intl/intl.dart';
 import '../../../models/journal.dart';
-import 'journal_card.dart';
+import 'package:clinica_fisioterapia/screens/home_screen/widgets/card_agendamento.dart';
 
-class JournalService {
-  // Adicione outros métodos conforme necessário
-
-  Future<bool> update(Journal journal) async {
-    try {
-      // Implementar lógica para atualizar o `journal` no backend ou banco de dados
-      return true; // Retorna true se a atualização for bem-sucedida
-    } catch (e) {
-      return false; // Retorna false em caso de erro
-    }
-  }
-}
-
-List<JournalCard> generateListJournalCards({
+Future<List<CardAgendamento>> generateListJournalCards({
   required DateTime currentDay,
-  required Map<String, Journal> database,
   required Function refreshFunction,
-}) {
-  // Determina o primeiro e o último dia do mês atual
-  DateTime startOfMonth = DateTime(currentDay.year, currentDay.month, 1);
-  DateTime endOfMonth = DateTime(currentDay.year, currentDay.month + 1, 0);
+  required String formattedMonth,
+  required Future<List<Journal>> Function() buscaAgendamentos,
+}) async {
+  DateTime startOfDay = DateTime(currentDay.year, currentDay.month, 1);
+  DateTime endOfDay = DateTime(currentDay.year, currentDay.month + 1, 0);
 
-  // Calcula o número de dias no mês
-  int daysInMonth = endOfMonth.day;
+  List<Journal> agendamentos = await buscaAgendamentos();
 
-  // Cria uma lista de JournalCards para todos os dias do mês
-  List<JournalCard> list = List.generate(
-    daysInMonth,
-    (index) => JournalCard(
+  List<Journal> agendamentosDoMes = agendamentos.where((journal) {
+    return journal.createdAt
+            .isAfter(startOfDay.subtract(const Duration(days: 1))) &&
+        journal.createdAt.isBefore(endOfDay.add(const Duration(days: 1)));
+  }).toList();
+
+  List<CardAgendamento> journalCards = [];
+
+  for (int i = currentDay.day - 1; i < endOfDay.day; i++) {
+    DateTime diaAtual = startOfDay.add(Duration(days: i));
+
+    if (diaAtual.isBefore(currentDay)) {
+      continue;
+    }
+
+    List<Journal> journalsDoDia = agendamentosDoMes.where((journal) {
+      return journal.createdAt.day == diaAtual.day;
+    }).toList();
+
+    journalCards.add(CardAgendamento(
       refreshFunction: refreshFunction,
-      showedDate: DateTime(startOfMonth.year, startOfMonth.month, index + 1),
-    ),
-  );
+      showedDate: diaAtual,
+      nomePaciente:
+          journalsDoDia.isNotEmpty ? journalsDoDia.first.nomePaciente! : '',
+      journals: journalsDoDia,
+      emailMedico:
+          journalsDoDia.isNotEmpty ? journalsDoDia.first.emailMedico! : '',
+      emailPaciente:
+          journalsDoDia.isNotEmpty ? journalsDoDia.first.emailPaciente! : '',
+    ));
+  }
 
-  // Preenche os espaços com entradas existentes no banco de dados
-  database.forEach(
-    (key, value) {
-      if (value.createdAt.month == currentDay.month &&
-          value.createdAt.year == currentDay.year) {
-        int dayOfMonth =
-            value.createdAt.day - 1; // Ajuste para o índice zero-baseado
-
-        if (dayOfMonth >= 0 && dayOfMonth < list.length) {
-          list[dayOfMonth] = JournalCard(
-            showedDate: list[dayOfMonth].showedDate,
-            journal: value,
-            refreshFunction: refreshFunction,
-          );
-        }
-      }
-    },
-  );
-  return list;
+  return journalCards;
 }

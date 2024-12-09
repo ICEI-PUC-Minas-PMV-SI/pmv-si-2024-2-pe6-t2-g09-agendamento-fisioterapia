@@ -1,16 +1,23 @@
+import 'package:clinica_fisioterapia/models/user/cadastro_usuario.dart';
+import 'package:clinica_fisioterapia/screens/cadastrar_usuario.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'models/journal.dart';
-import 'screens/add_journal_screen/add_journal_screen.dart';
+import 'screens/Agendamento/adicionar_agendamento.dart';
 import 'screens/home_screen/home_screen.dart';
-import 'screens/login/login.dart';
+import 'screens/login.dart';
+import 'screens/home_screen/apagar_usuario.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('pt_BR', null);
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,19 +38,26 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "login",
       routes: {
-        "login": (context) => Login(),
+        "login": (context) => const Login(),
         "home": (context) => const HomeScreen(),
+        "apagarUsuarios": (context) => const ApagarUsuario(),
+        "cadastrarUsuario": (context) => const CadastroUsuarioScreen(),
       },
       onGenerateRoute: (routeSettings) {
-        if (routeSettings.name == "add-journal") {
+        if (routeSettings.name == "adicionarAgendamento") {
           final journal = routeSettings.arguments as Journal;
           return MaterialPageRoute(
             builder: (context) {
-              return AddJournalScreen(journal: journal);
+              return AdicionarAgendamento(journal: journal);
             },
           );
         }
-        return null;
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(title: const Text('Rota desconhecida')),
+            body: const Center(child: Text('Rota desconhecida')),
+          ),
+        );
       },
     );
   }

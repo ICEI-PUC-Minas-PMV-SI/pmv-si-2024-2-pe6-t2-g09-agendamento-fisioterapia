@@ -1,5 +1,5 @@
 name: clinica_fisioterapia
-description: Projeto do primeiro curso de WebAPI da Formação Flutter
+description: Projeto de aplicativo para agendamento de Fisioterapia
 
 publish_to: 'none'
 
@@ -19,6 +19,8 @@ dependencies:
   http_interceptor: ^1.0.2
   logger: ^1.1.0
   intl: ^0.18.1
+  day_night_time_picker: 1.3.1
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:
